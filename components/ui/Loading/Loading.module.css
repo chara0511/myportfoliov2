@@ -1,0 +1,11 @@
+.content {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content svg {
+  width: 7rem;
+  height: 7rem;
+}

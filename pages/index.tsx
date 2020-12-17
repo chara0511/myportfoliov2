@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import { Loading } from '@components/ui'
 import { Layout } from '@components/common'
 import s from '../styles/Home.module.css'
 
@@ -12,7 +11,10 @@ export default function Home() {
       </Head>
 
       <Layout>
-        <Loading />
+        <p>Hero</p>
+        <p>About</p>
+        <p>Projects</p>
+        <p>Contact</p>
       </Layout>
     </div>
   )
