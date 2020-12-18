@@ -1,4 +1,5 @@
 import { FC, useState } from 'react'
+import { Navbar } from '@components/common'
 import { Loading } from '@components/ui'
 import styles from '../../../styles/Home.module.css'
 
@@ -8,7 +9,7 @@ const Layout: FC = ({ children }) => {
     <>
       {!state ? (
         <>
-          <p>Navbar</p>
+          <Navbar />
           <button type="button" onClick={() => setState((prev) => !prev)}>
             logo
           </button>
