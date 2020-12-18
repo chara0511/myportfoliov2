@@ -11,6 +11,11 @@ const mixins = {
     justify-content: center;
     align-items: center;
   `,
+  flexLeft: css`
+    display: flex;
+    justify-content: center;
+    align-items: left;
+  `,
 }
 
 export default mixins

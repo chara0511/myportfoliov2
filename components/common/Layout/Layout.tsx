@@ -1,23 +1,40 @@
 import { FC, useState } from 'react'
-import { Navbar } from '@components/common'
-import { Loading } from '@components/ui'
-import styles from '../../../styles/Home.module.css'
+import styled from 'styled-components'
+import { Footer, Header } from '@components/common'
+import { Loader } from '@components/ui'
+import { mixins } from 'styles'
+
+const StyledContainer = styled.div`
+  min-height: 100vh;
+  flex-direction: column;
+
+  ${mixins.flexCenter};
+`
+
+const StyledMain = styled.main`
+  padding: 5rem 1rem;
+  flex: 1;
+  flex-direction: column;
+  width: 100%;
+
+  ${mixins.flexCenter};
+`
 
 const Layout: FC = ({ children }) => {
   const [state, setState] = useState(true)
   return (
     <>
       {!state ? (
-        <>
-          <Navbar />
+        <StyledContainer>
+          <Header />
+          <StyledMain>{children}</StyledMain>
           <button type="button" onClick={() => setState((prev) => !prev)}>
             logo
           </button>
-          <main className={styles.main}>{children}</main>
-          <p>footer</p>
-        </>
+          <Footer />
+        </StyledContainer>
       ) : (
-        <Loading isLoading={() => setState(false)} />
+        <Loader isLoading={() => setState(false)} />
       )}
     </>
   )

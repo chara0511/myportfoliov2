@@ -1,8 +1,8 @@
-import Logo from '@components/icons/Logo'
-import anime from 'animejs'
 import { FC, useEffect, useState } from 'react'
+import anime from 'animejs'
 import styled from 'styled-components'
-import s from './Loading.module.css'
+import Logo from '@components/icons/Logo'
+import { mixins } from 'styles'
 
 // interface TitleProps {
 //   readonly isMounted: boolean;
@@ -12,7 +12,13 @@ import s from './Loading.module.css'
 //   opacity: ${({ isMounted }) => (isMounted ? '1' : '0')};
 // `
 
+const StyledContent = styled.div`
+  min-height: 100vh;
+  ${mixins.flexCenter}
+`
+
 const StyledLogo = styled.div<{ withDelay: boolean }>`
+  color: ${({ theme }) => theme.colors.background};
   opacity: ${({ withDelay }) => (withDelay ? '1' : '0')};
 
   & svg {
@@ -24,7 +30,7 @@ interface Props {
   isLoading: () => void
 }
 
-const Loading: FC<Props> = ({ isLoading }) => {
+const Loader: FC<Props> = ({ isLoading }) => {
   const animate = () => {
     anime
       .timeline({
@@ -34,7 +40,8 @@ const Loading: FC<Props> = ({ isLoading }) => {
         targets: '#JC #J',
         duration: 800,
         easing: 'easeInOutQuad',
-        translateY: [-300, 0],
+        translateY: [250, 0],
+        translateX: [-250, 0],
         scale: [1],
         opacity: [0, 1],
       })
@@ -42,7 +49,8 @@ const Loading: FC<Props> = ({ isLoading }) => {
         targets: '#JC #C',
         duration: 800,
         easing: 'easeInOutQuad',
-        translateY: [300, 0],
+        translateY: [-250, 0],
+        translateX: [250, 0],
         scale: [1],
         opacity: [0, 1],
       })
@@ -74,18 +82,18 @@ const Loading: FC<Props> = ({ isLoading }) => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setWithDelay(true)
-    }, 100)
+    }, 50)
     animate()
     return () => clearTimeout(timeout)
   }, [])
 
   return (
-    <div className={`${s.content} loader`}>
+    <StyledContent className="loader">
       <StyledLogo withDelay={withDelay}>
         <Logo />
       </StyledLogo>
-    </div>
+    </StyledContent>
   )
 }
 
-export default Loading
+export default Loader
