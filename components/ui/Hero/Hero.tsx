@@ -13,7 +13,7 @@ const Hero = () => {
   return (
     <StyledContent>
       <h1>
-        <small>Hey, there 👋</small>
+        <small>Hey there 👋</small>
         <br />
         I&apos;m Juan Carlos Chara.
       </h1>

@@ -1,13 +1,38 @@
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
-  body{
-    background-color: ${({ theme }) => theme.colors.background};
+  html {
     color: ${({ theme }) => theme.colors.text};
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
     Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    background-color: ${({ theme }) => theme.colors.background};
     font-size: ${({ theme }) => theme.fontSizes.base};
-    line-height: ${({ theme }) => theme.lineHeights.base}
+    line-height: ${({ theme }) => theme.lineHeights.base};
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+    border: 0 solid #e5e7eb;
+  }
+
+  body {
+    font-family: inherit;
+    line-height: inherit;
+    margin:0;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+    li {
+      position: relative;      
+    }
   }
 `
 

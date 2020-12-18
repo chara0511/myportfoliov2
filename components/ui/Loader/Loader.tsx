@@ -56,7 +56,7 @@ const Loader: FC<Props> = ({ isLoading }) => {
       })
       .add({
         targets: '#JC #poligon path',
-        delay: 500,
+        // delay: 500,
         duration: 2500,
         easing: 'easeInOutQuart',
         strokeDashoffset: [anime.setDashoffset, 0],

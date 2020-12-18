@@ -1,7 +1,7 @@
 import { FC, useState } from 'react'
 import styled from 'styled-components'
 import { Footer, Header } from '@components/common'
-import { Loader } from '@components/ui'
+import { Loader, Sidebar } from '@components/ui'
 import { mixins } from 'styles'
 
 const StyledContainer = styled.div`
@@ -24,17 +24,18 @@ const Layout: FC = ({ children }) => {
   const [state, setState] = useState(true)
   return (
     <>
-      {!state ? (
+      {state ? (
+        <Loader isLoading={() => setState(false)} />
+      ) : (
         <StyledContainer>
           <Header />
+          <Sidebar />
           <StyledMain>{children}</StyledMain>
           <button type="button" onClick={() => setState((prev) => !prev)}>
             logo
           </button>
           <Footer />
         </StyledContainer>
-      ) : (
-        <Loader isLoading={() => setState(false)} />
       )}
     </>
   )
