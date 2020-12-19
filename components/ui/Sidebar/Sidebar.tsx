@@ -13,6 +13,7 @@ const StyledContent = styled.aside<{ displaySidebar: boolean }>`
   padding: 3rem 1rem;
   transform: translateX(${({ displaySidebar }) => (displaySidebar ? '0vw' : '100vw')});
   transition: ${({ theme }) => theme.transition};
+  z-index: 99;
 
   & ul {
     ${mixins.flexCenter};

@@ -4,11 +4,14 @@ import { mixins } from 'styles'
 import { useUI } from '@components/ui/context'
 
 export const StyledContent = styled.header`
-  border: 1px solid red;
-  width: 100%;
+  background-color: rgba(20, 39, 61, 0.9);
+  backdrop-filter: blur(8px);
+  box-shadow: ${({ theme }) => theme.shadows.header};
   padding: 1rem;
   position: fixed;
   top: 0;
+  width: 100%;
+  z-index: 49;
 
   & nav {
     color: ${({ theme }) => theme.colors.background};

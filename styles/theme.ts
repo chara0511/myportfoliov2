@@ -33,6 +33,10 @@ const theme: DefaultTheme = {
     '6xl': '1',
     '7xl': '1',
   },
+  shadows: {
+    header:
+      '0px 2px 2px rgba(0, 0, 0, 0.05), 0px 6px 6px rgba(0, 0, 0, 0.1), 0px 8px 8px rgba(0, 0, 0, 0.05), 0px 10px 15px rgba(0, 0, 0, 0.03)',
+  },
   transition: 'all 700ms cubic-bezier(0.19, 1, 0.22, 1)',
 }
 

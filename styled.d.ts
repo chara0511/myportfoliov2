@@ -34,6 +34,9 @@ declare module 'styled-components' {
       '6xl': string
       '7xl': string
     }
+    shadows: {
+      header: string
+    }
     transition: string
   }
 }

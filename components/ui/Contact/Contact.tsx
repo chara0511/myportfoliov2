@@ -10,7 +10,15 @@ const StyledContent = styled.section`
 `
 
 const Contact = () => {
-  return <StyledContent id="contact">From Contact.tsx</StyledContent>
+  return (
+    <StyledContent id="contact">
+      <p>
+        Feel free to get in touch with me. I&apos;m always open to discussing new projects, creative
+        ideas or opportunities to be part of your visions.
+      </p>
+      <p>Have a nice day</p>
+    </StyledContent>
+  )
 }
 
 export default Contact
