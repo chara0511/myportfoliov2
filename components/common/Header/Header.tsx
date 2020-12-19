@@ -1,16 +1,17 @@
 import styled from 'styled-components'
 import { Logo, MenuIcon } from '@components/icons'
 import { mixins } from 'styles'
+import { useUI } from '@components/ui/context'
 
 export const StyledContent = styled.header`
   border: 1px solid red;
   width: 100%;
   padding: 1rem;
-  color: ${({ theme }) => theme.colors.background};
   position: fixed;
   top: 0;
 
   & nav {
+    color: ${({ theme }) => theme.colors.background};
     ${mixins.flexBetween};
 
     & svg {
@@ -25,14 +26,21 @@ export const StyledContent = styled.header`
 `
 
 const Header = () => {
+  const { openSidebar } = useUI()
   return (
     <StyledContent>
       <nav>
-        <Logo />
+        <div>
+          <Logo />
+        </div>
         <p>about</p>
         <p>projects</p>
         <p>contact</p>
-        <MenuIcon />
+        <div>
+          <button type="button" onClick={() => openSidebar()}>
+            <MenuIcon />
+          </button>
+        </div>
       </nav>
     </StyledContent>
   )

@@ -80,11 +80,8 @@ const Loader: FC<Props> = ({ isLoading }) => {
   const [withDelay, setWithDelay] = useState(false)
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      setWithDelay(true)
-    }, 50)
+    setWithDelay(true)
     animate()
-    return () => clearTimeout(timeout)
   }, [])
 
   return (

@@ -4,9 +4,9 @@ import { mixins } from 'styles'
 const StyledContent = styled.section`
   width: 100%;
   min-height: 100vh;
+  flex-direction: column;
 
   ${mixins.flexLeft};
-  flex-direction: column;
 `
 
 const Hero = () => {

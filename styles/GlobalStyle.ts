@@ -25,11 +25,26 @@ const GlobalStyle = createGlobalStyle`
     margin:0;
   }
 
+   a {
+    display: inline-block;
+    text-decoration: none;
+    text-decoration-skip-ink: auto;
+    color: inherit;
+    position: relative;
+  }
+
+  button {
+    cursor: pointer;
+    border: 0;
+    border-radius: 0;
+    background-color: inherit;
+  }
+
   ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    
+
     li {
       position: relative;      
     }
