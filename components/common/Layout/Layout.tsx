@@ -12,7 +12,7 @@ const StyledContainer = styled.div`
 `
 
 const StyledMain = styled.main`
-  padding: 5rem 1rem;
+  padding: 0 1rem;
   flex: 1;
   flex-direction: column;
   width: 100%;

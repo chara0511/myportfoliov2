@@ -6,6 +6,7 @@ declare module 'styled-components' {
       aside: string
       background: string
       text: string
+      white: string
     }
     fontSizes: {
       xs: string
@@ -13,6 +14,12 @@ declare module 'styled-components' {
       base: string
       lg: string
       xl: string
+      '2xl': string
+      '3xl': string
+      '4xl': string
+      '5xl': string
+      '6xl': string
+      '7xl': string
     }
     lineHeights: {
       xs: string
@@ -20,6 +27,13 @@ declare module 'styled-components' {
       base: string
       lg: string
       xl: string
+      '2xl': string
+      '3xl': string
+      '4xl': string
+      '5xl': string
+      '6xl': string
+      '7xl': string
     }
+    transition: string
   }
 }

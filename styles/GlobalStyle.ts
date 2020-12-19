@@ -25,7 +25,16 @@ const GlobalStyle = createGlobalStyle`
     margin:0;
   }
 
-   a {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+  }
+
+  a {
     display: inline-block;
     text-decoration: none;
     text-decoration-skip-ink: auto;
@@ -49,6 +58,10 @@ const GlobalStyle = createGlobalStyle`
       position: relative;      
     }
   }
+
+  small {
+  font-size: 80%;
+}
 `
 
 export default GlobalStyle

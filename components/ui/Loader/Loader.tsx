@@ -80,15 +80,17 @@ const Loader: FC<Props> = ({ isLoading }) => {
   const [withDelay, setWithDelay] = useState(false)
 
   useEffect(() => {
-    setWithDelay(true)
-    animate()
+    const timeout = setTimeout(() => {
+      setWithDelay(true)
+      animate()
+    }, 50)
+
+    return () => clearTimeout(timeout)
   }, [])
 
   return (
     <StyledContent className="loader">
-      <StyledLogo withDelay={withDelay}>
-        <Logo />
-      </StyledLogo>
+      <StyledLogo withDelay={withDelay}>{withDelay && <Logo />}</StyledLogo>
     </StyledContent>
   )
 }
