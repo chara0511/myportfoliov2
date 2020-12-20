@@ -90,7 +90,7 @@ const Footer = () => {
       </StyledSocialLinks>
 
       <div>
-        <p>powered by Next.js</p>
+        <p>Coded by Chara-</p>
       </div>
     </StyledContent>
   )

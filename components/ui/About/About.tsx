@@ -5,12 +5,13 @@ import { mixins } from 'styles'
 const StyledContent = styled.section`
   width: 100%;
   min-height: 100vh;
+  padding: 3rem 0;
   flex-direction: column;
 
   ${mixins.flexLeft};
 
   & .formatted {
-    margin: auto;
+    margin: 3rem auto;
     width: 200px;
     filter: drop-shadow(2px 4px 6px #17375b);
 

@@ -83,6 +83,7 @@ const GlobalStyle = createGlobalStyle`
     border: 0;
     border-radius: 0;
     background-color: inherit;
+    padding: 0;
   }
 
   ul {

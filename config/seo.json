@@ -1,12 +1,12 @@
 {
   "title": "Juan Carlos Chara",
   "titleTemplate": "%s - Frontend Developer",
-  "description": "My personal website -> https://portfoliov2-ten.vercel.app/",
+  "description": "My personal website -> https://juancarloschara.vercel.app/",
   "openGraph": {
     "type": "website",
     "locale": "en_IE",
-    "url": "https://portfoliov2-ten.vercel.app",
-    "site_name": "Juan Carlos Chara Lopez"
+    "url": "https://juancarloschara.vercel.app",
+    "site_name": "Juan Carlos Chara"
   },
   "twitter": {
     "handle": "@charalopez0511",

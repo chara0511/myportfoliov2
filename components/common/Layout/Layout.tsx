@@ -1,8 +1,8 @@
 import { FC, useState } from 'react'
 import styled from 'styled-components'
+import { useUI } from '@components/ui/context'
 import { Footer, Header } from '@components/common'
 import { Loader, Sidebar } from '@components/ui'
-import { useUI } from '@components/ui/context'
 import { mixins } from 'styles'
 
 const StyledContainer = styled.div`

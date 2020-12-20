@@ -1,6 +1,9 @@
 import { DefaultTheme } from 'styled-components'
 
 const theme: DefaultTheme = {
+  borderRadius: {
+    card: '8px',
+  },
   colors: {
     aside: '#132d4d',
     background: '#14273d',
