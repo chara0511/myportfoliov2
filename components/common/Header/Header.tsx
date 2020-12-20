@@ -1,10 +1,12 @@
 import styled from 'styled-components'
+import Link from 'next/link'
+import { useUI } from '@components/ui/context'
 import { Logo, MenuIcon } from '@components/icons'
 import { mixins } from 'styles'
-import { useUI } from '@components/ui/context'
+import { FC } from 'react'
 
 export const StyledContent = styled.header`
-  background-color: rgba(20, 39, 61, 0.9);
+  background-color: rgba(20, 39, 61, 0.85);
   backdrop-filter: blur(8px);
   box-shadow: ${({ theme }) => theme.shadows.header};
   padding: 1rem;
@@ -14,8 +16,11 @@ export const StyledContent = styled.header`
   z-index: 49;
 
   & nav {
-    color: ${({ theme }) => theme.colors.background};
     ${mixins.flexBetween};
+
+    & button {
+      color: ${({ theme }) => theme.colors.background};
+    }
 
     & svg {
       width: 3rem;
@@ -28,14 +33,22 @@ export const StyledContent = styled.header`
   }
 `
 
-const Header = () => {
+interface Props {
+  reload: () => void
+}
+
+const Header: FC<Props> = ({ reload }) => {
   const { openSidebar } = useUI()
   return (
     <StyledContent>
       <nav>
-        <div>
-          <Logo />
-        </div>
+        <Link href="/" passHref>
+          <a>
+            <button type="button" onClick={reload}>
+              <Logo />
+            </button>
+          </a>
+        </Link>
         <p>about</p>
         <p>projects</p>
         <p>contact</p>

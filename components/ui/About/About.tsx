@@ -11,6 +11,12 @@ const StyledContent = styled.section`
 
   & .formatted {
     margin: auto;
+    width: 200px;
+    filter: drop-shadow(2px 4px 6px #17375b);
+
+    @media (min-width: 768px) {
+      width: 300px;
+    }
   }
 
   & .rounded {

@@ -1,5 +1,5 @@
 const Footer = () => {
-  return <div>From Footer.tsx</div>
+  return <div>powered by Next.js</div>
 }
 
 export default Footer

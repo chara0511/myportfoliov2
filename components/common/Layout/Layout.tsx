@@ -2,6 +2,7 @@ import { FC, useState } from 'react'
 import styled from 'styled-components'
 import { Footer, Header } from '@components/common'
 import { Loader, Sidebar } from '@components/ui'
+import { useUI } from '@components/ui/context'
 import { mixins } from 'styles'
 
 const StyledContainer = styled.div`
@@ -11,29 +12,30 @@ const StyledContainer = styled.div`
   ${mixins.flexCenter};
 `
 
-const StyledMain = styled.main`
+const StyledMain = styled.main<{ displaySidebar: boolean }>`
   padding: 0 1rem;
   flex: 1;
   flex-direction: column;
   width: 100%;
+  filter: ${({ displaySidebar }) => (displaySidebar ? 'blur(8px)' : 'none')};
 
   ${mixins.flexCenter};
 `
 
 const Layout: FC = ({ children }) => {
+  const { displaySidebar } = useUI()
   const [state, setState] = useState(true)
+
   return (
     <>
       {state ? (
         <Loader isLoading={() => setState(false)} />
       ) : (
         <StyledContainer>
-          <Header />
+          <Header reload={() => setState((prev) => !prev)} />
           <Sidebar />
-          <StyledMain>{children}</StyledMain>
-          <button type="button" onClick={() => setState((prev) => !prev)}>
-            logo
-          </button>
+          <StyledMain displaySidebar={displaySidebar}>{children}</StyledMain>
+
           <Footer />
         </StyledContainer>
       )}

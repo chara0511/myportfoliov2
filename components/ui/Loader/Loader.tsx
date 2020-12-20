@@ -13,6 +13,7 @@ import { mixins } from 'styles'
 // `
 
 const StyledContent = styled.div`
+  overflow: hidden;
   min-height: 100vh;
   ${mixins.flexCenter}
 `
