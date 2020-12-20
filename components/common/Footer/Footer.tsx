@@ -1,5 +1,11 @@
 import styled from 'styled-components'
-import { GithubIcon, InstagramIcon, LinkedInIcon, TwitterIcon } from '@components/icons'
+import {
+  DiscordIcon,
+  GithubIcon,
+  InstagramIcon,
+  LinkedInIcon,
+  TwitterIcon,
+} from '@components/icons'
 import { mixins } from 'styles'
 
 const StyledContent = styled.footer`
@@ -32,8 +38,18 @@ const Footer = () => {
         <ul>
           <li>
             <a
-              href="https://github.com/jcarlos0511"
+              href="https://www.discord.com"
               aria-label="Github profile"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <DiscordIcon />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://github.com/jcarlos0511"
+              aria-label="Discord profile"
               target="_blank"
               rel="noopener noreferrer"
             >

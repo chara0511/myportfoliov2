@@ -4,13 +4,16 @@ import { useUI } from '@components/ui/context'
 import { Logo, MenuIcon } from '@components/icons'
 import { mixins } from 'styles'
 import { FC } from 'react'
+import { useScroll } from 'lib/hooks/useScroll'
 
-export const StyledContent = styled.header`
+export const StyledContent = styled.header<{ y: number; direction: string }>`
   background-color: rgba(20, 39, 61, 0.85);
   backdrop-filter: blur(8px);
-  box-shadow: ${({ theme }) => theme.shadows.header};
-  padding: 1rem;
+  box-shadow: ${({ theme, y }) => (y === 0 ? 'none' : theme.shadows.header)};
+  padding: ${({ y }) => (y === 0 ? '1rem' : '0.5em')};
   position: fixed;
+  transform: translateY(${({ direction }) => (direction === 'down' ? '-88px' : '0px')});
+  transition: ${({ theme }) => theme.transition};
   top: 0;
   width: 100%;
   z-index: 49;
@@ -39,8 +42,10 @@ interface Props {
 
 const Header: FC<Props> = ({ reload }) => {
   const { openSidebar } = useUI()
+  const { y, direction } = useScroll()
+
   return (
-    <StyledContent>
+    <StyledContent y={y} direction={direction}>
       <nav>
         <Link href="/" passHref>
           <a>
