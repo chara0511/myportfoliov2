@@ -13,7 +13,7 @@ import { mixins } from 'styles'
 // `
 
 const StyledContent = styled.div`
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
   min-height: 100vh;
 
   position: fixed;

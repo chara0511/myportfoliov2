@@ -5,8 +5,7 @@ interface State {
   y: number
   direction: string
 }
-
-export const useScroll = () => {
+const useScroll = () => {
   const initialState = {
     x: window.scrollX,
     y: window.scrollY,
@@ -32,3 +31,5 @@ export const useScroll = () => {
 
   return { x, y, direction }
 }
+
+export default useScroll

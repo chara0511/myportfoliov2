@@ -1,10 +1,10 @@
-import styled from 'styled-components'
+import { FC } from 'react'
 import Link from 'next/link'
+import styled from 'styled-components'
 import { useUI } from '@components/ui/context'
+import { useScroll } from '@lib/hooks'
 import { Logo, MenuIcon } from '@components/icons'
 import { mixins } from 'styles'
-import { FC } from 'react'
-import { useScroll } from 'lib/hooks/useScroll'
 
 export const StyledContent = styled.header<{ y: number; direction: string }>`
   background-color: rgba(20, 39, 61, 0.85);
@@ -54,9 +54,11 @@ const Header: FC<Props> = ({ reload }) => {
             </button>
           </a>
         </Link>
-        <p>about</p>
-        <p>projects</p>
-        <p>contact</p>
+        <div style={{ display: 'none' }}>
+          <p>about</p>
+          <p>projects</p>
+          <p>contact</p>
+        </div>
         <div>
           <button type="button" onClick={() => openSidebar()}>
             <MenuIcon />
