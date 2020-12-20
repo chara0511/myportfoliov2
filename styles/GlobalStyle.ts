@@ -97,7 +97,13 @@ const GlobalStyle = createGlobalStyle`
 
   small {
   font-size: 80%;
-}
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+  }
 `
 
 export default GlobalStyle

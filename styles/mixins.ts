@@ -1,6 +1,11 @@
 import { css } from 'styled-components'
 
 const mixins = {
+  flexAround: css`
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  `,
   flexBetween: css`
     display: flex;
     justify-content: space-between;
