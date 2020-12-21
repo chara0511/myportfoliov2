@@ -29,7 +29,7 @@ const StyledContent = styled.div`
 `
 
 const StyledLogo = styled.div<{ withDelay: boolean }>`
-  color: ${({ theme }) => theme.colors.background};
+  color: ${({ theme }) => theme.colors.primaryBg};
   opacity: ${({ withDelay }) => (withDelay ? '1' : '0')};
 
   & svg {

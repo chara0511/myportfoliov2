@@ -5,7 +5,7 @@ const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.colors.text};
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
     Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    background-color: ${({ theme }) => theme.colors.background};
+    background-color: ${({ theme }) => theme.colors.primaryBg};
     font-size: ${({ theme }) => theme.fontSizes.base};
     line-height: ${({ theme }) => theme.lineHeights.base};
     -webkit-font-smoothing: antialiased;
@@ -32,42 +32,6 @@ const GlobalStyle = createGlobalStyle`
   h5,
   h6 {
     margin: 0;
-  }
-
-  h1 {
-    font-size: clamp(
-      ${({ theme }) => theme.fontSizes.lg},
-      5vw,
-      ${({ theme }) => theme.fontSizes['2xl']}
-    );
-    line-height: ${({ theme }) => theme.lineHeights.lg};
-  }
-
-  h2 {
-    font-size: clamp(
-      ${({ theme }) => theme.fontSizes['2xl']},
-      7vw,
-      ${({ theme }) => theme.fontSizes['5xl']}
-    );
-    line-height: ${({ theme }) => theme.lineHeights['2xl']};
-  }
-
-  h3 {
-    font-size: clamp(
-      ${({ theme }) => theme.fontSizes['4xl']},
-      8vw,
-      ${({ theme }) => theme.fontSizes['7xl']}
-    );
-    line-height: ${({ theme }) => theme.lineHeights['4xl']};
-  }
-
-  h4 {
-    font-size: clamp(
-      ${({ theme }) => theme.fontSizes['3xl']},
-      7vw,
-      ${({ theme }) => theme.fontSizes['6xl']}
-    );
-    line-height: ${({ theme }) => theme.lineHeights['3xl']};
   }
 
   a {

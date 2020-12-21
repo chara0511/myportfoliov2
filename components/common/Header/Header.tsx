@@ -10,7 +10,7 @@ export const StyledContent = styled.header<{ y: number; direction: string }>`
   background-color: rgba(20, 39, 61, 0.85);
   backdrop-filter: blur(8px);
   box-shadow: ${({ theme, y }) => (y === 0 ? 'none' : theme.shadows.header)};
-  padding: ${({ y }) => (y === 0 ? '1rem' : '0.5em')};
+  padding: ${({ y }) => (y === 0 ? '1rem' : '0.5em .75rem')};
   position: fixed;
   transform: translateY(${({ direction }) => (direction === 'down' ? '-88px' : '0px')});
   transition: ${({ theme }) => theme.transition};
@@ -22,7 +22,7 @@ export const StyledContent = styled.header<{ y: number; direction: string }>`
     ${mixins.flexBetween};
 
     & button {
-      color: ${({ theme }) => theme.colors.background};
+      color: ${({ theme }) => theme.colors.primaryBg};
     }
 
     & svg {

@@ -3,8 +3,7 @@ import { mixins } from 'styles'
 import { useUI } from '../context'
 
 const StyledContent = styled.aside<{ displaySidebar: boolean }>`
-  border: 1px solid green;
-  background-color: ${({ theme }) => theme.colors.aside};
+  background-color: ${({ theme }) => theme.colors.secondaryBg};
   position: fixed;
   width: min(75vw, 400px);
   top: 0;

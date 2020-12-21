@@ -11,9 +11,9 @@ const StyledContent = styled.section`
   ${mixins.flexLeft};
 
   & .formatted {
-    margin: 3rem auto;
+    margin: 2rem auto;
     width: 200px;
-    filter: drop-shadow(2px 4px 6px #17375b);
+    filter: drop-shadow(2px 4px 8px #17375b);
 
     @media (min-width: 768px) {
       width: 300px;

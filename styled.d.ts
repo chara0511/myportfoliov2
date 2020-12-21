@@ -6,8 +6,8 @@ declare module 'styled-components' {
       card: string
     }
     colors: {
-      aside: string
-      background: string
+      primaryBg: string
+      secondaryBg: string
       text: string
       white: string
     }

@@ -7,8 +7,41 @@ const StyledContent = styled.section`
   padding: 3rem 0;
   flex-direction: column;
 
-  & h3 {
+  h1 {
+    font-size: clamp(
+      ${({ theme }) => theme.fontSizes.lg},
+      5vw,
+      ${({ theme }) => theme.fontSizes['2xl']}
+    );
+    line-height: ${({ theme }) => theme.lineHeights.lg};
+  }
+
+  h2 {
+    font-size: clamp(
+      ${({ theme }) => theme.fontSizes['2xl']},
+      7vw,
+      ${({ theme }) => theme.fontSizes['5xl']}
+    );
+    line-height: ${({ theme }) => theme.lineHeights['2xl']};
+  }
+
+  h3 {
     color: ${({ theme }) => theme.colors.white};
+    font-size: clamp(
+      ${({ theme }) => theme.fontSizes['4xl']},
+      8vw,
+      ${({ theme }) => theme.fontSizes['7xl']}
+    );
+    line-height: ${({ theme }) => theme.lineHeights['4xl']};
+  }
+
+  h4 {
+    font-size: clamp(
+      ${({ theme }) => theme.fontSizes['3xl']},
+      7vw,
+      ${({ theme }) => theme.fontSizes['6xl']}
+    );
+    line-height: ${({ theme }) => theme.lineHeights['3xl']};
   }
 
   ${mixins.flexLeft};

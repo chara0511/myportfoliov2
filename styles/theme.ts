@@ -5,8 +5,8 @@ const theme: DefaultTheme = {
     card: '8px',
   },
   colors: {
-    aside: '#132d4d',
-    background: '#14273d',
+    primaryBg: '#14273d',
+    secondaryBg: '#132d4d',
     text: '#97B9D1',
     white: '#f8f9fa',
   },

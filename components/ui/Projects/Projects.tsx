@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import styled from 'styled-components'
 import { mixins } from 'styles'
 
@@ -18,7 +19,29 @@ const StyledProjects = styled.div`
 const StyledProject = styled.div`
   border: 1px solid red;
   border-radius: ${({ theme }) => theme.borderRadius.card};
-  height: 375px;
+  min-height: 375px;
+
+  & .project-info {
+    background-color: ${({ theme }) => theme.colors.secondaryBg};
+
+    & .project-info-header {
+      padding: 1rem 1.5rem 0.5rem;
+    }
+
+    & .project-info-body {
+      padding: 0.5rem 1.5rem 1rem;
+    }
+
+    & .project-info-footer {
+      border-top: 1px solid red;
+      padding: 0.25rem 1.5rem 0.25rem;
+
+      & ul {
+        flex-wrap: wrap;
+        ${mixins.flexAround};
+      }
+    }
+  }
 `
 
 const Projects = () => {
@@ -29,19 +52,35 @@ const Projects = () => {
 
       <StyledProjects>
         <StyledProject>
-          <div className="card">
-            <div className="card-screenshot">
-              <a href="https://google.com.pe">
-                {/* or use next/Image */}
-                <div className="card-wrapper">
-                  <img src="" alt="preview screenshot of project" />
-                </div>
-              </a>
+          <div className="project-screenshot">
+            <a href="https://google.com.pe">
+              {/* or use next/Image */}
+              <div className="project-screenshot-wrapper">
+                <Image src="/projects/weather-app.png" width={580} height={380} />
+              </div>
+            </a>
+          </div>
+          <div className="project-info">
+            <div className="project-info-header">
+              <h3>Weather app</h3>
             </div>
-            <div className="card-info">
-              <div className="card-header">header</div>
-              <div className="card-body">body</div>
-              <div className="card-footer">footer</div>
+            <div className="project-info-body">
+              Application that uses an API (https://openweathermap.org/api), shows the weather and a
+              7-day forecast of your current location. You can also search for the weather in other
+              cities.
+            </div>
+            <div className="project-info-footer">
+              <ul>
+                <li>api</li>
+                <li>react</li>
+                <li>styled-components</li>
+                <li>api</li>
+                <li>react</li>
+                <li>styled-components</li>
+                <li>api</li>
+                <li>react</li>
+                <li>styled-components</li>
+              </ul>
             </div>
           </div>
         </StyledProject>
