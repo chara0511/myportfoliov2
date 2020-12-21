@@ -6,6 +6,7 @@ declare module 'styled-components' {
       card: string
     }
     colors: {
+      fill: string
       primaryBg: string
       secondaryBg: string
       text: string
@@ -38,6 +39,7 @@ declare module 'styled-components' {
       '7xl': string
     }
     shadows: {
+      card: string
       header: string
     }
     transition: string

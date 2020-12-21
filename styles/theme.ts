@@ -5,6 +5,7 @@ const theme: DefaultTheme = {
     card: '8px',
   },
   colors: {
+    fill: '#4475e2',
     primaryBg: '#14273d',
     secondaryBg: '#132d4d',
     text: '#97B9D1',
@@ -37,8 +38,12 @@ const theme: DefaultTheme = {
     '7xl': '1',
   },
   shadows: {
-    header:
-      '0px 2px 2px rgba(0, 0, 0, 0.05), 0px 6px 6px rgba(0, 0, 0, 0.1), 0px 8px 8px rgba(0, 0, 0, 0.05), 0px 10px 15px rgba(0, 0, 0, 0.03)',
+    card: ` 0 3px 6px rgba(0, 0, 0, 0.16), 
+            0 3px 6px rgba(0, 0, 0, 0.23)`,
+    header: ` 0px 2px 2px rgba(0, 0, 0, 0.05), 
+              0px 6px 6px rgba(0, 0, 0, 0.1), 
+              0px 8px 8px rgba(0, 0, 0, 0.05), 
+              0px 10px 15px rgba(0, 0, 0, 0.03)`,
   },
   transition: 'all 700ms cubic-bezier(0.19, 1, 0.22, 1)',
 }

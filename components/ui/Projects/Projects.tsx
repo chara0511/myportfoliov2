@@ -1,3 +1,4 @@
+import { GithubIcon } from '@components/icons'
 import Image from 'next/image'
 import styled from 'styled-components'
 import { mixins } from 'styles'
@@ -12,20 +13,48 @@ const StyledContent = styled.section`
 `
 const StyledProjects = styled.div`
   display: grid;
-  gap: 1rem;
+  gap: 1.5rem;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  margin: 3rem 0;
 `
 
 const StyledProject = styled.div`
-  border: 1px solid red;
   border-radius: ${({ theme }) => theme.borderRadius.card};
   min-height: 375px;
+  box-shadow: ${({ theme }) => theme.shadows.card};
+
+  & .project-screenshot {
+    display: flex;
+
+    & a {
+      display: flex;
+
+      & .formatted {
+        border-top-right-radius: ${({ theme }) => theme.borderRadius.card};
+        border-top-left-radius: ${({ theme }) => theme.borderRadius.card};
+        opacity: 0.6;
+
+        :hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
 
   & .project-info {
     background-color: ${({ theme }) => theme.colors.secondaryBg};
+    border-bottom-right-radius: ${({ theme }) => theme.borderRadius.card};
+    border-bottom-left-radius: ${({ theme }) => theme.borderRadius.card};
 
     & .project-info-header {
       padding: 1rem 1.5rem 0.5rem;
+
+      ${mixins.flexBetween};
+
+      & a {
+        width: 24px;
+        height: 24px;
+      }
     }
 
     & .project-info-body {
@@ -33,11 +62,15 @@ const StyledProject = styled.div`
     }
 
     & .project-info-footer {
-      border-top: 1px solid red;
+      border-top: 1px solid ${({ theme }) => theme.colors.fill};
       padding: 0.25rem 1.5rem 0.25rem;
 
       & ul {
         flex-wrap: wrap;
+        font-size: ${({ theme }) => theme.fontSizes.sm};
+        line-height: ${({ theme }) => theme.lineHeights.sm};
+        font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+
         ${mixins.flexAround};
       }
     }
@@ -53,21 +86,35 @@ const Projects = () => {
       <StyledProjects>
         <StyledProject>
           <div className="project-screenshot">
-            <a href="https://google.com.pe">
-              {/* or use next/Image */}
-              <div className="project-screenshot-wrapper">
-                <Image src="/projects/weather-app.png" width={580} height={380} />
-              </div>
+            <a href="https://weather-app-nu-gold.vercel.app/">
+              <Image
+                src="/projects/weather-app.png"
+                className="formatted"
+                width={580}
+                height={380}
+              />
             </a>
           </div>
           <div className="project-info">
             <div className="project-info-header">
               <h3>Weather app</h3>
+
+              <a
+                href="https://github.com/jcarlos0511/weather-app"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>
+                  <GithubIcon />
+                </span>
+              </a>
             </div>
             <div className="project-info-body">
-              Application that uses an API (https://openweathermap.org/api), shows the weather and a
-              7-day forecast of your current location. You can also search for the weather in other
-              cities.
+              <p>
+                Application that uses an <a href="https://openweathermap.org/api">API</a> , shows
+                the weather and a 7-day forecast of your current location. You can also search for
+                the weather in other cities.
+              </p>
             </div>
             <div className="project-info-footer">
               <ul>
