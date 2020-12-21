@@ -12,6 +12,8 @@ declare module 'styled-components' {
       text: string
       white: string
     }
+    fontDefault: string
+    fontMono: string
     fontSizes: {
       xs: string
       sm: string

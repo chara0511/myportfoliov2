@@ -69,7 +69,7 @@ const StyledProject = styled.div`
         flex-wrap: wrap;
         font-size: ${({ theme }) => theme.fontSizes.sm};
         line-height: ${({ theme }) => theme.lineHeights.sm};
-        font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+        font-family: ${({ theme }) => theme.fontMono};
 
         ${mixins.flexAround};
       }

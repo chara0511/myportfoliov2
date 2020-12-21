@@ -11,7 +11,7 @@ import { mixins } from 'styles'
 const StyledContent = styled.footer`
   width: 100%;
   text-align: center;
-  padding: 1rem;
+  padding: 0 1rem 1rem;
 `
 
 const StyledSocialLinks = styled.div`
@@ -19,6 +19,8 @@ const StyledSocialLinks = styled.div`
   margin: auto;
 
   & ul {
+    margin-bottom: 1.5rem;
+
     ${mixins.flexAround};
 
     & li {
@@ -28,6 +30,14 @@ const StyledSocialLinks = styled.div`
         fill: currentColor;
       }
     }
+  }
+`
+
+const StyledCredit = styled.div`
+  font-family: ${({ theme }) => theme.fontMono};
+
+  & a {
+    padding: 0.5rem 1rem;
   }
 `
 
@@ -89,9 +99,11 @@ const Footer = () => {
         </ul>
       </StyledSocialLinks>
 
-      <div>
-        <p>Coded by Chara-</p>
-      </div>
+      <StyledCredit>
+        <a href="https://github.com/jcarlos0511" target="_blank" rel="noopener noreferrer">
+          Coded with 💙 by Chara-
+        </a>
+      </StyledCredit>
     </StyledContent>
   )
 }
