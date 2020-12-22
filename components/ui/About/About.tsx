@@ -1,5 +1,17 @@
 import Image from 'next/image'
 import styled from 'styled-components'
+import {
+  FirebaseIcon,
+  HtmlIcon,
+  JavascriptIcon,
+  NextjsIcon,
+  NodejsIcon,
+  ReactIcon,
+  ReduxIcon,
+  StyledComponentsIcon,
+  TailwindcssIcon,
+  TypescriptIcon,
+} from '@components/icons'
 import { mixins } from 'styles'
 
 const StyledContent = styled.section`
@@ -25,6 +37,29 @@ const StyledContent = styled.section`
   }
 `
 
+const StyledSkills = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(2, minmax(140px, 250px));
+  row-gap: 1rem;
+  margin: 1.5rem auto;
+  font-family: ${({ theme }) => theme.fontMono};
+  font-size: ${({ theme }) => theme.fontSizes.sm};
+
+  & li {
+    display: flex;
+    align-items: center;
+
+    & span {
+      margin-right: 0.5rem;
+
+      & svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+`
+
 const About = () => {
   return (
     <StyledContent id="about">
@@ -43,16 +78,70 @@ const About = () => {
 
       <div>
         <div>
-          <h5>Bachelor of Systems Engineering.</h5>
+          <h3>Bachelor of Systems Engineering.</h3>
           <p>Here are a few technologies, I&apos;ve been working with recently:</p>
-          <ul>
-            <li>HTML & (S)CSS</li>
-            <li>JavaScript (ES6+) </li>
-            <li>TypeScript </li>
-            <li>Angular</li>
-            <li>React </li>
-            <li>Node.js </li>
-          </ul>
+          <StyledSkills>
+            <li>
+              <span>
+                <HtmlIcon />
+              </span>
+              HTML & (S)CSS
+            </li>
+            <li>
+              <span>
+                <JavascriptIcon />
+              </span>
+              Javascript (ES6+)
+            </li>
+            <li>
+              <span>
+                <FirebaseIcon />
+              </span>
+              Firebase
+            </li>
+            <li>
+              <span>
+                <NextjsIcon />
+              </span>
+              Next.js
+            </li>
+            <li>
+              <span>
+                <NodejsIcon />
+              </span>
+              Node.js
+            </li>
+            <li>
+              <span>
+                <ReactIcon />
+              </span>
+              React
+            </li>
+            <li>
+              <span>
+                <ReduxIcon />
+              </span>
+              Redux & Redux-thunk
+            </li>
+            <li>
+              <span>
+                <StyledComponentsIcon />
+              </span>
+              Styled Components
+            </li>
+            <li>
+              <span>
+                <TailwindcssIcon />
+              </span>
+              Tailwindcss
+            </li>
+            <li>
+              <span>
+                <TypescriptIcon />
+              </span>
+              Typescript
+            </li>
+          </StyledSkills>
         </div>
       </div>
     </StyledContent>

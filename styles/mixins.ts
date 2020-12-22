@@ -27,7 +27,7 @@ const mixins = {
     align-items: center;
   `,
   bigLink: css`
-    color: #0178d7;
+    color: #3a96dd;
     border: 1px solid ${({ theme }) => theme.colors.secondaryBg};
     padding: 1rem;
     font-size: ${({ theme }) => theme.fontSizes.lg};
@@ -48,29 +48,29 @@ const mixins = {
     ::before {
       top: -2px;
       left: -2px;
-      border-top: 2px solid #0178d7;
-      border-left: 2px solid #0178d7;
+      border-top: 2px solid #3a96dd;
+      border-left: 2px solid #3a96dd;
     }
 
     ::after {
       top: -2px;
       right: -2px;
-      border-top: 2px solid #0178d7;
-      border-right: 2px solid #0178d7;
+      border-top: 2px solid #3a96dd;
+      border-right: 2px solid #3a96dd;
     }
 
     span::before {
       bottom: -2px;
       left: -2px;
-      border-bottom: 2px solid #0178d7;
-      border-left: 2px solid #0178d7;
+      border-bottom: 2px solid #3a96dd;
+      border-left: 2px solid #3a96dd;
     }
 
     span::after {
       bottom: -2px;
       right: -2px;
-      border-bottom: 2px solid #0178d7;
-      border-right: 2px solid #0178d7;
+      border-bottom: 2px solid #3a96dd;
+      border-right: 2px solid #3a96dd;
     }
 
     :hover::before,
