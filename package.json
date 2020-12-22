@@ -22,7 +22,6 @@
     "lint": "eslint . --ext ts --ext tsx --ext js --ext jsx"
   },
   "dependencies": {
-    "@types/styled-components": "^5.1.5",
     "animejs": "^3.2.1",
     "next": "10.0.3",
     "next-seo": "^4.17.0",
@@ -36,6 +35,7 @@
     "@types/node": "^14.14.14",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "@types/styled-components": "^5.1.7",
     "@typescript-eslint/eslint-plugin": "^4.10.0",
     "@typescript-eslint/parser": "^4.10.0",
     "babel-plugin-styled-components": "^1.12.0",

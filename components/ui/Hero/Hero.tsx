@@ -56,8 +56,8 @@ const Hero = () => {
       <h4>I code things on the web.</h4>
       <p>
         I&apos;m a Peruvian based front‑end developer focused on crafting clean and user‑friendly
-        experiences, I am passionate about building excellent software that improves the lives of
-        those around me.
+        experiences, I&apos;m passionate about building excellent software that improves the lives
+        of those around me.
       </p>
     </StyledContent>
   )
