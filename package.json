@@ -17,7 +17,7 @@
     "build": "next build",
     "start": "next start",
     "type-check": "tsc --pretty --noEmit",
-    "format": "prettier --write . --config ./.prettierrc",
+    "format": "prettier --write ./components --config ./.prettierrc.js",
     "lint:css": "stylelint ./components/**/*.tsx",
     "lint": "eslint . --ext ts --ext tsx --ext js --ext jsx"
   },

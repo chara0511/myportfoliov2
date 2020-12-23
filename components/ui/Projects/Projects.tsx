@@ -1,7 +1,9 @@
 import { GithubIcon } from '@components/icons'
 import Image from 'next/image'
+import { FC } from 'react'
 import styled from 'styled-components'
-import { mixins } from 'styles'
+import { breakpoints, mixins } from 'styles'
+import { Content } from '../context'
 
 const StyledContent = styled.section`
   width: 100%;
@@ -9,13 +11,28 @@ const StyledContent = styled.section`
   padding: 3rem 0;
   flex-direction: column;
 
+  & h2,
+  & h3,
+  & h4 {
+    text-align: center;
+    text-transform: capitalize;
+  }
+
   ${mixins.flexLeft};
 `
 const StyledProjects = styled.div`
   display: grid;
-  gap: 1.5rem;
+  gap: 1rem;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   margin: 3rem 0;
+
+  @media (min-width: ${breakpoints.sm}) {
+    gap: 1.5rem;
+  }
+
+  @media (min-width: ${breakpoints.xl}) {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
 `
 
 const StyledProject = styled.div`
@@ -58,12 +75,12 @@ const StyledProject = styled.div`
     }
 
     & .project-info-body {
-      padding: 0.5rem 1.5rem 1rem;
+      padding: 0.5rem 1.5rem 0.5rem;
     }
 
     & .project-info-footer {
       border-top: 1px solid #3a96dd;
-      padding: 0.25rem 1.5rem 0.25rem;
+      padding: 0.5rem 1.5rem 1rem;
 
       & ul {
         flex-wrap: wrap;
@@ -76,66 +93,65 @@ const StyledProject = styled.div`
     }
   }
 `
+interface Props {
+  projects?: Content
+}
 
-const Projects = () => {
+const Projects: FC<Props> = ({ projects }) => {
   // categorizar por app, landing page
   return (
     <StyledContent id="projects">
-      <h2>Projects</h2>
+      <h2>{projects?.header}</h2>
+      <h3>{projects?.body}</h3>
 
       <StyledProjects>
-        <StyledProject>
-          <div className="project-screenshot">
-            <a href="https://weather-app-nu-gold.vercel.app/">
-              <Image
-                src="/projects/weather-app.png"
-                className="formatted"
-                width={580}
-                height={380}
-              />
-            </a>
-          </div>
-          <div className="project-info">
-            <div className="project-info-header">
-              <h3>Weather app</h3>
-
-              <a
-                href="https://github.com/jcarlos0511/weather-app"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span>
-                  <GithubIcon />
-                </span>
+        {projects?.apps.map((app) => (
+          <StyledProject key={app.appName}>
+            <div className="project-screenshot">
+              <a href="https://weather-app-nu-gold.vercel.app/">
+                <Image
+                  src="/projects/weather-app.png"
+                  className="formatted"
+                  width={580}
+                  height={380}
+                />
               </a>
             </div>
-            <div className="project-info-body">
-              <p>
-                Application that uses an <a href="https://openweathermap.org/api">API</a> , shows
-                the weather and a 7-day forecast of your current location. You can also search for
-                the weather in other cities.
-              </p>
+            <div className="project-info">
+              <div className="project-info-header">
+                <h4>{app.appName}</h4>
+
+                <a
+                  href="https://github.com/jcarlos0511/weather-app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span>
+                    <GithubIcon />
+                  </span>
+                </a>
+              </div>
+              <div className="project-info-body">
+                <p>{app.appDescription}</p>
+              </div>
+              <div className="project-info-footer">
+                <ul>
+                  {app.technologies.map((tech) => (
+                    <li key={tech.name}>{tech.name}</li>
+                  ))}
+                  {/* <li>api</li>
+                  <li>react</li>
+                  <li>styled-components</li> */}
+                </ul>
+              </div>
             </div>
-            <div className="project-info-footer">
-              <ul>
-                <li>api</li>
-                <li>react</li>
-                <li>styled-components</li>
-                <li>api</li>
-                <li>react</li>
-                <li>styled-components</li>
-                <li>api</li>
-                <li>react</li>
-                <li>styled-components</li>
-              </ul>
-            </div>
-          </div>
-        </StyledProject>
-        <StyledProject>project2</StyledProject>
+          </StyledProject>
+        ))}
+        {/* <StyledProject>project2</StyledProject>
         <StyledProject>journal</StyledProject>
         <StyledProject>catwiki</StyledProject>
         <StyledProject>weather</StyledProject>
-        <StyledProject>rock-paper-scissors</StyledProject>
+        <StyledProject>rock-paper-scissors</StyledProject> */}
       </StyledProjects>
     </StyledContent>
   )

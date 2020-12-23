@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import breakpoints from './breakpoints'
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -9,6 +10,10 @@ const GlobalStyle = createGlobalStyle`
     line-height: ${({ theme }) => theme.lineHeights.base};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    @media (min-width: ${breakpoints.xl}) {
+      font-size: ${({ theme }) => theme.fontSizes.lg};
+    }
   }
   
   *,

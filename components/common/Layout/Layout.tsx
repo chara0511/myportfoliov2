@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { useUI } from '@components/ui/context'
 import { Footer, Header } from '@components/common'
 import { Loader, Sidebar } from '@components/ui'
-import { mixins } from 'styles'
+import { breakpoints, mixins } from 'styles'
 import firebase from '../../../firebase/clientApp'
 
 const StyledContainer = styled.div`
@@ -14,13 +14,27 @@ const StyledContainer = styled.div`
 `
 
 const StyledMainContainer = styled.main<{ displaySidebar: boolean }>`
-  padding: 0 1rem;
+  padding: 0 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
   flex: 1;
   flex-direction: column;
   width: 100%;
   filter: ${({ displaySidebar }) => (displaySidebar ? 'blur(8px)' : 'none')};
 
   ${mixins.flexCenter};
+
+  @media (min-width: ${breakpoints.sm}) {
+    padding: 0 3rem;
+  }
+
+  @media (min-width: ${breakpoints.md}) {
+    padding: 0 6rem;
+  }
+
+  @media (min-width: ${breakpoints.xl}) {
+    padding: 0;
+  }
 `
 
 const Layout: FC = ({ children }) => {
@@ -29,9 +43,9 @@ const Layout: FC = ({ children }) => {
 
   const getData = () => {
     const db = firebase.firestore()
-    const profileCollection = db.collection('/portfolio/BxDIHJYzmMOgRDktUaQ7/data/')
+    const profileCollection = db.collection('/portfolio/BxDIHJYzmMOgRDktUaQ7/user')
 
-    profileCollection.doc('bCl4wXaAe8R93mKkL8TO').onSnapshot((snapshot) => {
+    profileCollection.doc('HzLSebKLfqCFbA3rOh37').onSnapshot((snapshot) => {
       getUser(snapshot.data())
     })
   }

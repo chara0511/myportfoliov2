@@ -1,10 +1,11 @@
 import { createContext, FC, useContext, useMemo, useReducer } from 'react'
 
 export interface Content {
-  body?: string
-  link?: string
-  header?: string
-  footer?: string
+  body: string
+  link: string
+  header: string
+  footer: string
+  apps: { appName: string; appDescription: string; technologies: { name: string }[] }[]
 }
 
 export interface Sections {
@@ -13,23 +14,21 @@ export interface Sections {
   projects: Content
   contact: Content
 }
-export interface User {
-  user: Sections
-}
+
 export interface State {
   displaySidebar: boolean
-  data?: User
+  user?: Sections
 }
 
 const initialState: State = {
   displaySidebar: false,
-  data: undefined,
+  user: undefined,
 }
 
 type Action =
   | { type: 'OPEN_SIDEBAR' }
   | { type: 'CLOSE_SIDEBAR' }
-  | { type: 'GET_USER'; payload: User }
+  | { type: 'GET_USER'; payload: Sections }
 
 const UIContext = createContext<State | any>(initialState)
 
@@ -50,7 +49,7 @@ const uiReducer = (state: State, action: Action) => {
     case 'GET_USER':
       return {
         ...state,
-        data: { ...action.payload },
+        user: { ...action.payload },
       }
 
     default:
@@ -63,7 +62,7 @@ const UIProvider: FC = (props) => {
 
   const openSidebar = () => dispatch({ type: 'OPEN_SIDEBAR' })
   const closeSidebar = () => dispatch({ type: 'CLOSE_SIDEBAR' })
-  const getUser = (user: User) => dispatch({ type: 'GET_USER', payload: user })
+  const getUser = (user: Sections) => dispatch({ type: 'GET_USER', payload: user })
 
   const value = useMemo(() => ({ ...state, openSidebar, closeSidebar, getUser }), [state])
 

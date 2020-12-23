@@ -12,7 +12,7 @@ import {
   TailwindcssIcon,
   TypescriptIcon,
 } from '@components/icons'
-import { mixins } from 'styles'
+import { breakpoints, mixins } from 'styles'
 
 const StyledContent = styled.section`
   width: 100%;
@@ -25,9 +25,13 @@ const StyledContent = styled.section`
   & .formatted {
     margin: 2rem auto;
     width: 200px;
-    filter: drop-shadow(2px 4px 8px #17375b);
+    filter: drop-shadow(0px 8px 16px #17375b);
 
-    @media (min-width: 768px) {
+    @media (min-width: ${breakpoints.md}) {
+      width: 250px;
+    }
+
+    @media (min-width: ${breakpoints.xl}) {
       width: 300px;
     }
   }

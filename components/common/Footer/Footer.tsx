@@ -11,7 +11,7 @@ import { mixins } from 'styles'
 const StyledContent = styled.footer`
   width: 100%;
   text-align: center;
-  padding: 0 1rem 1rem;
+  padding: 0 1rem 2rem;
 `
 
 const StyledSocialLinks = styled.div`

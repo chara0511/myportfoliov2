@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { mixins } from 'styles'
+import { breakpoints, mixins } from 'styles'
 
 const StyledContent = styled.section`
   width: 100%;
@@ -44,7 +44,20 @@ const StyledContent = styled.section`
     line-height: ${({ theme }) => theme.lineHeights['3xl']};
   }
 
+  p {
+    margin-top: 1rem;
+  }
+
   ${mixins.flexLeft};
+
+  @media (min-width: ${breakpoints.sm}) {
+    & h1,
+    & h2,
+    & h3,
+    & h4 {
+      line-height: ${({ theme }) => theme.lineHeights['5xl']};
+    }
+  }
 `
 
 const Hero = () => {
