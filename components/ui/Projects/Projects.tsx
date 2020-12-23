@@ -62,7 +62,7 @@ const StyledProject = styled.div`
     }
 
     & .project-info-footer {
-      border-top: 1px solid ${({ theme }) => theme.colors.fill};
+      border-top: 1px solid #3a96dd;
       padding: 0.25rem 1.5rem 0.25rem;
 
       & ul {

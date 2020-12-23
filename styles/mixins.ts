@@ -29,7 +29,7 @@ const mixins = {
   bigLink: css`
     color: #3a96dd;
     border: 1px solid ${({ theme }) => theme.colors.secondaryBg};
-    padding: 1rem;
+    padding: 1.25rem;
     font-size: ${({ theme }) => theme.fontSizes.lg};
     font-weight: 600;
     cursor: pointer;

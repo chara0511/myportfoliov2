@@ -79,7 +79,7 @@ const About = () => {
       <div>
         <div>
           <h3>Bachelor of Systems Engineering.</h3>
-          <p>Here are a few technologies, I&apos;ve been working with recently:</p>
+          <p>Here are a few technologies, I&apos;ve been working with recently :</p>
           <StyledSkills>
             <li>
               <span>
