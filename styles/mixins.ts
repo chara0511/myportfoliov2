@@ -32,7 +32,8 @@ const mixins = {
     padding: 1.25rem;
     font-size: ${({ theme }) => theme.fontSizes.lg};
     font-weight: 600;
-    cursor: pointer;
+    text-transform: capitalize;
+    font-family: ${({ theme }) => theme.fontMono};
 
     ::before,
     ::after,
@@ -40,8 +41,8 @@ const mixins = {
     span::after {
       content: '';
       position: absolute;
-      width: 8px;
-      height: 8px;
+      width: 1rem;
+      height: 1rem;
       transition: ${({ theme }) => theme.transition};
     }
 
@@ -50,6 +51,7 @@ const mixins = {
       left: -2px;
       border-top: 2px solid #3a96dd;
       border-left: 2px solid #3a96dd;
+      border-top-left-radius: 4px;
     }
 
     ::after {
@@ -57,6 +59,7 @@ const mixins = {
       right: -2px;
       border-top: 2px solid #3a96dd;
       border-right: 2px solid #3a96dd;
+      border-top-right-radius: 4px;
     }
 
     span::before {
@@ -64,6 +67,7 @@ const mixins = {
       left: -2px;
       border-bottom: 2px solid #3a96dd;
       border-left: 2px solid #3a96dd;
+      border-bottom-left-radius: 4px;
     }
 
     span::after {
@@ -71,6 +75,7 @@ const mixins = {
       right: -2px;
       border-bottom: 2px solid #3a96dd;
       border-right: 2px solid #3a96dd;
+      border-bottom-right-radius: 4px;
     }
 
     :hover::before,

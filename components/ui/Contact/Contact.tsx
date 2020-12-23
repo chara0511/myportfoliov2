@@ -14,6 +14,10 @@ const StyledContent = styled.section`
 
   ${mixins.flexEvenly};
 
+  & h2 {
+    text-transform: capitalize;
+  }
+
   @media (min-width: ${breakpoints.md}) {
     width: 75%;
   }

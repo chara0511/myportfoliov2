@@ -7,7 +7,7 @@ const StyledContent = styled.section`
   padding: 3rem 0;
   flex-direction: column;
 
-  h1 {
+  & h1 {
     font-size: clamp(
       ${({ theme }) => theme.fontSizes.lg},
       5vw,
@@ -16,7 +16,7 @@ const StyledContent = styled.section`
     line-height: ${({ theme }) => theme.lineHeights.lg};
   }
 
-  h2 {
+  & h2 {
     font-size: clamp(
       ${({ theme }) => theme.fontSizes['2xl']},
       7vw,
@@ -25,7 +25,7 @@ const StyledContent = styled.section`
     line-height: ${({ theme }) => theme.lineHeights['2xl']};
   }
 
-  h3 {
+  & h3 {
     color: ${({ theme }) => theme.colors.white};
     font-size: clamp(
       ${({ theme }) => theme.fontSizes['4xl']},
@@ -35,7 +35,7 @@ const StyledContent = styled.section`
     line-height: ${({ theme }) => theme.lineHeights['4xl']};
   }
 
-  h4 {
+  & h4 {
     font-size: clamp(
       ${({ theme }) => theme.fontSizes['3xl']},
       7vw,
@@ -44,8 +44,10 @@ const StyledContent = styled.section`
     line-height: ${({ theme }) => theme.lineHeights['3xl']};
   }
 
-  p {
+  & p {
     margin-top: 1rem;
+    max-width: 400px;
+    width: 100%;
   }
 
   ${mixins.flexLeft};
@@ -56,6 +58,28 @@ const StyledContent = styled.section`
     & h3,
     & h4 {
       line-height: ${({ theme }) => theme.lineHeights['5xl']};
+    }
+
+    & p {
+      max-width: 450px;
+    }
+  }
+
+  @media (min-width: ${breakpoints.md}) {
+    & p {
+      max-width: 500px;
+    }
+  }
+
+  @media (min-width: ${breakpoints.lg}) {
+    & p {
+      max-width: 550px;
+    }
+  }
+
+  @media (min-width: ${breakpoints.xl}) {
+    & p {
+      max-width: 600px;
     }
   }
 `

@@ -8,16 +8,11 @@ export interface Content {
   apps: { appName: string; appDescription: string; technologies: { name: string }[] }[]
 }
 
-export interface Sections {
-  about: Content
-  hero: Content
-  projects: Content
-  contact: Content
-}
+type Section = 'about' | 'hero' | 'projects' | 'contact'
 
 export interface State {
   displaySidebar: boolean
-  user?: Sections
+  user?: Record<Section, Content>
 }
 
 const initialState: State = {
@@ -28,7 +23,7 @@ const initialState: State = {
 type Action =
   | { type: 'OPEN_SIDEBAR' }
   | { type: 'CLOSE_SIDEBAR' }
-  | { type: 'GET_USER'; payload: Sections }
+  | { type: 'GET_USER'; payload: Record<Section, Content> }
 
 const UIContext = createContext<State | any>(initialState)
 
@@ -62,7 +57,7 @@ const UIProvider: FC = (props) => {
 
   const openSidebar = () => dispatch({ type: 'OPEN_SIDEBAR' })
   const closeSidebar = () => dispatch({ type: 'CLOSE_SIDEBAR' })
-  const getUser = (user: Sections) => dispatch({ type: 'GET_USER', payload: user })
+  const getUser = (user: Record<Section, Content>) => dispatch({ type: 'GET_USER', payload: user })
 
   const value = useMemo(() => ({ ...state, openSidebar, closeSidebar, getUser }), [state])
 
