@@ -1,6 +1,6 @@
+import type { AppProps } from 'next/app'
 import { Head } from '@components/common'
 import { ManagedUIContext } from '@components/ui/context'
-import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'styled-components'
 import { GlobalStyle, theme } from 'styles'
 

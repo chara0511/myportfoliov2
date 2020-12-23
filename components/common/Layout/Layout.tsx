@@ -1,9 +1,10 @@
-import { FC, useState } from 'react'
+import { FC, useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { useUI } from '@components/ui/context'
 import { Footer, Header } from '@components/common'
 import { Loader, Sidebar } from '@components/ui'
 import { mixins } from 'styles'
+import firebase from '../../../firebase/clientApp'
 
 const StyledContainer = styled.div`
   min-height: 100vh;
@@ -12,7 +13,7 @@ const StyledContainer = styled.div`
   ${mixins.flexCenter};
 `
 
-const StyledMain = styled.main<{ displaySidebar: boolean }>`
+const StyledMainContainer = styled.main<{ displaySidebar: boolean }>`
   padding: 0 1rem;
   flex: 1;
   flex-direction: column;
@@ -23,8 +24,21 @@ const StyledMain = styled.main<{ displaySidebar: boolean }>`
 `
 
 const Layout: FC = ({ children }) => {
-  const { displaySidebar } = useUI()
+  const { displaySidebar, getUser } = useUI()
   const [state, setState] = useState(true)
+
+  const getData = () => {
+    const db = firebase.firestore()
+    const profileCollection = db.collection('/portfolio/BxDIHJYzmMOgRDktUaQ7/data/')
+
+    profileCollection.doc('bCl4wXaAe8R93mKkL8TO').onSnapshot((snapshot) => {
+      getUser(snapshot.data())
+    })
+  }
+
+  useEffect(() => {
+    getData()
+  }, [])
 
   return (
     <>
@@ -34,8 +48,7 @@ const Layout: FC = ({ children }) => {
         <StyledContainer>
           <Header reload={() => setState((prev) => !prev)} />
           <Sidebar />
-          <StyledMain displaySidebar={displaySidebar}>{children}</StyledMain>
-
+          <StyledMainContainer displaySidebar={displaySidebar}>{children}</StyledMainContainer>
           <Footer />
         </StyledContainer>
       )}

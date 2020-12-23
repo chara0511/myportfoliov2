@@ -1,6 +1,8 @@
+import { FC } from 'react'
 import styled from 'styled-components'
 import { mixins } from 'styles'
 import { StyledLink } from 'styles/utils'
+import { Content } from '../context'
 
 const StyledContent = styled.section`
   width: 100%;
@@ -12,7 +14,11 @@ const StyledContent = styled.section`
   ${mixins.flexEvenly};
 `
 
-const Contact = () => {
+interface Props {
+  contact?: Content
+}
+
+const Contact: FC<Props> = ({ contact }) => {
   return (
     <StyledContent id="contact">
       <h2>let&apos;s get in touch</h2>
@@ -24,6 +30,7 @@ const Contact = () => {
         send me a message
       </StyledLink>
       <p>😄 have a nice day.</p>
+      <p>{contact?.header}</p>
     </StyledContent>
   )
 }

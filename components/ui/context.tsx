@@ -1,14 +1,35 @@
 import { createContext, FC, useContext, useMemo, useReducer } from 'react'
 
-interface State {
+export interface Content {
+  body?: string
+  link?: string
+  header?: string
+  footer?: string
+}
+
+export interface Sections {
+  about: Content
+  hero: Content
+  projects: Content
+  contact: Content
+}
+export interface User {
+  user: Sections
+}
+export interface State {
   displaySidebar: boolean
+  data?: User
 }
 
-const initialState = {
+const initialState: State = {
   displaySidebar: false,
+  data: undefined,
 }
 
-type Action = { type: 'OPEN_SIDEBAR' } | { type: 'CLOSE_SIDEBAR' }
+type Action =
+  | { type: 'OPEN_SIDEBAR' }
+  | { type: 'CLOSE_SIDEBAR' }
+  | { type: 'GET_USER'; payload: User }
 
 const UIContext = createContext<State | any>(initialState)
 
@@ -26,10 +47,14 @@ const uiReducer = (state: State, action: Action) => {
         displaySidebar: false,
       }
 
-    default:
+    case 'GET_USER':
       return {
         ...state,
+        data: { ...action.payload },
       }
+
+    default:
+      throw new Error()
   }
 }
 
@@ -38,14 +63,15 @@ const UIProvider: FC = (props) => {
 
   const openSidebar = () => dispatch({ type: 'OPEN_SIDEBAR' })
   const closeSidebar = () => dispatch({ type: 'CLOSE_SIDEBAR' })
+  const getUser = (user: User) => dispatch({ type: 'GET_USER', payload: user })
 
-  const value = useMemo(() => ({ ...state, openSidebar, closeSidebar }), [state])
+  const value = useMemo(() => ({ ...state, openSidebar, closeSidebar, getUser }), [state])
 
   return <UIContext.Provider value={value} {...props} />
 }
 
 export const useUI = () => {
-  const context = useContext(UIContext)
+  const context = useContext<State | any>(UIContext)
 
   if (context === undefined) {
     throw new Error(`useUI must be used within a UIProvider`)
