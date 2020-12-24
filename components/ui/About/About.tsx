@@ -22,6 +22,11 @@ const StyledContent = styled.section`
 
   ${mixins.flexLeft};
 
+  & h2 {
+    text-align: center;
+    text-transform: capitalize;
+  }
+
   & .formatted {
     margin: 2rem auto;
     width: 200px;

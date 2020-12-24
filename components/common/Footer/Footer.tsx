@@ -34,9 +34,10 @@ const StyledSocialLinks = styled.div`
 
 const StyledCredit = styled.div`
   font-family: ${({ theme }) => theme.fontMono};
+  font-size: ${({ theme }) => theme.fontSizes.sm};
 
   & a {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem;
   }
 `
 
@@ -99,8 +100,9 @@ const Footer = () => {
       </StyledSocialLinks>
 
       <StyledCredit>
+        <span>Coded with 💙 by</span>
         <a href="https://github.com/jcarlos0511" target="_blank" rel="noopener noreferrer">
-          Coded with 💙 by Chara-
+          Chara-
         </a>
       </StyledCredit>
     </StyledContent>

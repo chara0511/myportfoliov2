@@ -9,7 +9,7 @@ const MenuIcon = () => {
       fill="currentColor"
     >
       <path fill="none" d="M0 0h24v24H0z" />
-      <path fill="#4475e2" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+      <path fill="#3a96dd" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
     </svg>
   )
 }

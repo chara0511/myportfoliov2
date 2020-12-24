@@ -8,8 +8,8 @@ export interface Content {
   apps: { appName: string; appDescription: string; technologies: { name: string }[] }[]
 }
 
+// https://www.typescriptlang.org/docs/handbook/utility-types.html
 type Section = 'about' | 'hero' | 'projects' | 'contact'
-
 export interface State {
   displaySidebar: boolean
   user?: Record<Section, Content>

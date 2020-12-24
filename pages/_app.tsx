@@ -1,5 +1,5 @@
 import type { AppProps } from 'next/app'
-import { Head } from '@components/common'
+import { Head, Layout } from '@components/common'
 import { ManagedUIContext } from '@components/ui/context'
 import { ThemeProvider } from 'styled-components'
 import { GlobalStyle, theme } from 'styles'
@@ -11,7 +11,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ManagedUIContext>
         <ThemeProvider theme={theme}>
           <GlobalStyle />
-          <Component {...pageProps} />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
         </ThemeProvider>
       </ManagedUIContext>
     </>

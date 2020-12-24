@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { I18nWidget } from '@components/common'
 import { breakpoints, mixins } from 'styles'
 
 const StyledContent = styled.section`
@@ -96,6 +97,7 @@ const Hero = () => {
         experiences, I&apos;m passionate about building excellent software that improves the lives
         of those around me.
       </p>
+      <I18nWidget />
     </StyledContent>
   )
 }

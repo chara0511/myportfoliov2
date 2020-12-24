@@ -26,7 +26,7 @@ const StyledProjects = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   margin: 3rem 0;
 
-  @media (min-width: ${breakpoints.sm}) {
+  @media (min-width: ${breakpoints.md}) {
     gap: 1.5rem;
   }
 

@@ -5,7 +5,7 @@ const theme: DefaultTheme = {
     card: '8px',
   },
   colors: {
-    fill: '#4475e2',
+    fill: '#3a96dd', // 4475e2
     primaryBg: '#14273d',
     secondaryBg: '#132d4d',
     text: '#97B9D1',
