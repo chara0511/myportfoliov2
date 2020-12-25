@@ -1,3 +1,4 @@
+export { default as ChevronUpIcon } from './ChevronUpIcon'
 export { default as DiscordIcon } from './DiscordIcon'
 export { default as FirebaseIcon } from './FirebaseIcon'
 export { default as GithubIcon } from './GithubIcon'

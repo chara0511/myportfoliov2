@@ -49,7 +49,6 @@ const GlobalStyle = createGlobalStyle`
     :focus {
       color: #3a96dd;
     }
-
   }
 
   button {
@@ -58,6 +57,10 @@ const GlobalStyle = createGlobalStyle`
     border-radius: 0;
     background-color: inherit;
     padding: 0;
+  }
+
+  img {
+    border-style: none;
   }
 
   p {

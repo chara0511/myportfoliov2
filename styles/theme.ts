@@ -3,6 +3,7 @@ import { DefaultTheme } from 'styled-components'
 const theme: DefaultTheme = {
   borderRadius: {
     card: '8px',
+    default: '4px',
   },
   colors: {
     fill: '#3a96dd', // 4475e2

@@ -4,6 +4,7 @@ declare module 'styled-components' {
   export interface DefaultTheme {
     borderRadius: {
       card: string
+      default: string
     }
     colors: {
       fill: string

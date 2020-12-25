@@ -5,8 +5,9 @@ import { breakpoints, mixins } from 'styles'
 const StyledContent = styled.section`
   width: 100%;
   min-height: 100vh;
-  padding: 3rem 0;
+  padding: 5rem 0;
   flex-direction: column;
+  position: relative;
 
   & h1 {
     font-size: clamp(
