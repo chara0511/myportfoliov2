@@ -1,8 +1,8 @@
+import { Content } from 'pages'
 import { FC } from 'react'
 import styled from 'styled-components'
 import { breakpoints, mixins } from 'styles'
 import { StyledLink } from 'styles/utils'
-import { Content } from '../context'
 
 const StyledContent = styled.section`
   width: 100%;
@@ -28,18 +28,18 @@ const StyledContent = styled.section`
 `
 
 interface Props {
-  contact?: Content
+  contact: Content
 }
 
 const Contact: FC<Props> = ({ contact }) => {
   return (
     <StyledContent id="contact">
-      <h2>{contact?.header}</h2>
-      <p>{contact?.body}</p>
+      <h2>{contact.header}</h2>
+      <p>{contact.body}</p>
       <StyledLink href="mailto:jccharalopez@gmail.com" forwardedAs="mailto:jccharalopez@gmail.com">
-        {contact?.link}
+        {contact.link}
       </StyledLink>
-      <p>{contact?.footer}</p>
+      <p>{contact.footer}</p>
     </StyledContent>
   )
 }

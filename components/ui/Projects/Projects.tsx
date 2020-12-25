@@ -1,9 +1,9 @@
 import { GithubIcon } from '@components/icons'
 import Image from 'next/image'
+import { Content } from 'pages'
 import { FC } from 'react'
 import styled from 'styled-components'
 import { breakpoints, mixins } from 'styles'
-import { Content } from '../context'
 
 const StyledContent = styled.section`
   width: 100%;
@@ -94,18 +94,18 @@ const StyledProject = styled.div`
   }
 `
 interface Props {
-  projects?: Content
+  projects: Content
 }
 
 const Projects: FC<Props> = ({ projects }) => {
   // categorizar por app, landing page
   return (
     <StyledContent id="projects">
-      <h2>{projects?.header}</h2>
-      <h3>{projects?.body}</h3>
+      <h2>{projects.header}</h2>
+      <h3>{projects.body}</h3>
 
       <StyledProjects>
-        {projects?.apps.map((app) => (
+        {projects.apps.map((app) => (
           <StyledProject key={app.appName}>
             <div className="project-screenshot">
               <a href="https://weather-app-nu-gold.vercel.app/">
@@ -139,9 +139,6 @@ const Projects: FC<Props> = ({ projects }) => {
                   {app.technologies.map((tech) => (
                     <li key={tech.name}>{tech.name}</li>
                   ))}
-                  {/* <li>api</li>
-                  <li>react</li>
-                  <li>styled-components</li> */}
                 </ul>
               </div>
             </div>

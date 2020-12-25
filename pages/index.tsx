@@ -1,15 +1,52 @@
+import { GetStaticPropsContext } from 'next'
 import { About, Contact, Hero, Projects } from '@components/ui'
-import { State, useUI } from '@components/ui/context'
+import { getMyData } from '@lib/fetchData'
 
-export default function Home() {
-  const { user }: State = useUI()
+export interface Content {
+  body: string
+  link: string
+  header: string
+  footer: string
+  apps: {
+    appName: string
+    appDescription: string
+    technologies: { name: string }[]
+  }[]
+}
+
+// https://www.typescriptlang.org/docs/handbook/utility-types.html
+type Section = 'about' | 'hero' | 'projects' | 'contact'
+
+export interface Data {
+  myData: Record<Section, Content>
+}
+
+export default function Home({ myData }: Data) {
+  // console.log(myData)
 
   return (
     <>
       <Hero />
       <About />
-      <Projects projects={user?.projects} />
-      <Contact contact={user?.contact} />
+      <Projects projects={myData.projects} />
+      <Contact contact={myData.contact} />
     </>
   )
+}
+
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
+  // console.log({ preview, locale })
+
+  const myData = await getMyData()
+
+  if (!myData) {
+    return { notFound: true }
+  }
+
+  return {
+    props: {
+      locale,
+      myData,
+    },
+  }
 }
