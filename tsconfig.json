@@ -19,7 +19,8 @@
     "paths": {
       "@components/*": ["components/*"],
       "@config/*": ["config/*"],
-      "@lib/*": ["lib/*"]
+      "@lib/*": ["lib/*"],
+      "@firebase/*": ["firebase/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

@@ -35,9 +35,7 @@ export default function Home({ myData }: Data) {
 }
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
-  // console.log({ preview, locale })
-
-  const myData = await getMyData()
+  const myData = await getMyData(locale!)
 
   if (!myData) {
     return { notFound: true }
@@ -45,7 +43,6 @@ export async function getStaticProps({ locale }: GetStaticPropsContext) {
 
   return {
     props: {
-      locale,
       myData,
     },
   }

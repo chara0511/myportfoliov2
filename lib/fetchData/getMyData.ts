@@ -1,10 +1,10 @@
-import admin from '../../firebase/nodeApp'
+import admin from '@firebase/nodeApp'
 
-const getMyData = async () => {
+const getMyData = async (locale: string) => {
   const db = admin.firestore()
   const profileCollection = db.collection('/portfolio/BxDIHJYzmMOgRDktUaQ7/user')
 
-  const profileDoc = await profileCollection.doc('HzLSebKLfqCFbA3rOh37').get()
+  const profileDoc = await profileCollection.doc(locale).get()
 
   if (!profileDoc.exists) {
     return null
