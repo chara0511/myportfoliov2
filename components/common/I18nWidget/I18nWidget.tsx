@@ -92,7 +92,8 @@ const I18nWidget: FC = () => {
         {options?.length && display ? (
           <>
             {/* <div>
-              <button type="button" onClick={() => setDisplay(false)} aria-label="Close panel">
+              <button type="button" onClick={() => 
+                setDisplay(false)} aria-label="Close panel">
                 x
               </button>
             </div> */}

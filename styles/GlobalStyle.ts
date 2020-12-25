@@ -38,6 +38,14 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
 
+  h1, h2 {
+    line-height: ${({ theme }) => theme.lineHeights['2xl']};
+  }
+  
+  h3 {
+    line-height: ${({ theme }) => theme.lineHeights.xl};
+  }
+
   a {
     display: inline-block;
     text-decoration: none;

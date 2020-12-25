@@ -18,6 +18,10 @@ const StyledContent = styled.section`
     text-transform: capitalize;
   }
 
+  & h3 {
+    font-weight: 500;
+  }
+
   ${mixins.flexLeft};
 `
 const StyledProjects = styled.div`
