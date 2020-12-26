@@ -9,6 +9,10 @@ const StyledContent = styled.nav`
   position: absolute;
   bottom: 1rem;
   right: 0;
+
+  :focus {
+    outline: none;
+  }
 `
 
 const StyledDropUpMenuBtn = styled.button`
@@ -20,10 +24,6 @@ const StyledDropUpMenuBtn = styled.button`
   width: 100%;
 
   ${mixins.flexBetween};
-
-  :focus {
-    outline: none;
-  }
 
   & img {
     width: 28px;

@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import { I18nWidget } from '@components/common'
 import { breakpoints, mixins } from 'styles'
+import { FC } from 'react'
+import { Content } from 'pages'
 
 const StyledContent = styled.section`
   width: 100%;
@@ -25,6 +27,7 @@ const StyledContent = styled.section`
       ${({ theme }) => theme.fontSizes['5xl']}
     );
     line-height: ${({ theme }) => theme.lineHeights['2xl']};
+    text-transform: capitalize;
   }
 
   & h3 {
@@ -35,6 +38,7 @@ const StyledContent = styled.section`
       ${({ theme }) => theme.fontSizes['7xl']}
     );
     line-height: ${({ theme }) => theme.lineHeights['4xl']};
+    text-transform: capitalize;
   }
 
   & h4 {
@@ -85,19 +89,18 @@ const StyledContent = styled.section`
     }
   }
 `
+interface Props {
+  hero: Content
+}
 
-const Hero = () => {
+const Hero: FC<Props> = ({ hero }) => {
   return (
     <StyledContent>
-      <h1>Hey there 👋</h1>
-      <h2>I&apos;m</h2>
-      <h3>Juan Carlos Chara</h3>
-      <h4>I code things on the web.</h4>
-      <p>
-        I&apos;m a Peruvian based front‑end developer focused on crafting clean and user‑friendly
-        experiences, I&apos;m passionate about building excellent software that improves the lives
-        of those around me.
-      </p>
+      <h1>{hero.headerBefore}</h1>
+      <h2>{hero.headerAfter}</h2>
+      <h3>{hero.header}</h3>
+      <h4>{hero.body}</h4>
+      <p>{hero.footer}</p>
       <I18nWidget />
     </StyledContent>
   )

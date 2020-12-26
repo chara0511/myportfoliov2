@@ -2,7 +2,7 @@ import { FC, useState } from 'react'
 import styled from 'styled-components'
 import { useUI } from '@components/ui/context'
 import { Footer, Header } from '@components/common'
-import { Loader, Sidebar } from '@components/ui'
+import { Loader } from '@components/ui'
 import { breakpoints, mixins } from 'styles'
 
 const StyledContainer = styled.div`
@@ -47,7 +47,6 @@ const Layout: FC = ({ children }) => {
       ) : (
         <StyledContainer>
           <Header reload={() => setState((prev) => !prev)} />
-          <Sidebar />
           <StyledMainContainer displaySidebar={displaySidebar}>{children}</StyledMainContainer>
           <Footer />
         </StyledContainer>

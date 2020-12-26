@@ -5,6 +5,8 @@ import { getMyData } from '@lib/fetchData'
 export interface Content {
   body: string
   link: string
+  headerAfter: string
+  headerBefore: string
   header: string
   footer: string
   apps: {
@@ -15,7 +17,7 @@ export interface Content {
 }
 
 // https://www.typescriptlang.org/docs/handbook/utility-types.html
-type Section = 'about' | 'hero' | 'projects' | 'contact'
+type Section = 'about' | 'contact' | 'hero' | 'projects'
 
 export interface Data {
   myData: Record<Section, Content>
@@ -26,7 +28,7 @@ export default function Home({ myData }: Data) {
 
   return (
     <>
-      <Hero />
+      <Hero hero={myData.hero} />
       <About />
       <Projects projects={myData.projects} />
       <Contact contact={myData.contact} />

@@ -1,9 +1,10 @@
 import { FC } from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
-import { useUI } from '@components/ui/context'
 import { useScroll } from '@lib/hooks'
-import { Logo, MenuIcon } from '@components/icons'
+import { useUI } from '@components/ui/context'
+import { Sidebar } from '@components/ui'
+import { Logo } from '@components/icons'
 import { breakpoints, mixins } from 'styles'
 
 export const StyledContent = styled.header<{ y: number; direction: string }>`
@@ -26,6 +27,41 @@ export const StyledContent = styled.header<{ y: number; direction: string }>`
 
     & button {
       color: ${({ theme }) => theme.colors.primaryBg};
+    }
+
+    & .pencet {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      z-index: 69;
+      width: 48px;
+      height: 48px;
+
+      & span {
+        background-color: ${({ theme }) => theme.colors.fill};
+        width: 75%;
+        height: 0.25rem;
+        margin-top: 0.5rem;
+        margin-right: auto;
+        margin-left: auto;
+        display: block;
+        transition: all 0.4s ease;
+        transform-origin: 0 0;
+      }
+    }
+
+    & .Diam span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, -2px);
+      margin: auto;
+    }
+
+    & .Diam span:nth-child(2) {
+      transform: scaleX(0);
+    }
+
+    & .Diam span:nth-child(3) {
+      transform: rotate(-45deg) translate(4px, 0);
+      margin: auto;
     }
 
     & svg {
@@ -56,7 +92,7 @@ interface Props {
 }
 
 const Header: FC<Props> = ({ reload }) => {
-  const { openSidebar } = useUI()
+  const { displaySidebar, openSidebar } = useUI()
   const { y, direction } = useScroll()
 
   return (
@@ -75,10 +111,17 @@ const Header: FC<Props> = ({ reload }) => {
           <p>contact</p>
         </div>
         <div>
-          <button type="button" onClick={() => openSidebar()}>
-            <MenuIcon />
+          <button
+            type="button"
+            onClick={() => openSidebar()}
+            className={`pencet ${displaySidebar && 'Diam'}`}
+          >
+            <span />
+            <span />
+            <span />
           </button>
         </div>
+        <Sidebar />
       </nav>
     </StyledContent>
   )
