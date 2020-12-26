@@ -47,11 +47,15 @@ export const StyledContent = styled.header<{ y: number; direction: string }>`
         display: block;
         transition: all 0.4s ease;
         transform-origin: 0 0;
+
+        &:nth-child(1) {
+          margin-top: 0.65rem;
+        }
       }
     }
 
     & .Diam span:nth-child(1) {
-      transform: rotate(45deg) translate(5px, -2px);
+      transform: rotate(45deg) translate(6px, -2px);
       margin: auto;
     }
 
@@ -60,7 +64,7 @@ export const StyledContent = styled.header<{ y: number; direction: string }>`
     }
 
     & .Diam span:nth-child(3) {
-      transform: rotate(-45deg) translate(4px, 0);
+      transform: rotate(-45deg) translate(3px, 0);
       margin: auto;
     }
 
