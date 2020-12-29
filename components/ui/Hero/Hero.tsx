@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { I18nWidget } from '@components/common'
 import { breakpoints, mixins } from 'styles'
 import { FC } from 'react'
-import { Content } from 'pages'
+import { DataModel } from 'pages'
 
 const StyledContent = styled.section`
   width: 100%;
@@ -90,7 +90,7 @@ const StyledContent = styled.section`
   }
 `
 interface Props {
-  hero: Content
+  hero: DataModel
 }
 
 const Hero: FC<Props> = ({ hero }) => {

@@ -1,6 +1,6 @@
-import { Content } from 'pages'
 import { FC } from 'react'
 import styled from 'styled-components'
+import { DataModel } from 'pages'
 import { breakpoints, mixins } from 'styles'
 import { StyledLink } from 'styles/utils'
 
@@ -28,7 +28,7 @@ const StyledContent = styled.section`
 `
 
 interface Props {
-  contact: Content
+  contact: DataModel
 }
 
 const Contact: FC<Props> = ({ contact }) => {

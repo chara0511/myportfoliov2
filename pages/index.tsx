@@ -2,7 +2,7 @@ import { GetStaticPropsContext } from 'next'
 import { About, Contact, Hero, Projects } from '@components/ui'
 import { getMyData } from '@lib/fetchData'
 
-export interface Content {
+export interface DataModel {
   body: string
   link: string
   headerAfter: string
@@ -16,15 +16,15 @@ export interface Content {
   }[]
 }
 
-// https://www.typescriptlang.org/docs/handbook/utility-types.html
+// ?https://www.typescriptlang.org/docs/handbook/utility-types.html
 type Section = 'about' | 'contact' | 'hero' | 'projects'
 
 export interface Data {
-  myData: Record<Section, Content>
+  myData: Record<Section, DataModel>
 }
 
 export default function Home({ myData }: Data) {
-  // console.log(myData)
+  // *console.log(myData)
 
   return (
     <>

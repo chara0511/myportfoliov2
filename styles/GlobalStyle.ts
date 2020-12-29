@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
     line-height: ${({ theme }) => theme.lineHeights.base};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+   
 
     @media (min-width: ${breakpoints.xl}) {
       font-size: ${({ theme }) => theme.fontSizes.lg};
@@ -26,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: inherit;
     line-height: inherit;
-    margin:0;
+    margin: 0;
   }
 
   h1,

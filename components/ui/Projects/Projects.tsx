@@ -1,6 +1,6 @@
 import { GithubIcon } from '@components/icons'
 import Image from 'next/image'
-import { Content } from 'pages'
+import { DataModel } from 'pages'
 import { FC } from 'react'
 import styled from 'styled-components'
 import { breakpoints, mixins } from 'styles'
@@ -98,7 +98,7 @@ const StyledProject = styled.div`
   }
 `
 interface Props {
-  projects: Content
+  projects: DataModel
 }
 
 const Projects: FC<Props> = ({ projects }) => {
