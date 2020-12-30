@@ -8,7 +8,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,ts,tsx}": [
+    "*.{ts,tsx}": [
       "eslint --fix"
     ]
   },

@@ -4,14 +4,6 @@ import styled from 'styled-components'
 import Logo from '@components/icons/Logo'
 import { mixins } from 'styles'
 
-// interface TitleProps {
-//   readonly isMounted: boolean;
-// };
-
-// const StyledLogo = styled.div<TitleProps>`
-//   opacity: ${({ isMounted }) => (isMounted ? '1' : '0')};
-// `
-
 const StyledContent = styled.div`
   /* overflow-y: hidden; */
   min-height: 100vh;
@@ -27,6 +19,15 @@ const StyledContent = styled.div`
 
   ${mixins.flexCenter}
 `
+
+// ?other way
+/* interface TitleProps {
+  readonly withDelay: boolean
+}
+
+const StyledLogo = styled.div<TitleProps>`
+  opacity: ${({ withDelay }) => (withDelay ? '1' : '0')};
+` */
 
 const StyledLogo = styled.div<{ withDelay: boolean }>`
   color: ${({ theme }) => theme.colors.primaryBg};
@@ -48,6 +49,34 @@ const Loader: FC<Props> = ({ isLoading }) => {
         complete: () => isLoading(),
       })
       .add({
+        targets: '#JC #border5',
+        // delay: 500,
+        duration: 500,
+        easing: 'easeInOutQuart',
+        strokeDashoffset: [anime.setDashoffset, 0],
+      })
+      .add({
+        targets: '#JC #border2',
+        // delay: 500,
+        duration: 500,
+        easing: 'easeInOutQuart',
+        strokeDashoffset: [anime.setDashoffset, 0],
+      })
+      .add({
+        targets: '#JC #border3',
+        // delay: 500,
+        duration: 500,
+        easing: 'easeInOutQuart',
+        strokeDashoffset: [anime.setDashoffset, 0],
+      })
+      .add({
+        targets: '#JC #border4',
+        // delay: 500,
+        duration: 500,
+        easing: 'easeInOutQuart',
+        strokeDashoffset: [anime.setDashoffset, 0],
+      })
+      .add({
         targets: '#JC #J',
         duration: 800,
         easing: 'easeInOutQuad',
@@ -64,13 +93,6 @@ const Loader: FC<Props> = ({ isLoading }) => {
         translateX: [250, 0],
         scale: [1],
         opacity: [0, 1],
-      })
-      .add({
-        targets: '#JC #poligon path',
-        // delay: 500,
-        duration: 2500,
-        easing: 'easeInOutQuart',
-        strokeDashoffset: [anime.setDashoffset, 0],
       })
       .add({
         targets: '#JC',

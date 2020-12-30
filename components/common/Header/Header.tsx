@@ -71,6 +71,7 @@ const StyledMenu = styled.div`
       display: block;
       transition: all 0.4s ease;
       transform-origin: 0 0;
+      border-radius: ${({ theme }) => theme.borderRadius.default};
 
       &:nth-child(1) {
         margin-top: 0.45rem;
@@ -79,16 +80,17 @@ const StyledMenu = styled.div`
   }
 
   & .active span:nth-child(1) {
-    transform: rotate(45deg) translate(6px, -2px);
+    transform: rotate(45deg) translate(6px, 0px);
     margin: auto;
   }
 
   & .active span:nth-child(2) {
     transform: scaleX(0);
+    margin: auto;
   }
 
   & .active span:nth-child(3) {
-    transform: rotate(-45deg) translate(3px, 0);
+    transform: rotate(-45deg) translate(2px, 0);
     margin: auto;
   }
 `
