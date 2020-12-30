@@ -73,7 +73,7 @@ const StyledSkills = styled.ul`
   margin: 1.5rem auto;
   font-family: ${({ theme }) => theme.fontMono};
   font-size: ${({ theme }) => theme.fontSizes.sm};
-  margin-left: 2rem;
+  justify-content: center;
 
   & li {
     display: flex;
