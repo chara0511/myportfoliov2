@@ -39,9 +39,9 @@ const Sidebar = () => {
         {sidebarLinks.map((link) => (
           <li key={link}>
             <StyledSidebarLink
-              href={`#${link}`}
+              href={`/#${link}`}
               handleSidebar={() => closeSidebar()}
-              forwardedAs={`#${link}`}
+              forwardedAs={`/#${link}`}
             >
               {link}
             </StyledSidebarLink>

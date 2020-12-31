@@ -49,9 +49,19 @@ const StyledContent = styled.section`
     line-height: ${({ theme }) => theme.lineHeights['4xl']};
     text-transform: capitalize;
 
-    & span {
-      animation: 1000ms ${fadeIn} ease-in-out infinite alternate;
+    & .pulse {
+      animation: 1000ms ${fadeIn} ease-in-out infinite both;
     }
+
+    /* & span {
+      animation: none;
+    }
+
+    @media (min-width: ${breakpoints.sm}) {
+      & span {
+        animation: 1000ms ${fadeIn} ease-in-out infinite alternate;
+      }
+    } */
   }
 
   & h4 {
@@ -113,7 +123,7 @@ const Hero: FC<Props> = ({ hero }) => {
       <h2>{hero.headerAfter}</h2>
       <h3>
         {hero.header}
-        <span>.</span>
+        <span className="pulse">.</span>
       </h3>
       <h4>{hero.body}</h4>
       <p>{hero.footer}</p>

@@ -27,6 +27,7 @@ export default styled(StyledSidebarLink)`
 
   & button {
     font-size: ${({ theme }) => theme.fontSizes.lg};
+    font-family: ${({ theme }) => theme.fontMono};
     padding: 0 0.5rem;
     width: 100%;
     height: 40px;
@@ -34,7 +35,7 @@ export default styled(StyledSidebarLink)`
     text-transform: capitalize;
     transform: translateY(0rem);
     transition: ${({ theme }) => theme.transition};
-    letter-spacing: 0.25rem;
+    letter-spacing: 0.15rem;
 
     &::after {
       content: '';
