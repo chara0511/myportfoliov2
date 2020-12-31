@@ -1,8 +1,8 @@
-import { ChevronUpIcon } from '@components/icons'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FC, useState } from 'react'
 import styled from 'styled-components'
+import { ChevronUpIcon } from '@components/icons'
 import { breakpoints, mixins } from 'styles'
 
 const StyledContent = styled.nav`
@@ -25,7 +25,7 @@ const StyledDropUpMenuBtn = styled.button`
 
   ${mixins.flexBetween};
 
-  & img {
+  & > img {
     width: 28px;
     height: 28px;
   }
@@ -36,11 +36,16 @@ const StyledDropUpMenuBtn = styled.button`
 
   @media (min-width: ${breakpoints.md}) {
     width: 112px;
+    border: none;
 
     & .visible {
       display: block;
     }
   }
+`
+
+const StyledDropUpMenu = styled.li`
+  border: 1px solid red;
 `
 
 const StyledWidgetBtn = styled(StyledDropUpMenuBtn)`
@@ -99,7 +104,7 @@ const I18nWidget: FC = () => {
             </div> */}
             <ul>
               {options.map((locale) => (
-                <li key={locale}>
+                <StyledDropUpMenu key={locale}>
                   <Link href={currentPath} locale={locale}>
                     <a>
                       <StyledDropUpMenuBtn type="button" onClick={() => setDisplay(false)}>
@@ -111,7 +116,7 @@ const I18nWidget: FC = () => {
                       </StyledDropUpMenuBtn>
                     </a>
                   </Link>
-                </li>
+                </StyledDropUpMenu>
               ))}
             </ul>
           </>

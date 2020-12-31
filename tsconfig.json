@@ -20,7 +20,8 @@
       "@components/*": ["components/*"],
       "@config/*": ["config/*"],
       "@lib/*": ["lib/*"],
-      "@firebase/*": ["firebase/*"]
+      "@firebase/*": ["firebase/*"],
+      "@utils/*": ["utils/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

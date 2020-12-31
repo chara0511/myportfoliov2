@@ -50,7 +50,7 @@ const Loader: FC<Props> = ({ isLoading }) => {
       })
       .add({
         targets: '#JC #border1',
-        // delay: 500,
+        delay: 200,
         duration: 300,
         easing: 'easeInOutQuad',
         translateY: [-250, 0],

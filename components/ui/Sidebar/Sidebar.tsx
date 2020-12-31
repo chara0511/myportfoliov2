@@ -6,7 +6,7 @@ import { useUI } from '../context'
 
 const StyledContent = styled.aside<{ displaySidebar: boolean }>`
   position: fixed;
-  width: min(50vw, 400px);
+  width: min(70vw, 400px);
   /* width: 100%; */
   height: 100vh;
   top: 0;
@@ -21,7 +21,7 @@ const StyledContent = styled.aside<{ displaySidebar: boolean }>`
   & ul {
     ${mixins.flexCenter};
     background-color: ${({ theme }) => theme.colors.secondaryBg};
-    width: min(50vw, 375px);
+    width: min(70vw, 375px);
     padding: 3rem 1rem;
     flex-direction: column;
     height: 100%;

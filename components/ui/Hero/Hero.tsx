@@ -50,7 +50,7 @@ const StyledContent = styled.section`
     text-transform: capitalize;
 
     & span {
-      animation: 1s ${fadeIn} ease-in-out 0s infinite alternate;
+      animation: 1000ms ${fadeIn} ease-in-out infinite alternate;
     }
   }
 
@@ -112,7 +112,8 @@ const Hero: FC<Props> = ({ hero }) => {
       <h1>{hero.headerBefore}</h1>
       <h2>{hero.headerAfter}</h2>
       <h3>
-        {hero.header} <span>.</span>
+        {hero.header}
+        <span>.</span>
       </h3>
       <h4>{hero.body}</h4>
       <p>{hero.footer}</p>

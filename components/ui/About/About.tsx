@@ -12,7 +12,9 @@ import {
   TailwindcssIcon,
   TypescriptIcon,
 } from '@components/icons'
+import { srConfig } from '@utils/sr'
 import { breakpoints, mixins } from 'styles'
+import { useEffect } from 'react'
 
 const StyledContent = styled.section`
   width: 100%;
@@ -91,6 +93,13 @@ const StyledSkills = styled.ul`
 `
 
 const About = () => {
+  useEffect(() => {
+    // eslint-disable-next-line global-require
+    const ScrollReveal = require('scrollreveal')
+    const sr = ScrollReveal.default()
+    sr.reveal('.headline', srConfig())
+  }, [])
+
   return (
     <StyledContent id="about">
       <h2>about me</h2>
@@ -108,7 +117,7 @@ const About = () => {
 
         <div className="bio">
           <div>
-            <h3>Bachelor of Systems Engineering.</h3>
+            <h3 className="headline">Bachelor of Systems Engineering.</h3>
             <p>I&apos;m a weird guy who likes making weird things with web technologies.</p>
             <p>Here are a few that I&apos;ve been working with recently :</p>
           </div>
