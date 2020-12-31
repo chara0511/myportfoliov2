@@ -13,7 +13,7 @@ const StyledContainer = styled.div`
 `
 
 const StyledMainContainer = styled.main<{ displaySidebar: boolean }>`
-  padding: 0 1.5rem;
+  padding: 0 1rem;
   max-width: 1100px;
   margin: 0 auto;
   flex: 1;

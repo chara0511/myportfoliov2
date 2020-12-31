@@ -118,6 +118,8 @@ const Projects: FC<Props> = ({ projects }) => {
                   className="formatted"
                   width={580}
                   height={380}
+                  loading="eager"
+                  unoptimized
                 />
               </a>
             </div>

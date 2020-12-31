@@ -49,36 +49,75 @@ const Loader: FC<Props> = ({ isLoading }) => {
         complete: () => isLoading(),
       })
       .add({
+        targets: '#JC #border1',
+        // delay: 500,
+        duration: 300,
+        easing: 'easeInOutQuad',
+        translateY: [-250, 0],
+        translateX: [250, 0],
+        scale: [1],
+        opacity: [0, 1],
+      })
+      .add({
         targets: '#JC #border5',
         // delay: 500,
-        duration: 500,
-        easing: 'easeInOutQuart',
-        strokeDashoffset: [anime.setDashoffset, 0],
+        duration: 300,
+        easing: 'easeInOutQuad',
+        translateY: [250, 0],
+        translateX: [-250, 0],
+        scale: [1],
+        opacity: [0, 1],
       })
       .add({
         targets: '#JC #border2',
         // delay: 500,
-        duration: 500,
-        easing: 'easeInOutQuart',
-        strokeDashoffset: [anime.setDashoffset, 0],
+        duration: 200,
+        easing: 'easeInOutQuad',
+        translateY: [-250, 0],
+        translateX: [250, 0],
+        scale: [1],
+        opacity: [0, 1],
+      })
+      .add({
+        targets: '#JC #border6',
+        // delay: 500,
+        duration: 200,
+        easing: 'easeInOutQuad',
+        translateY: [250, 0],
+        translateX: [-250, 0],
+        scale: [1],
+        opacity: [0, 1],
       })
       .add({
         targets: '#JC #border3',
         // delay: 500,
-        duration: 500,
-        easing: 'easeInOutQuart',
-        strokeDashoffset: [anime.setDashoffset, 0],
+        duration: 300,
+        easing: 'easeInOutQuad',
+        translateY: [-250, 0],
+        translateX: [250, 0],
+        scale: [1],
+        opacity: [0, 1],
       })
       .add({
-        targets: '#JC #border4',
+        targets: '#JC #border7',
         // delay: 500,
-        duration: 500,
+        duration: 300,
+        easing: 'easeInOutQuad',
+        translateY: [250, 0],
+        translateX: [-250, 0],
+        scale: [1],
+        opacity: [0, 1],
+      })
+      .add({
+        targets: '#JC #border4-8',
+        // delay: 500,
+        duration: 300,
         easing: 'easeInOutQuart',
         strokeDashoffset: [anime.setDashoffset, 0],
       })
       .add({
         targets: '#JC #J',
-        duration: 800,
+        duration: 500,
         easing: 'easeInOutQuad',
         translateY: [250, 0],
         translateX: [-250, 0],
@@ -87,7 +126,7 @@ const Loader: FC<Props> = ({ isLoading }) => {
       })
       .add({
         targets: '#JC #C',
-        duration: 800,
+        duration: 500,
         easing: 'easeInOutQuad',
         translateY: [-250, 0],
         translateX: [250, 0],

@@ -17,7 +17,7 @@ export interface DataModel {
 }
 
 // ?https://www.typescriptlang.org/docs/handbook/utility-types.html
-type Section = 'about' | 'contact' | 'hero' | 'projects'
+export type Section = 'about' | 'contact' | 'hero' | 'projects'
 
 export interface Data {
   myData: Record<Section, DataModel>

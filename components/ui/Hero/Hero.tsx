@@ -1,8 +1,17 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { I18nWidget } from '@components/common'
 import { breakpoints, mixins } from 'styles'
 import { FC } from 'react'
 import { DataModel } from 'pages'
+
+const fadeIn = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`
 
 const StyledContent = styled.section`
   width: 100%;
@@ -39,6 +48,10 @@ const StyledContent = styled.section`
     );
     line-height: ${({ theme }) => theme.lineHeights['4xl']};
     text-transform: capitalize;
+
+    & span {
+      animation: 1s ${fadeIn} ease-in-out 0s infinite alternate;
+    }
   }
 
   & h4 {
@@ -98,7 +111,9 @@ const Hero: FC<Props> = ({ hero }) => {
     <StyledContent>
       <h1>{hero.headerBefore}</h1>
       <h2>{hero.headerAfter}</h2>
-      <h3>{hero.header}</h3>
+      <h3>
+        {hero.header} <span>.</span>
+      </h3>
       <h4>{hero.body}</h4>
       <p>{hero.footer}</p>
       <I18nWidget />

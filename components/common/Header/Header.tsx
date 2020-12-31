@@ -11,7 +11,7 @@ export const StyledContent = styled.header<{ scrollY: number; scrollDirection: s
   background-color: rgba(20, 39, 61, 0.85);
   backdrop-filter: blur(8px);
   box-shadow: ${({ theme, scrollY }) => (scrollY === 0 ? 'none' : theme.shadows.header)};
-  padding: ${({ scrollY }) => (scrollY === 0 ? '1rem 1.5rem' : '0.5rem 1.5rem')};
+  padding: ${({ scrollY }) => (scrollY === 0 ? '1rem' : '0.5rem 1rem')};
   position: fixed;
   transform: translateY(${({ scrollDirection }) => (scrollDirection === 'down' ? '-88px' : '0px')});
   transition: ${({ theme }) => theme.transition};
@@ -80,7 +80,7 @@ const StyledMenu = styled.div`
   }
 
   & .active span:nth-child(1) {
-    transform: rotate(45deg) translate(6px, 0px);
+    transform: rotate(45deg) translate(7px, -2px);
     margin: auto;
   }
 
@@ -90,7 +90,7 @@ const StyledMenu = styled.div`
   }
 
   & .active span:nth-child(3) {
-    transform: rotate(-45deg) translate(2px, 0);
+    transform: rotate(-45deg) translate(4px, 1px);
     margin: auto;
   }
 `
@@ -129,8 +129,8 @@ const Header: FC<Props> = ({ reload }) => {
             <span />
           </button>
         </StyledMenu>
-        <Sidebar />
       </nav>
+      <Sidebar />
     </StyledContent>
   )
 }

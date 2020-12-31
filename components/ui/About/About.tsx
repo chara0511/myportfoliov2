@@ -101,7 +101,6 @@ const About = () => {
             className="rounded"
             unoptimized
             src="/me.jpg"
-            layout="intrinsic"
             width={300}
             height={300}
           />
@@ -110,7 +109,8 @@ const About = () => {
         <div className="bio">
           <div>
             <h3>Bachelor of Systems Engineering.</h3>
-            <p>Here are a few technologies, I&apos;ve been working with recently :</p>
+            <p>I&apos;m a weird guy who likes making weird things with web technologies.</p>
+            <p>Here are a few that I&apos;ve been working with recently :</p>
           </div>
           <StyledSkills>
             <li>

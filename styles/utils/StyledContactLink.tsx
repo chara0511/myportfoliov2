@@ -10,7 +10,7 @@ interface Props {
   className?: string
 }
 
-const StyledLink: FC<Props> = ({ as, children, className, href }) => {
+const StyledContactLink: FC<Props> = ({ as, children, className, href }) => {
   return (
     <Link href={href} as={as} passHref>
       <a className={className}>
@@ -20,6 +20,6 @@ const StyledLink: FC<Props> = ({ as, children, className, href }) => {
   )
 }
 
-export default styled(StyledLink)`
+export default styled(StyledContactLink)`
   ${mixins.bigLink};
 `

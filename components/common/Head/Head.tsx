@@ -9,10 +9,7 @@ const Head: FC = () => {
     <>
       <DefaultSeo {...config} />
       <NextHead>
-        <meta
-          name="viewport"
-          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
-        />
+        <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" />
         {/* <link rel="manifest" href="/site.webmanifest" key="site-manifest" /> */}
         <link rel="manifest" href="/manifest.json" />
 
@@ -24,7 +21,7 @@ const Head: FC = () => {
         <link href="/icons/icon-16x16.png" rel="icon" type="image/png" sizes="16x16" />
         <link href="/icons/icon-32x32.png" rel="icon" type="image/png" sizes="32x32" />
         <link rel="apple-touch-icon" href="/apple-icon.png" />
-        <meta name="theme-color" content="#317EFB" />
+        <meta name="theme-color" content="#14273D" />
       </NextHead>
     </>
   )
