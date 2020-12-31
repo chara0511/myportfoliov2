@@ -36,7 +36,7 @@ export default function Home({ myData }: Data) {
   )
 }
 
-export async function getStaticProps({ locale }: GetStaticPropsContext) {
+export const getStaticProps = async ({ locale }: GetStaticPropsContext) => {
   const myData = await getMyData(locale!)
 
   if (!myData) {
