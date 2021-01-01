@@ -3,9 +3,7 @@
   "short_name": "Chara-",
   "theme_color": "#ffffff",
   "background_color": "#14273D",
-  "display": "standalone",
-  "orientation": "portrait",
-  "scope": "/",
+  "display": "minimal-ui",
   "start_url": "/",
   "icons": [
     {
@@ -48,6 +46,5 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  ],
-  "splash_pages": null
+  ]
 }

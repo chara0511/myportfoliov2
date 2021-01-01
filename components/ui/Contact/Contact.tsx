@@ -2,7 +2,7 @@ import { FC } from 'react'
 import styled from 'styled-components'
 import { DataModel } from 'pages'
 import { breakpoints, mixins } from 'styles'
-import { StyledContactLink } from 'styles/utils'
+import { StyledContactLink, StyledTitle } from 'styles/utils'
 
 const StyledContent = styled.section`
   width: 100%;
@@ -34,7 +34,13 @@ interface Props {
 const Contact: FC<Props> = ({ contact }) => {
   return (
     <StyledContent id="contact">
-      <h2>{contact.header}</h2>
+      <StyledTitle>
+        <h2>{contact.header}</h2>
+        <div className="borders">
+          <span className="border" />
+          <span className="border" />
+        </div>
+      </StyledTitle>
       <p>{contact.body}</p>
       <StyledContactLink
         href="mailto:jccharalopez@gmail.com"

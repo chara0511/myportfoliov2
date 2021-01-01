@@ -4,6 +4,7 @@ import { DataModel } from 'pages'
 import { FC } from 'react'
 import styled from 'styled-components'
 import { breakpoints, mixins } from 'styles'
+import { StyledTitle } from 'styles/utils'
 
 const StyledContent = styled.section`
   width: 100%;
@@ -105,14 +106,21 @@ const Projects: FC<Props> = ({ projects }) => {
   // categorizar por app, landing page
   return (
     <StyledContent id="projects">
-      <h2>{projects.header}</h2>
+      <StyledTitle>
+        <h2>{projects.header}</h2>
+        <div className="borders">
+          <span className="border" />
+          <span className="border" />
+        </div>
+      </StyledTitle>
+
       <h3>{projects.body}</h3>
 
       <StyledProjects>
         {projects.apps.map((app) => (
           <StyledProject key={app.appName}>
             <div className="project-screenshot">
-              <a href="https://weather-app-nu-gold.vercel.app/">
+              <a href="https://weather-app-nu-gold.vercel.app/" aria-label={`${app.appName} link`}>
                 <Image
                   src="/projects/weather-app.png"
                   className="formatted"

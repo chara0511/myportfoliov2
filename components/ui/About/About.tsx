@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import {
   FirebaseIcon,
@@ -12,20 +13,15 @@ import {
   TailwindcssIcon,
   TypescriptIcon,
 } from '@components/icons'
-import { breakpoints, mixins } from 'styles'
-import { useEffect, useRef } from 'react'
 import sr from '@utils/sr'
 import { srConfig } from '@utils/srConfig'
+import { breakpoints, mixins } from 'styles'
+import { StyledTitle } from 'styles/utils'
 
 const StyledContent = styled.section`
   width: 100%;
   min-height: 75vh;
   padding: 5rem 0;
-
-  & h2 {
-    text-align: center;
-    text-transform: capitalize;
-  }
 `
 
 const StyledWrapper = styled.div`
@@ -102,12 +98,19 @@ const About = () => {
 
   return (
     <StyledContent id="about" ref={ref}>
-      <h2>about me</h2>
+      <StyledTitle>
+        <h2>about</h2>
+        <div className="borders">
+          <span className="border" />
+          <span className="border" />
+        </div>
+      </StyledTitle>
       <StyledWrapper>
         <div className="formattedImg">
           <Image
             loading="eager"
             className="rounded"
+            alt="Avatar"
             unoptimized
             src="/me.jpg"
             width={300}
