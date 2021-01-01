@@ -1,6 +1,7 @@
-import { FC } from 'react'
+import { FC, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import { DataModel } from 'pages'
+import sr, { srConfig } from '@utils/sr'
 import { breakpoints, mixins } from 'styles'
 import { StyledContactLink, StyledTitle } from 'styles/utils'
 
@@ -32,8 +33,14 @@ interface Props {
 }
 
 const Contact: FC<Props> = ({ contact }) => {
+  const ref = useRef<HTMLElement | any>(null)
+
+  useEffect(() => {
+    sr().reveal(ref.current, srConfig())
+  }, [])
+
   return (
-    <StyledContent id="contact">
+    <StyledContent id="contact" ref={ref}>
       <StyledTitle>
         <h2>{contact.header}</h2>
         <div className="borders">

@@ -50,7 +50,7 @@ const StyledContent = styled.section`
     text-transform: capitalize;
 
     & .pulse {
-      animation: 1000ms ${fadeIn} ease-in-out infinite both;
+      animation: 1000ms ${fadeIn} ease-in-out infinite alternate;
     }
 
     /* & span {

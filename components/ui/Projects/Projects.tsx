@@ -1,8 +1,9 @@
-import { GithubIcon } from '@components/icons'
+import { FC, useEffect, useRef } from 'react'
 import Image from 'next/image'
-import { DataModel } from 'pages'
-import { FC } from 'react'
 import styled from 'styled-components'
+import { DataModel } from 'pages'
+import { GithubIcon } from '@components/icons'
+import sr, { srConfig } from '@utils/sr'
 import { breakpoints, mixins } from 'styles'
 import { StyledTitle } from 'styles/utils'
 
@@ -104,8 +105,14 @@ interface Props {
 
 const Projects: FC<Props> = ({ projects }) => {
   // categorizar por app, landing page
+  const ref = useRef<HTMLElement | any>(null)
+
+  useEffect(() => {
+    sr().reveal(ref.current, srConfig())
+  }, [])
+
   return (
-    <StyledContent id="projects">
+    <StyledContent id="projects" ref={ref}>
       <StyledTitle>
         <h2>{projects.header}</h2>
         <div className="borders">

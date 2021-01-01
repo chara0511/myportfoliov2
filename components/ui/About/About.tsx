@@ -13,8 +13,7 @@ import {
   TailwindcssIcon,
   TypescriptIcon,
 } from '@components/icons'
-import sr from '@utils/sr'
-import { srConfig } from '@utils/srConfig'
+import sr, { srConfig } from '@utils/sr'
 import { breakpoints, mixins } from 'styles'
 import { StyledTitle } from 'styles/utils'
 
@@ -93,7 +92,7 @@ const About = () => {
   const ref = useRef<HTMLElement | any>(null)
 
   useEffect(() => {
-    sr().reveal(ref.current, srConfig(300))
+    sr().reveal(ref.current, srConfig())
   }, [])
 
   return (

@@ -21,5 +21,7 @@ const StyledContactLink: FC<Props> = ({ as, children, className, href }) => {
 }
 
 export default styled(StyledContactLink)`
+  margin: 1rem 0;
+
   ${mixins.bigLink};
 `
