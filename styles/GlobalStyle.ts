@@ -53,6 +53,7 @@ const GlobalStyle = createGlobalStyle`
     text-decoration-skip-ink: auto;
     color: inherit;
     position: relative;
+    transition: ${({ theme }) => theme.transition};
 
     :hover,
     :focus {

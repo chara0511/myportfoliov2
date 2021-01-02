@@ -61,6 +61,11 @@ const StyledMenu = styled.div`
     z-index: 69;
     width: 42px;
     height: 42px;
+    transition: ${({ theme }) => theme.transition};
+
+    &:hover {
+      opacity: 0.5;
+    }
 
     & span {
       background-color: ${({ theme }) => theme.colors.fill};

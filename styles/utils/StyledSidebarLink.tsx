@@ -16,6 +16,10 @@ const StyledSidebarLink: FC<Props> = ({ as, children, className, href, handleSid
       <a className={className}>
         <button type="button" onClick={handleSidebar}>
           {children}
+          <div className="borders">
+            <span className="border" />
+            <span className="border" />
+          </div>
         </button>
       </a>
     </Link>
@@ -24,6 +28,7 @@ const StyledSidebarLink: FC<Props> = ({ as, children, className, href, handleSid
 
 export default styled(StyledSidebarLink)`
   margin-bottom: 1.5rem;
+  padding: 0.5rem;
 
   & button {
     font-size: ${({ theme }) => theme.fontSizes.lg};
@@ -37,21 +42,34 @@ export default styled(StyledSidebarLink)`
     transition: ${({ theme }) => theme.transition};
     letter-spacing: 0.15rem;
 
-    &::after {
-      content: '';
-      opacity: 0;
+    & .borders {
       display: block;
-      border: 1px solid ${({ theme }) => theme.colors.fill};
-      border-radius: ${({ theme }) => theme.borderRadius.default};
-      margin-top: 0.5rem;
-      transition: ${({ theme }) => theme.transition};
+
+      & .border {
+        margin-left: 1.75rem;
+        display: block;
+        width: 45px;
+        height: 2px;
+        background-color: ${({ theme }) => theme.colors.fill};
+        border-radius: ${({ theme }) => theme.borderRadius.default};
+        transition: ${({ theme }) => theme.transition};
+        transform: translateX(-25px);
+        opacity: 0;
+      }
+
+      & .border:first-child {
+        background-color: ${({ theme }) => theme.colors.fill};
+        margin: 0.25rem 0 0.75rem;
+        transform: translateX(50px);
+      }
     }
 
     &:hover {
       color: ${({ theme }) => theme.colors.white};
       transform: translateY(-0.7rem);
 
-      &::after {
+      & .borders .border {
+        transform: translateX(0px);
         opacity: 1;
       }
     }

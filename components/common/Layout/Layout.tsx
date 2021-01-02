@@ -19,7 +19,7 @@ const StyledMainContainer = styled.main<{ displaySidebar: boolean }>`
   flex: 1;
   flex-direction: column;
   width: 100%;
-  filter: ${({ displaySidebar }) => (displaySidebar ? 'blur(8px)' : 'none')};
+  filter: ${({ displaySidebar }) => (displaySidebar ? 'blur(4px)' : 'none')};
 
   ${mixins.flexCenter};
 

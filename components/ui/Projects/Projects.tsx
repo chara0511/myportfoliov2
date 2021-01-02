@@ -2,15 +2,15 @@ import { FC, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import styled from 'styled-components'
 import { DataModel } from 'pages'
-import { GithubIcon } from '@components/icons'
 import sr, { srConfig } from '@utils/sr'
+import { GithubIcon } from '@components/icons'
 import { breakpoints, mixins } from 'styles'
 import { StyledTitle } from 'styles/utils'
 
 const StyledContent = styled.section`
   width: 100%;
   min-height: 100vh;
-  padding: 3rem 0;
+  padding: 5rem 0;
   flex-direction: column;
 
   & h2,
@@ -46,13 +46,13 @@ const StyledProject = styled.div`
   min-height: 375px;
   box-shadow: ${({ theme }) => theme.shadows.card};
 
-  & .project-screenshot {
+  & .projectScreenshot {
     display: flex;
 
     & a {
       display: flex;
 
-      & .formatted {
+      & .formattedImage {
         border-top-right-radius: ${({ theme }) => theme.borderRadius.card};
         border-top-left-radius: ${({ theme }) => theme.borderRadius.card};
         opacity: 0.6;
@@ -64,12 +64,12 @@ const StyledProject = styled.div`
     }
   }
 
-  & .project-info {
+  & .projectInfo {
     background-color: ${({ theme }) => theme.colors.secondaryBg};
     border-bottom-right-radius: ${({ theme }) => theme.borderRadius.card};
     border-bottom-left-radius: ${({ theme }) => theme.borderRadius.card};
 
-    & .project-info-header {
+    & .projectInfoHeader {
       padding: 1rem 1.5rem 0.5rem;
 
       ${mixins.flexBetween};
@@ -80,11 +80,11 @@ const StyledProject = styled.div`
       }
     }
 
-    & .project-info-body {
+    & .projectInfoBody {
       padding: 0.5rem 1.5rem 0.5rem;
     }
 
-    & .project-info-footer {
+    & .projectInfoFooter {
       border-top: 1px solid #3a96dd;
       padding: 0.5rem 1.5rem 1rem;
 
@@ -126,12 +126,12 @@ const Projects: FC<Props> = ({ projects }) => {
       <StyledProjects>
         {projects.apps.map((app) => (
           <StyledProject key={app.appName}>
-            <div className="project-screenshot">
+            <div className="projectScreenshot">
               <a href="https://weather-app-nu-gold.vercel.app/" aria-label={`${app.appName} link`}>
                 <Image
                   alt={`${app.appName} image`}
                   src="/projects/weather-app.png"
-                  className="formatted"
+                  className="formattedImage"
                   width={580}
                   height={380}
                   loading="eager"
@@ -139,11 +139,12 @@ const Projects: FC<Props> = ({ projects }) => {
                 />
               </a>
             </div>
-            <div className="project-info">
-              <div className="project-info-header">
+            <div className="projectInfo">
+              <div className="projectInfoHeader">
                 <h4>{app.appName}</h4>
 
                 <a
+                  aria-label="Github link"
                   href="https://github.com/jcarlos0511/weather-app"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -153,10 +154,10 @@ const Projects: FC<Props> = ({ projects }) => {
                   </span>
                 </a>
               </div>
-              <div className="project-info-body">
+              <div className="projectInfoBody">
                 <p>{app.appDescription}</p>
               </div>
-              <div className="project-info-footer">
+              <div className="projectInfoFooter">
                 <ul>
                   {app.technologies.map((tech) => (
                     <li key={tech.name}>{tech.name}</li>
