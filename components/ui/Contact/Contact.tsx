@@ -7,7 +7,7 @@ import { StyledContactLink, StyledTitle } from 'styles/utils'
 
 const StyledContent = styled.section`
   width: 100%;
-  min-height: 75vh;
+  min-height: 100vh;
   padding: 3rem 0;
   flex-direction: column;
   text-align: center;

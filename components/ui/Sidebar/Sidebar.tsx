@@ -1,10 +1,12 @@
-import { Section } from 'pages'
+import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
+import type { BodyScrollOptions } from 'body-scroll-lock'
 import styled from 'styled-components'
+import { Section } from 'pages'
 import { mixins } from 'styles'
 import { StyledSidebarLink } from 'styles/utils'
-import { useUI } from '../context'
+import { FC, useEffect, useRef } from 'react'
 
-const StyledContent = styled.aside<{ displaySidebar: boolean }>`
+const StyledContent = styled.aside`
   position: fixed;
   width: min(70vw, 400px);
   /* width: 100%; */
@@ -12,7 +14,6 @@ const StyledContent = styled.aside<{ displaySidebar: boolean }>`
   top: 0;
   right: 0;
 
-  transform: translateX(${({ displaySidebar }) => (displaySidebar ? '0vw' : '100vw')});
   transition: ${({ theme }) => theme.transition};
   z-index: 59;
   display: flex;
@@ -27,28 +28,52 @@ const StyledContent = styled.aside<{ displaySidebar: boolean }>`
     height: 100%;
   }
 `
+interface Props {
+  open: boolean
+  onClose: () => void
+}
 
-const Sidebar = () => {
-  const { displaySidebar, closeSidebar } = useUI()
+const options: BodyScrollOptions = {
+  reserveScrollBarGap: true,
+}
+
+const Sidebar: FC<Props> = ({ open = false, onClose }) => {
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (ref.current) {
+      if (open) {
+        disableBodyScroll(ref.current, options)
+      } else {
+        enableBodyScroll(ref.current)
+      }
+    }
+
+    return () => clearAllBodyScrollLocks()
+  }, [open])
 
   const sidebarLinks: Section[] = ['about', 'projects', 'contact']
 
   return (
-    <StyledContent displaySidebar={displaySidebar}>
-      <ul>
-        {sidebarLinks.map((link) => (
-          <li key={link}>
-            <StyledSidebarLink
-              href={`/#${link}`}
-              handleSidebar={() => closeSidebar()}
-              forwardedAs={`/#${link}`}
-            >
-              {link}
-            </StyledSidebarLink>
-          </li>
-        ))}
-      </ul>
-    </StyledContent>
+    <>
+      {open ? (
+        <StyledContent ref={ref}>
+          <ul>
+            {sidebarLinks.map((link) => (
+              <li key={link}>
+                <StyledSidebarLink
+                  href={`/#${link}`}
+                  handleSidebar={() => onClose()}
+                  forwardedAs={`/#${link}`}
+                >
+                  {link}
+                </StyledSidebarLink>
+              </li>
+            ))}
+          </ul>
+        </StyledContent>
+      ) : null}
+    </>
   )
 }
 

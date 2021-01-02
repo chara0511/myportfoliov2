@@ -129,6 +129,7 @@ const Projects: FC<Props> = ({ projects }) => {
             <div className="project-screenshot">
               <a href="https://weather-app-nu-gold.vercel.app/" aria-label={`${app.appName} link`}>
                 <Image
+                  alt={`${app.appName} image`}
                   src="/projects/weather-app.png"
                   className="formatted"
                   width={580}

@@ -16,6 +16,7 @@ export const StyledContent = styled.header<{ scrollY: number; scrollDirection: s
   transform: translateY(${({ scrollDirection }) => (scrollDirection === 'down' ? '-88px' : '0px')});
   transition: ${({ theme }) => theme.transition};
   top: 0;
+  right: 0;
   width: 100%;
   z-index: 49;
 
@@ -100,7 +101,7 @@ interface Props {
 }
 
 const Header: FC<Props> = ({ reload }) => {
-  const { displaySidebar, openSidebar } = useUI()
+  const { displaySidebar, openSidebar, closeSidebar } = useUI()
   const { y, direction } = useScroll()
 
   return (
@@ -120,6 +121,7 @@ const Header: FC<Props> = ({ reload }) => {
         </div>
         <StyledMenu>
           <button
+            aria-label="menu"
             type="button"
             onClick={() => openSidebar()}
             className={`hamburguer ${displaySidebar ? 'active' : ''}`}
@@ -130,7 +132,7 @@ const Header: FC<Props> = ({ reload }) => {
           </button>
         </StyledMenu>
       </nav>
-      <Sidebar />
+      <Sidebar open={displaySidebar} onClose={closeSidebar} />
     </StyledContent>
   )
 }

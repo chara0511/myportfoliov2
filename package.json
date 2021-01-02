@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "animejs": "^3.2.1",
+    "body-scroll-lock": "^3.1.5",
     "firebase": "^8.2.1",
     "firebase-admin": "^9.4.2",
     "next": "10.0.3",
@@ -35,6 +36,7 @@
   },
   "devDependencies": {
     "@types/animejs": "^3.1.2",
+    "@types/body-scroll-lock": "^2.6.1",
     "@types/jest": "^26.0.19",
     "@types/node": "^14.14.14",
     "@types/react": "^17.0.0",
