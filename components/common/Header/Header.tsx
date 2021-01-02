@@ -1,18 +1,20 @@
 import { FC } from 'react'
-import Link from 'next/link'
 import styled from 'styled-components'
 import { useScroll } from '@lib/hooks'
 import { Sidebar } from '@components/ui'
 import { useUI } from '@components/ui/context'
-import { MenuButton } from '@components/ui/Buttons'
-import { Logo } from '@components/icons'
-import { breakpoints, mixins } from 'styles'
+import { LogoButton, MenuButton } from '@components/ui/Buttons'
+import { mixins } from 'styles'
 
-export const StyledContent = styled.header<{ scrollY: number; scrollDirection: string }>`
+export const StyledContent = styled.header<{
+  scrollY: number
+  scrollDirection: string
+  open: boolean
+}>`
   background-color: rgba(20, 39, 61, 0.85);
   backdrop-filter: blur(8px);
-  box-shadow: ${({ theme, scrollY }) => (scrollY === 0 ? 'none' : theme.shadows.header)};
-  padding: ${({ scrollY }) => (scrollY === 0 ? '1rem' : '0.5rem 1rem')};
+  box-shadow: ${({ theme, scrollY, open }) =>
+    scrollY === 0 || open ? 'none' : theme.shadows.header};
   position: fixed;
   transform: translateY(${({ scrollDirection }) => (scrollDirection === 'down' ? '-88px' : '0px')});
   transition: ${({ theme }) => theme.transition};
@@ -20,18 +22,6 @@ export const StyledContent = styled.header<{ scrollY: number; scrollDirection: s
   right: 0;
   width: 100%;
   z-index: 49;
-
-  @media (min-width: ${breakpoints.sm}) {
-    padding: ${({ scrollY }) => (scrollY === 0 ? '1rem 3rem' : '0.5rem 3rem')};
-  }
-
-  @media (min-width: ${breakpoints.md}) {
-    padding: ${({ scrollY }) => (scrollY === 0 ? '1rem 6rem' : '0.5rem 6rem')};
-  }
-
-  @media (min-width: ${breakpoints.xl}) {
-    padding: ${({ scrollY }) => (scrollY === 0 ? '1rem 0' : '0.5rem 0')};
-  }
 
   & nav {
     max-width: 1100px;
@@ -63,21 +53,15 @@ const Header: FC<Props> = ({ reload }) => {
   const { y, direction } = useScroll()
 
   return (
-    <StyledContent scrollY={y} scrollDirection={direction}>
+    <StyledContent scrollY={y} scrollDirection={direction} open={displaySidebar}>
       <nav>
-        <Link href="/" passHref>
-          <a>
-            <button type="button" onClick={reload}>
-              <Logo />
-            </button>
-          </a>
-        </Link>
+        <LogoButton href="/" reload={reload} />
         <div style={{ display: 'none' }}>
           <p>about</p>
           <p>projects</p>
           <p>contact</p>
         </div>
-        <MenuButton open={displaySidebar} onOpen={openSidebar} onClose={closeSidebar} />
+        <MenuButton y={y} open={displaySidebar} onOpen={openSidebar} onClose={closeSidebar} />
       </nav>
       <Sidebar open={displaySidebar} onClose={closeSidebar} />
     </StyledContent>

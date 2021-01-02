@@ -1,19 +1,19 @@
 import { FC } from 'react'
-// import Link from 'next/link'
+import Link from 'next/link'
 import styled from 'styled-components'
-// import { UrlObject } from 'url'
+import { UrlObject } from 'url'
 
 interface Props {
-  // as?: string | UrlObject | undefined
+  as?: string | UrlObject | undefined
   href: string
   className?: string
   handleSidebar: () => void
 }
 
-const StyledSidebarLink: FC<Props> = ({ children, className, href, handleSidebar }) => {
+const StyledSidebarLink: FC<Props> = ({ as, children, className, href, handleSidebar }) => {
   return (
     <>
-      {/* <Link href={href} as={as} passHref>
+      <Link href={href} as={as} passHref>
         <a className={className}>
           <button type="button" onClick={handleSidebar}>
             {children}
@@ -23,8 +23,8 @@ const StyledSidebarLink: FC<Props> = ({ children, className, href, handleSidebar
             </div>
           </button>
         </a>
-      </Link> */}
-      <a className={className} href={href}>
+      </Link>
+      {/* <a className={className} href={href}>
         <button type="button" onClick={handleSidebar}>
           {children}
           <div className="borders">
@@ -32,7 +32,7 @@ const StyledSidebarLink: FC<Props> = ({ children, className, href, handleSidebar
             <span className="border" />
           </div>
         </button>
-      </a>
+      </a> */}
     </>
   )
 }

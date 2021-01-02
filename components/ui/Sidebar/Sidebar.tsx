@@ -50,6 +50,7 @@ const Sidebar: FC<Props> = ({ open = false, onClose }) => {
   }, [open])
 
   const sidebarLinks: Section[] = ['about', 'projects', 'contact']
+  // !error to link menu... try use route( to fix) :C
 
   return (
     <Portal>
@@ -59,9 +60,9 @@ const Sidebar: FC<Props> = ({ open = false, onClose }) => {
             {sidebarLinks.map((link) => (
               <li key={link}>
                 <StyledSidebarLink
-                  href={`/#${link}`}
+                  href={`#${link}`}
                   handleSidebar={() => onClose()}
-                  forwardedAs={`/#${link}`}
+                  forwardedAs={`#${link}`}
                 >
                   {link}
                 </StyledSidebarLink>

@@ -2,19 +2,23 @@ import { FC } from 'react'
 import styled from 'styled-components'
 import { breakpoints } from 'styles'
 
-const StyledMenuButton = styled.div`
-  background-color: ${({ theme }) => theme.colors.secondaryBg};
-  width: 75vw;
-  padding: 1rem;
+const StyledMenuButton = styled.div<{ scrollY: number; open: boolean }>`
+  background-color: ${({ open, theme }) => (open ? theme.colors.secondaryBg : 'inherit')};
+  width: min(75vw, 375px);
+  padding: ${({ scrollY }) => (scrollY === 0 ? '1rem' : '0.5rem 1rem')};
   display: flex;
   justify-content: flex-end;
 
   @media (min-width: ${breakpoints.sm}) {
-    right: 3rem;
+    padding: ${({ scrollY }) => (scrollY === 0 ? '1rem 3rem' : '0.5rem 3rem')};
   }
 
   @media (min-width: ${breakpoints.md}) {
-    right: 6rem;
+    padding: ${({ scrollY }) => (scrollY === 0 ? '1rem 6rem' : '0.5rem 6rem')};
+  }
+
+  @media (min-width: ${breakpoints.xl}) {
+    padding: ${({ scrollY }) => (scrollY === 0 ? '1rem 0' : '0.5rem 0')};
   }
 
   & .hamburguer {
@@ -65,14 +69,15 @@ const StyledMenuButton = styled.div`
 `
 
 interface Props {
+  y: number
   open: boolean
   onOpen: () => void
   onClose: () => void
 }
 
-const MenuButton: FC<Props> = ({ open, onOpen, onClose }) => {
+const MenuButton: FC<Props> = ({ y, open, onOpen, onClose }) => {
   return (
-    <StyledMenuButton>
+    <StyledMenuButton open={open} scrollY={y}>
       <button
         aria-label="menu"
         type="button"
