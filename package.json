@@ -22,6 +22,7 @@
     "lint": "eslint . --ext ts --ext tsx --ext js --ext jsx"
   },
   "dependencies": {
+    "@reach/portal": "^0.12.1",
     "animejs": "^3.2.1",
     "body-scroll-lock": "^3.1.5",
     "firebase": "^8.2.1",

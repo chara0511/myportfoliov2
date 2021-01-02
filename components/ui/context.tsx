@@ -17,7 +17,7 @@ const uiReducer = (state: State, action: Action) => {
     case 'OPEN_SIDEBAR':
       return {
         ...state,
-        displaySidebar: !state.displaySidebar,
+        displaySidebar: true,
       }
 
     case 'CLOSE_SIDEBAR':
