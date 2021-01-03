@@ -108,6 +108,7 @@ const StyledTechnologies = styled.ul`
   font-family: ${({ theme }) => theme.fontMono};
   font-size: ${({ theme }) => theme.fontSizes.sm};
   justify-content: center;
+  text-transform: capitalize;
 
   & li {
     display: flex;
@@ -135,19 +136,6 @@ const Projects: FC<Props> = ({ projects }) => {
     sr().reveal(ref.current, srConfig())
   }, [])
 
-  const technologies: string[] = [
-    'HTML',
-    'javascript (ES6+)',
-    'firebase',
-    'next.js',
-    'node.js',
-    'react',
-    'redux & redux-thunk',
-    'styled components',
-    'tailwindcss',
-    'typescript',
-  ]
-
   return (
     <StyledContent id="projects" ref={ref}>
       <StyledTitle>
@@ -159,16 +147,17 @@ const Projects: FC<Props> = ({ projects }) => {
       </StyledTitle>
 
       <br />
-
+      <p>{projects.bodyPrev}</p>
+      <br />
       <p>Here are a few technologies I&apos;ve been working with recently :</p>
 
       <StyledTechnologies>
-        {technologies.map((tech) => (
-          <li key={tech}>
+        {projects.technologies.map((tech) => (
+          <li key={tech.name}>
             <span>
-              <Icon name={tech} />
+              <Icon name={tech.name} />
             </span>
-            {tech}
+            {tech.name}
           </li>
         ))}
       </StyledTechnologies>
@@ -181,10 +170,15 @@ const Projects: FC<Props> = ({ projects }) => {
         {projects.apps.map((app) => (
           <StyledProject key={app.appName}>
             <div className="projectScreenshot">
-              <a href="https://weather-app-nu-gold.vercel.app/" aria-label={`${app.appName} link`}>
+              <a
+                href={app.appLink}
+                aria-label={`${app.appName} link`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Image
-                  alt={`${app.appName} image`}
-                  src="/projects/weather-app.png"
+                  alt={`${app.appName} screenshot`}
+                  src={`/projects/${app.appName}.png`}
                   className="formattedImage"
                   width={580}
                   height={380}
@@ -196,10 +190,9 @@ const Projects: FC<Props> = ({ projects }) => {
             <div className="projectInfo">
               <div className="projectInfoHeader">
                 <h4>{app.appName}</h4>
-
                 <a
-                  aria-label="Github link"
-                  href="https://github.com/jcarlos0511/weather-app"
+                  aria-label="Link to the Github repository"
+                  href={app.repositoryLink}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -208,9 +201,11 @@ const Projects: FC<Props> = ({ projects }) => {
                   </span>
                 </a>
               </div>
+
               <div className="projectInfoBody">
                 <p>{app.appDescription}</p>
               </div>
+
               <div className="projectInfoFooter">
                 <ul>
                   {app.technologies.map((tech) => (

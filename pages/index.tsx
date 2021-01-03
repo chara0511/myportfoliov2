@@ -3,20 +3,23 @@ import { AboutPreview, ContactPreview, Hero, ProjectsPreview } from '@components
 import { getMyData } from '@lib/fetchData'
 
 export interface DataModel {
-  body: string
-  bodyPrev: string
-  link: string
-  linkPrev: string
-  headerAfter: string
-  headerBefore: string
-  header: string
-  footer: string
-  footerPrev: string
   apps: {
     appName: string
     appDescription: string
+    appLink: string
+    repositoryLink: string
     technologies: { name: string }[]
   }[]
+  body: string
+  bodyPrev: string
+  footer: string
+  footerPrev: string
+  headerAfter: string
+  headerBefore: string
+  header: string
+  link: string
+  linkPrev: string
+  technologies: { name: string }[]
 }
 
 // ?https://www.typescriptlang.org/docs/handbook/utility-types.html

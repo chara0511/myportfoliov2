@@ -1,13 +1,16 @@
 import { FC } from 'react'
 import {
+  ErrorIcon,
   FirebaseIcon,
   GithubIcon,
   HtmlIcon,
   JavascriptIcon,
+  MongoDBIcon,
   NextjsIcon,
   NodejsIcon,
   ReactIcon,
   ReduxIcon,
+  SassIcon,
   StyledComponentsIcon,
   TailwindcssIcon,
   TypescriptIcon,
@@ -21,12 +24,14 @@ const Icon: FC<Props> = ({ name }) => {
   switch (name) {
     case 'HTML':
       return <HtmlIcon />
-    case 'javascript (es6+)':
+    case 'javascript (ES6+)':
       return <JavascriptIcon />
     case 'firebase':
       return <FirebaseIcon />
     case 'github':
       return <GithubIcon />
+    case 'mongoDB':
+      return <MongoDBIcon />
     case 'next.js':
       return <NextjsIcon />
     case 'node.js':
@@ -35,6 +40,8 @@ const Icon: FC<Props> = ({ name }) => {
       return <ReactIcon />
     case 'redux & redux-thunk':
       return <ReduxIcon />
+    case 'sass':
+      return <SassIcon />
     case 'styled components':
       return <StyledComponentsIcon />
     case 'tailwindcss':
@@ -43,7 +50,7 @@ const Icon: FC<Props> = ({ name }) => {
       return <TypescriptIcon />
 
     default:
-      throw new Error()
+      return <ErrorIcon />
   }
 }
 
