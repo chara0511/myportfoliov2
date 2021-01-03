@@ -1,4 +1,5 @@
 export { default as About } from './About'
+export { default as AboutPreview } from './AboutPreview'
 export { default as Contact } from './Contact'
 export { default as ContactPreview } from './ContactPreview'
 export { default as Hero } from './Hero'

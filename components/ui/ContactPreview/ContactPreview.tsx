@@ -4,11 +4,11 @@ import styled from 'styled-components'
 import { DataModel } from 'pages'
 import sr, { srConfig } from '@utils/sr'
 import { breakpoints, mixins } from 'styles'
-import { StyledContactLink, StyledTitle } from 'styles/utils'
+import { StyledLink, StyledTitle } from 'styles/utils'
 
 const StyledContent = styled.section`
   width: 100%;
-  min-height: 100vh;
+  min-height: 75vh;
   padding: 3rem 0;
   flex-direction: column;
   text-align: center;
@@ -54,9 +54,9 @@ const ContactPreview: FC<Props> = ({ contact }) => {
         </div>
       </StyledTitle>
       <p>{contact.bodyPrev}</p>
-      <StyledContactLink href="/contact" forwardedAs="/contact">
+      <StyledLink href="/contact" forwardedAs="/contact">
         {contact.linkPrev}
-      </StyledContactLink>
+      </StyledLink>
     </StyledContent>
   )
 }

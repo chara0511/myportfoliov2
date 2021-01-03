@@ -1,6 +1,7 @@
+import { FC, useEffect, useRef } from 'react'
 import Image from 'next/image'
-import { useEffect, useRef } from 'react'
 import styled from 'styled-components'
+import { DataModel } from 'pages'
 import sr, { srConfig } from '@utils/sr'
 import { breakpoints, mixins } from 'styles'
 import { StyledTitle } from 'styles/utils'
@@ -8,7 +9,7 @@ import { StyledTitle } from 'styles/utils'
 const StyledContent = styled.section`
   width: 100%;
   min-height: 75vh;
-  padding: 5rem 0;
+  padding: 3rem 0;
 `
 
 const StyledWrapper = styled.div`
@@ -51,8 +52,11 @@ const StyledWrapper = styled.div`
     }
   }
 `
+interface Props {
+  about: DataModel
+}
 
-const About = () => {
+const AboutPreview: FC<Props> = ({ about }) => {
   const ref = useRef<HTMLElement | any>(null)
 
   useEffect(() => {
@@ -62,7 +66,7 @@ const About = () => {
   return (
     <StyledContent id="about" ref={ref}>
       <StyledTitle>
-        <h2>about</h2>
+        <h2>{about.header}</h2>
         <div className="borders">
           <span className="border" />
           <span className="border" />
@@ -83,12 +87,10 @@ const About = () => {
 
         <div className="bio">
           <div>
-            <h3>Bachelor of Systems Engineering.</h3>
-            <p>
-              I&apos;m a Peruvian front‑end developer focused on crafting clean and user‑friendly
-              experiences, I&apos;m passionate about building excellent software that improves the
-              lives of those around me.
-            </p>
+            <h3>{about.headerBefore}</h3>
+            <h4>{about.headerAfter}</h4>
+            <br />
+            <p>{about.bodyPrev}</p>
           </div>
         </div>
       </StyledWrapper>
@@ -96,4 +98,4 @@ const About = () => {
   )
 }
 
-export default About
+export default AboutPreview

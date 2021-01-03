@@ -4,13 +4,16 @@ import styled from 'styled-components'
 import { DataModel } from 'pages'
 import sr, { srConfig } from '@utils/sr'
 import { mixins } from 'styles'
-import { StyledTitle } from 'styles/utils'
+import { StyledLink, StyledTitle } from 'styles/utils'
 
 const StyledContent = styled.section`
   width: 100%;
   min-height: 100vh;
-  padding: 5rem 0;
+  padding: 3rem 0;
+  text-align: center;
   flex-direction: column;
+
+  ${mixins.flexEvenly};
 
   & h2,
   & h3,
@@ -18,12 +21,6 @@ const StyledContent = styled.section`
     text-align: center;
     text-transform: capitalize;
   }
-
-  & h3 {
-    font-weight: 500;
-  }
-
-  ${mixins.flexLeft};
 `
 
 interface Props {
@@ -52,7 +49,13 @@ const ProjectsPreview: FC<Props> = ({ projects }) => {
         </div>
       </StyledTitle>
 
-      <h3>{projects.body}</h3>
+      <p>{projects.bodyPrev}</p>
+
+      <p>{projects.footerPrev}</p>
+
+      <StyledLink href="/projects" forwardedAs="/projects">
+        {projects.linkPrev}
+      </StyledLink>
     </StyledContent>
   )
 }

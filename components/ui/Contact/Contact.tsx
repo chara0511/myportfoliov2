@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { DataModel } from 'pages'
 import sr, { srConfig } from '@utils/sr'
 import { breakpoints, mixins } from 'styles'
-import { StyledContactLink, StyledTitle } from 'styles/utils'
+import { StyledLink, StyledTitle } from 'styles/utils'
 
 const StyledContent = styled.section`
   width: 100%;
@@ -49,12 +49,9 @@ const Contact: FC<Props> = ({ contact }) => {
         </div>
       </StyledTitle>
       <p>{contact.body}</p>
-      <StyledContactLink
-        href="mailto:jccharalopez@gmail.com"
-        forwardedAs="mailto:jccharalopez@gmail.com"
-      >
+      <StyledLink href="mailto:jccharalopez@gmail.com" forwardedAs="mailto:jccharalopez@gmail.com">
         {contact.link}
-      </StyledContactLink>
+      </StyledLink>
       <p>{contact.footer}</p>
     </StyledContent>
   )

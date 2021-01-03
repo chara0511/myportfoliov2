@@ -3,7 +3,19 @@ import Image from 'next/image'
 import styled from 'styled-components'
 import { DataModel } from 'pages'
 import sr, { srConfig } from '@utils/sr'
-import { GithubIcon } from '@components/icons'
+import {
+  FirebaseIcon,
+  GithubIcon,
+  HtmlIcon,
+  JavascriptIcon,
+  NextjsIcon,
+  NodejsIcon,
+  ReactIcon,
+  ReduxIcon,
+  StyledComponentsIcon,
+  TailwindcssIcon,
+  TypescriptIcon,
+} from '@components/icons'
 import { breakpoints, mixins } from 'styles'
 import { StyledTitle } from 'styles/utils'
 
@@ -99,6 +111,30 @@ const StyledProject = styled.div`
     }
   }
 `
+
+const StyledTechnologies = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(2, minmax(140px, 250px));
+  row-gap: 1rem;
+  margin: 1.5rem auto;
+  font-family: ${({ theme }) => theme.fontMono};
+  font-size: ${({ theme }) => theme.fontSizes.sm};
+  justify-content: center;
+
+  & li {
+    display: flex;
+    align-items: center;
+
+    & span {
+      margin-right: 0.5rem;
+
+      & svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+`
 interface Props {
   projects: DataModel
 }
@@ -120,9 +156,72 @@ const Projects: FC<Props> = ({ projects }) => {
           <span className="border" />
         </div>
       </StyledTitle>
-
-      <h3>{projects.body}</h3>
-
+      <br />
+      <p>Here are a few technologies I&apos;ve been working with recently :</p>
+      <StyledTechnologies>
+        <li>
+          <span>
+            <HtmlIcon />
+          </span>
+          HTML & (S)CSS
+        </li>
+        <li>
+          <span>
+            <JavascriptIcon />
+          </span>
+          Javascript (ES6+)
+        </li>
+        <li>
+          <span>
+            <FirebaseIcon />
+          </span>
+          Firebase
+        </li>
+        <li>
+          <span>
+            <NextjsIcon />
+          </span>
+          Next.js
+        </li>
+        <li>
+          <span>
+            <NodejsIcon />
+          </span>
+          Node.js
+        </li>
+        <li>
+          <span>
+            <ReactIcon />
+          </span>
+          React
+        </li>
+        <li>
+          <span>
+            <ReduxIcon />
+          </span>
+          Redux & Redux-thunk
+        </li>
+        <li>
+          <span>
+            <StyledComponentsIcon />
+          </span>
+          Styled Components
+        </li>
+        <li>
+          <span>
+            <TailwindcssIcon />
+          </span>
+          Tailwindcss
+        </li>
+        <li>
+          <span>
+            <TypescriptIcon />
+          </span>
+          Typescript
+        </li>
+      </StyledTechnologies>
+      <br />
+      <h3>{projects.headerAfter}</h3>
       <StyledProjects>
         {projects.apps.map((app) => (
           <StyledProject key={app.appName}>
