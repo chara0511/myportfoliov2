@@ -3,19 +3,7 @@ import Image from 'next/image'
 import styled from 'styled-components'
 import { DataModel } from 'pages'
 import sr, { srConfig } from '@utils/sr'
-import {
-  FirebaseIcon,
-  GithubIcon,
-  HtmlIcon,
-  JavascriptIcon,
-  NextjsIcon,
-  NodejsIcon,
-  ReactIcon,
-  ReduxIcon,
-  StyledComponentsIcon,
-  TailwindcssIcon,
-  TypescriptIcon,
-} from '@components/icons'
+import { Icon } from '@components/common'
 import { breakpoints, mixins } from 'styles'
 import { StyledTitle } from 'styles/utils'
 
@@ -147,6 +135,19 @@ const Projects: FC<Props> = ({ projects }) => {
     sr().reveal(ref.current, srConfig())
   }, [])
 
+  const technologies: string[] = [
+    'HTML',
+    'javascript (ES6+)',
+    'firebase',
+    'next.js',
+    'node.js',
+    'react',
+    'redux & redux-thunk',
+    'styled components',
+    'tailwindcss',
+    'typescript',
+  ]
+
   return (
     <StyledContent id="projects" ref={ref}>
       <StyledTitle>
@@ -156,72 +157,26 @@ const Projects: FC<Props> = ({ projects }) => {
           <span className="border" />
         </div>
       </StyledTitle>
+
       <br />
+
       <p>Here are a few technologies I&apos;ve been working with recently :</p>
+
       <StyledTechnologies>
-        <li>
-          <span>
-            <HtmlIcon />
-          </span>
-          HTML & (S)CSS
-        </li>
-        <li>
-          <span>
-            <JavascriptIcon />
-          </span>
-          Javascript (ES6+)
-        </li>
-        <li>
-          <span>
-            <FirebaseIcon />
-          </span>
-          Firebase
-        </li>
-        <li>
-          <span>
-            <NextjsIcon />
-          </span>
-          Next.js
-        </li>
-        <li>
-          <span>
-            <NodejsIcon />
-          </span>
-          Node.js
-        </li>
-        <li>
-          <span>
-            <ReactIcon />
-          </span>
-          React
-        </li>
-        <li>
-          <span>
-            <ReduxIcon />
-          </span>
-          Redux & Redux-thunk
-        </li>
-        <li>
-          <span>
-            <StyledComponentsIcon />
-          </span>
-          Styled Components
-        </li>
-        <li>
-          <span>
-            <TailwindcssIcon />
-          </span>
-          Tailwindcss
-        </li>
-        <li>
-          <span>
-            <TypescriptIcon />
-          </span>
-          Typescript
-        </li>
+        {technologies.map((tech) => (
+          <li key={tech}>
+            <span>
+              <Icon name={tech} />
+            </span>
+            {tech}
+          </li>
+        ))}
       </StyledTechnologies>
+
       <br />
+
       <h3>{projects.headerAfter}</h3>
+
       <StyledProjects>
         {projects.apps.map((app) => (
           <StyledProject key={app.appName}>
@@ -249,7 +204,7 @@ const Projects: FC<Props> = ({ projects }) => {
                   rel="noopener noreferrer"
                 >
                   <span>
-                    <GithubIcon />
+                    <Icon name="github" />
                   </span>
                 </a>
               </div>
