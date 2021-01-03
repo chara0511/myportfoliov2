@@ -1,7 +1,5 @@
-import sr, { srConfig } from '@utils/sr'
-import Link from 'next/link'
-import { useEffect, useRef } from 'react'
 import styled from 'styled-components'
+import { StyledLink } from 'styles/utils'
 
 const StyledContent = styled.div`
   text-align: center;
@@ -14,16 +12,12 @@ const StyledContent = styled.div`
 `
 
 const Custom404 = () => {
-  const ref = useRef<HTMLElement | any>(null)
-
-  useEffect(() => {
-    sr().reveal(ref.current, srConfig())
-  }, [])
-
   return (
-    <StyledContent ref={ref}>
+    <StyledContent>
       <h1>404 - Page Not Found</h1>
-      <Link href="/">Go Home</Link>
+      <StyledLink href="/" forwardedAs="/">
+        go home
+      </StyledLink>
     </StyledContent>
   )
 }

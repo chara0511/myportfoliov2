@@ -42,13 +42,13 @@ const StyledWrapper = styled.div`
     }
   }
 
-  & .bio {
+  & .description {
     flex: 1;
     width: 100%;
-    margin: 3rem 0 0;
+    margin: 2rem 0 0;
 
     @media (min-width: ${breakpoints.lg}) {
-      margin: 0 0 0 3rem;
+      margin: 0 3rem;
     }
   }
 `
@@ -85,7 +85,7 @@ const AboutPreview: FC<Props> = ({ about }) => {
           />
         </div>
 
-        <div className="bio">
+        <div className="description">
           <div>
             <h3>{about.headerBefore}</h3>
             <h4>{about.headerAfter}</h4>

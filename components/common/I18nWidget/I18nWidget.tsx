@@ -10,6 +10,18 @@ const StyledContent = styled.nav`
   bottom: 1rem;
   right: 0;
 
+  @media (min-width: ${breakpoints.lg}) {
+    right: 3rem;
+  }
+
+  @media (min-width: ${breakpoints.xl}) {
+    right: 3rem;
+  }
+
+  @media (min-width: ${breakpoints['2xl']}) {
+    right: 0;
+  }
+
   :focus {
     outline: none;
   }

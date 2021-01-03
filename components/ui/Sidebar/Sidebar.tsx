@@ -1,11 +1,11 @@
+import { FC, useEffect, useRef } from 'react'
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
 import type { BodyScrollOptions } from 'body-scroll-lock'
 import Portal from '@reach/portal'
 import styled from 'styled-components'
 import { Section } from 'pages'
-import { mixins } from 'styles'
+import { breakpoints, mixins } from 'styles'
 import { StyledSidebarLink } from 'styles/utils'
-import { FC, useEffect, useRef } from 'react'
 
 const StyledContent = styled.aside`
   background-color: ${({ theme }) => theme.colors.secondaryBg};
@@ -25,6 +25,20 @@ const StyledContent = styled.aside`
   }
 `
 
+const StyledWrapper = styled(StyledContent)`
+  display: none;
+  padding: 0;
+
+  @media (min-width: ${breakpoints.lg}) {
+    display: block;
+    width: min(12.5vw, 200px);
+  }
+
+  @media (min-width: ${breakpoints.xl}) {
+    width: min(10vw, 200px);
+  }
+`
+
 interface Props {
   open: boolean
   onClose: () => void
@@ -33,6 +47,8 @@ interface Props {
 const options: BodyScrollOptions = {
   reserveScrollBarGap: true,
 }
+
+const sidebarLinks: Section[] = ['about', 'projects', 'contact']
 
 const Sidebar: FC<Props> = ({ open = false, onClose }) => {
   const ref = useRef<HTMLDivElement>(null)
@@ -49,7 +65,6 @@ const Sidebar: FC<Props> = ({ open = false, onClose }) => {
     return () => clearAllBodyScrollLocks()
   }, [open])
 
-  const sidebarLinks: Section[] = ['about', 'projects', 'contact']
   // !error to link menu... try use route( to fix) :C
 
   return (
@@ -75,7 +90,28 @@ const Sidebar: FC<Props> = ({ open = false, onClose }) => {
             ))}
           </ul>
         </StyledContent>
-      ) : null}
+      ) : (
+        <StyledWrapper>
+          <ul>
+            <li>
+              <StyledSidebarLink href="/" handleSidebar={() => onClose()} forwardedAs="/">
+                home
+              </StyledSidebarLink>
+            </li>
+            {sidebarLinks.map((link) => (
+              <li key={link}>
+                <StyledSidebarLink
+                  href={`/${link}`}
+                  handleSidebar={() => onClose()}
+                  forwardedAs={`/${link}`}
+                >
+                  {link}
+                </StyledSidebarLink>
+              </li>
+            ))}
+          </ul>
+        </StyledWrapper>
+      )}
     </Portal>
   )
 }

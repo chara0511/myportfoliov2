@@ -41,13 +41,13 @@ const StyledWrapper = styled.div`
     }
   }
 
-  & .bio {
+  & .description {
     flex: 1;
     width: 100%;
-    margin: 3rem 0 0;
+    margin: 2rem 0 0;
 
     @media (min-width: ${breakpoints.lg}) {
-      margin: 0 0 0 3rem;
+      margin: 0 3rem;
     }
   }
 `
@@ -81,7 +81,7 @@ const About = () => {
           />
         </div>
 
-        <div className="bio">
+        <div className="description">
           <div>
             <h3>Bachelor of Systems Engineering.</h3>
             <p>

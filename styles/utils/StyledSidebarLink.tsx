@@ -39,19 +39,18 @@ const StyledSidebarLink: FC<Props> = ({ as, children, className, href, handleSid
 
 export default styled(StyledSidebarLink)`
   margin-bottom: 1.5rem;
-  padding: 0.5rem;
+  padding: 0.5rem 0;
 
   & button {
     font-size: ${({ theme }) => theme.fontSizes.lg};
     font-family: ${({ theme }) => theme.fontMono};
     padding: 0 0.5rem;
     width: 100%;
-    height: 40px;
     color: ${({ theme }) => theme.colors.text};
     text-transform: capitalize;
     transform: translateY(0rem);
     transition: ${({ theme }) => theme.transition};
-    letter-spacing: 0.15rem;
+    letter-spacing: 0.1rem;
 
     & .borders {
       display: block;
@@ -64,14 +63,14 @@ export default styled(StyledSidebarLink)`
         background-color: ${({ theme }) => theme.colors.fill};
         border-radius: ${({ theme }) => theme.borderRadius.default};
         transition: ${({ theme }) => theme.transition};
-        transform: translateX(-25px);
+        transform: translateX(-30px);
         opacity: 0;
       }
 
       & .border:first-child {
         background-color: ${({ theme }) => theme.colors.fill};
         margin: 0.25rem 0 0.75rem;
-        transform: translateX(50px);
+        transform: translateX(30px);
       }
     }
 

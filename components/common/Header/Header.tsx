@@ -4,7 +4,7 @@ import { useScroll } from '@lib/hooks'
 import { Sidebar } from '@components/ui'
 import { useUI } from '@components/ui/context'
 import { LogoButton, MenuButton } from '@components/ui/Buttons'
-import { mixins } from 'styles'
+import { breakpoints, mixins } from 'styles'
 
 export const StyledContent = styled.header<{
   scrollY: number
@@ -22,6 +22,10 @@ export const StyledContent = styled.header<{
   right: 0;
   width: 100%;
   z-index: 49;
+
+  @media (min-width: ${breakpoints.lg}) {
+    display: none;
+  }
 
   & nav {
     max-width: 1100px;
