@@ -1,8 +1,8 @@
+import { FC } from 'react'
 import styled, { keyframes } from 'styled-components'
+import { DataModel } from 'pages'
 import { I18nWidget } from '@components/common'
 import { breakpoints, mixins } from 'styles'
-import { FC } from 'react'
-import { DataModel } from 'pages'
 
 const fadeIn = keyframes`
   0% {
@@ -123,10 +123,11 @@ const Hero: FC<Props> = ({ hero }) => {
       <h2>{hero.headerAfter}</h2>
       <h3>
         {hero.header}
-        <span className="pulse">-</span>
+        <span className="pulse">.</span>
       </h3>
       <h4>{hero.body}</h4>
       <p>{hero.footer}</p>
+
       <I18nWidget />
     </StyledContent>
   )

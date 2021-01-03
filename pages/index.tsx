@@ -1,10 +1,12 @@
 import { GetStaticPropsContext } from 'next'
-import { About, Contact, Hero, Projects } from '@components/ui'
+import { About, ContactPreview, Hero, ProjectsPreview } from '@components/ui'
 import { getMyData } from '@lib/fetchData'
 
 export interface DataModel {
   body: string
+  bodyPrev: string
   link: string
+  linkPrev: string
   headerAfter: string
   headerBefore: string
   header: string
@@ -30,8 +32,8 @@ export default function Home({ myData }: Data) {
     <>
       <Hero hero={myData.hero} />
       <About />
-      <Projects projects={myData.projects} />
-      <Contact contact={myData.contact} />
+      <ProjectsPreview projects={myData.projects} />
+      <ContactPreview contact={myData.contact} />
     </>
   )
 }

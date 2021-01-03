@@ -1,16 +1,17 @@
 import styled from 'styled-components'
+import { mixins } from 'styles'
 
 const StyledTitle = styled.div`
-  text-align: center;
   letter-spacing: 0.15rem;
+  flex-direction: column;
+
+  ${mixins.flexCenter};
 
   & h2 {
     text-transform: capitalize;
   }
 
   & .borders {
-    display: inline-block;
-
     & .border {
       margin-left: 1.75rem;
       display: block;

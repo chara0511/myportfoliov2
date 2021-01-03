@@ -79,7 +79,7 @@ const MenuButton: FC<Props> = ({ y, open, onOpen, onClose }) => {
   return (
     <StyledMenuButton open={open} scrollY={y}>
       <button
-        aria-label="menu"
+        aria-label="Menu"
         type="button"
         onClick={() => (open ? onClose() : onOpen())}
         className={`hamburguer ${open ? 'active' : ''}`}

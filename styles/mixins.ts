@@ -27,6 +27,7 @@ const mixins = {
     align-items: center;
   `,
   bigLink: css`
+    width: 220px;
     color: #3a96dd;
     border: 1px solid ${({ theme }) => theme.colors.secondaryBg};
     padding: 1.25rem;

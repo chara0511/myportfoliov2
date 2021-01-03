@@ -1,4 +1,5 @@
 import { FC, useEffect, useRef } from 'react'
+import Link from 'next/link'
 import styled from 'styled-components'
 import { DataModel } from 'pages'
 import sr, { srConfig } from '@utils/sr'
@@ -8,7 +9,7 @@ import { StyledContactLink, StyledTitle } from 'styles/utils'
 const StyledContent = styled.section`
   width: 100%;
   min-height: 100vh;
-  padding: 5rem 0;
+  padding: 3rem 0;
   flex-direction: column;
   text-align: center;
   margin: 0 auto;
@@ -19,7 +20,7 @@ const StyledContent = styled.section`
     text-transform: capitalize;
   }
 
-  @media (min-width: ${breakpoints.md}) {
+  @media (min-width: ${breakpoints.sm}) {
     width: 75%;
   }
 
@@ -32,7 +33,7 @@ interface Props {
   contact: DataModel
 }
 
-const Contact: FC<Props> = ({ contact }) => {
+const ContactPreview: FC<Props> = ({ contact }) => {
   const ref = useRef<HTMLElement | any>(null)
 
   useEffect(() => {
@@ -42,22 +43,22 @@ const Contact: FC<Props> = ({ contact }) => {
   return (
     <StyledContent id="contact" ref={ref}>
       <StyledTitle>
-        <h2>{contact.header}</h2>
+        <Link href="/contact">
+          <a>
+            <h2>{contact.header}</h2>
+          </a>
+        </Link>
         <div className="borders">
           <span className="border" />
           <span className="border" />
         </div>
       </StyledTitle>
-      <p>{contact.body}</p>
-      <StyledContactLink
-        href="mailto:jccharalopez@gmail.com"
-        forwardedAs="mailto:jccharalopez@gmail.com"
-      >
-        {contact.link}
+      <p>{contact.bodyPrev}</p>
+      <StyledContactLink href="/contact" forwardedAs="/contact">
+        {contact.linkPrev}
       </StyledContactLink>
-      <p>{contact.footer}</p>
     </StyledContent>
   )
 }
 
-export default Contact
+export default ContactPreview

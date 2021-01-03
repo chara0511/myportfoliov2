@@ -57,12 +57,17 @@ const Sidebar: FC<Props> = ({ open = false, onClose }) => {
       {open ? (
         <StyledContent ref={ref}>
           <ul>
+            <li>
+              <StyledSidebarLink href="/" handleSidebar={() => onClose()} forwardedAs="/">
+                home
+              </StyledSidebarLink>
+            </li>
             {sidebarLinks.map((link) => (
               <li key={link}>
                 <StyledSidebarLink
-                  href={`#${link}`}
+                  href={`/${link}`}
                   handleSidebar={() => onClose()}
-                  forwardedAs={`#${link}`}
+                  forwardedAs={`/${link}`}
                 >
                   {link}
                 </StyledSidebarLink>
