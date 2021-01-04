@@ -12,19 +12,8 @@ interface Props {
 
 const StyledSidebarLink: FC<Props> = ({ as, children, className, href, handleSidebar }) => {
   return (
-    <>
-      <Link href={href} as={as} passHref>
-        <a className={className}>
-          <button type="button" onClick={handleSidebar}>
-            {children}
-            <div className="borders">
-              <span className="border" />
-              <span className="border" />
-            </div>
-          </button>
-        </a>
-      </Link>
-      {/* <a className={className} href={href}>
+    <Link href={href} as={as} passHref>
+      <a className={className}>
         <button type="button" onClick={handleSidebar}>
           {children}
           <div className="borders">
@@ -32,8 +21,8 @@ const StyledSidebarLink: FC<Props> = ({ as, children, className, href, handleSid
             <span className="border" />
           </div>
         </button>
-      </a> */}
-    </>
+      </a>
+    </Link>
   )
 }
 
@@ -41,7 +30,7 @@ export default styled(StyledSidebarLink)`
   margin-bottom: 1.5rem;
   padding: 0.5rem 0;
 
-  & button {
+  & > button {
     font-size: ${({ theme }) => theme.fontSizes.lg};
     font-family: ${({ theme }) => theme.fontMono};
     padding: 0 0.5rem;
@@ -74,7 +63,20 @@ export default styled(StyledSidebarLink)`
       }
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
+      color: ${({ theme }) => theme.colors.white};
+      transform: translateY(-0.7rem);
+
+      & .borders .border {
+        transform: translateX(0px);
+        opacity: 1;
+      }
+    }
+  }
+
+  &.active {
+    & > button {
       color: ${({ theme }) => theme.colors.white};
       transform: translateY(-0.7rem);
 

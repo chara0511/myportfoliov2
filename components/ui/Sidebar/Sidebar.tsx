@@ -1,11 +1,12 @@
 import { FC, useEffect, useRef } from 'react'
+import { useRouter } from 'next/router'
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
 import type { BodyScrollOptions } from 'body-scroll-lock'
 import Portal from '@reach/portal'
 import styled from 'styled-components'
-import { Section } from 'pages'
 import { breakpoints, mixins } from 'styles'
 import { StyledSidebarLink } from 'styles/utils'
+import getSlug from '@lib/getSlug'
 
 const StyledContent = styled.aside`
   background-color: ${({ theme }) => theme.colors.secondaryBg};
@@ -48,10 +49,24 @@ const options: BodyScrollOptions = {
   reserveScrollBarGap: true,
 }
 
-const sidebarLinks: Section[] = ['about', 'projects', 'contact']
+interface LINKS {
+  href: string
+  name: string
+}
+
+const SIDEBAR_LINKS: LINKS[] = [
+  { name: 'home', href: '/' },
+  { name: 'about', href: '/about' },
+  { name: 'projects', href: '/projects' },
+  { name: 'contact', href: '/contact' },
+]
 
 const Sidebar: FC<Props> = ({ open = false, onClose }) => {
   const ref = useRef<HTMLDivElement>(null)
+
+  const { asPath } = useRouter()
+
+  const activeLink = getSlug(asPath)
 
   useEffect(() => {
     if (ref.current) {
@@ -72,19 +87,15 @@ const Sidebar: FC<Props> = ({ open = false, onClose }) => {
       {open ? (
         <StyledContent ref={ref}>
           <ul>
-            <li>
-              <StyledSidebarLink href="/" handleSidebar={() => onClose()} forwardedAs="/">
-                home
-              </StyledSidebarLink>
-            </li>
-            {sidebarLinks.map((link) => (
-              <li key={link}>
+            {SIDEBAR_LINKS.map((link) => (
+              <li key={link.name}>
                 <StyledSidebarLink
-                  href={`/${link}`}
+                  href={link.href}
                   handleSidebar={() => onClose()}
-                  forwardedAs={`/${link}`}
+                  forwardedAs={link.href}
+                  className={activeLink === getSlug(link.href) ? 'active' : ''}
                 >
-                  {link}
+                  {link.name}
                 </StyledSidebarLink>
               </li>
             ))}
@@ -93,19 +104,15 @@ const Sidebar: FC<Props> = ({ open = false, onClose }) => {
       ) : (
         <StyledWrapper>
           <ul>
-            <li>
-              <StyledSidebarLink href="/" handleSidebar={() => onClose()} forwardedAs="/">
-                home
-              </StyledSidebarLink>
-            </li>
-            {sidebarLinks.map((link) => (
-              <li key={link}>
+            {SIDEBAR_LINKS.map((link) => (
+              <li key={link.name}>
                 <StyledSidebarLink
-                  href={`/${link}`}
+                  href={link.href}
                   handleSidebar={() => onClose()}
-                  forwardedAs={`/${link}`}
+                  forwardedAs={link.href}
+                  className={activeLink === getSlug(link.href) ? 'active' : ''}
                 >
-                  {link}
+                  {link.name}
                 </StyledSidebarLink>
               </li>
             ))}
