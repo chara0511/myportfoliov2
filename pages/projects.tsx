@@ -1,7 +1,7 @@
 import { GetStaticPropsContext } from 'next'
 import { Projects } from '@components/ui'
 import { getMyData } from '@lib/fetchData'
-import { Data } from 'pages'
+import { Data } from '@lib/data'
 
 export default function ProjectsPage({ myData }: Data) {
   return <Projects projects={myData.projects} />

@@ -67,6 +67,7 @@ export default styled(StyledSidebarLink)`
     &:focus {
       color: ${({ theme }) => theme.colors.white};
       transform: translateY(-0.7rem);
+      outline: none;
 
       & .borders .border {
         transform: translateX(0px);

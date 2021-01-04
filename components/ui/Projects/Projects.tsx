@@ -1,7 +1,7 @@
 import { FC, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import styled from 'styled-components'
-import { DataModel } from 'pages'
+import { DataModel } from '@lib/data'
 import sr, { srConfig } from '@utils/sr'
 import { Icon } from '@components/common'
 import { breakpoints, mixins } from 'styles'

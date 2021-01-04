@@ -1,12 +1,11 @@
 import { GetStaticPropsContext } from 'next'
 import { About } from '@components/ui'
 import { getMyData } from '@lib/fetchData'
-// import { Data } from 'pages'
+import { Data } from '@lib/data'
 
-// export default function AboutPage({ myData }: Data) {
-export default function AboutPage() {
+export default function AboutPage({ myData }: Data) {
   // console.log(myData)
-  return <About />
+  return <About about={myData.about} />
 }
 
 export const getStaticProps = async ({ locale }: GetStaticPropsContext) => {

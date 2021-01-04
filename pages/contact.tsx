@@ -1,7 +1,7 @@
 import { GetStaticPropsContext } from 'next'
 import { Contact } from '@components/ui'
 import { getMyData } from '@lib/fetchData'
-import { Data } from 'pages'
+import { Data } from '@lib/data'
 
 export default function ContactPage({ myData }: Data) {
   return <Contact contact={myData.contact} />

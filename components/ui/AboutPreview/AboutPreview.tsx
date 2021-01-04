@@ -1,7 +1,7 @@
 import { FC, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import styled from 'styled-components'
-import { DataModel } from 'pages'
+import { DataModel } from '@lib/data'
 import sr, { srConfig } from '@utils/sr'
 import { breakpoints, mixins } from 'styles'
 import { StyledTitle } from 'styles/utils'
@@ -48,7 +48,7 @@ const StyledWrapper = styled.div`
     margin: 2rem 0 0;
 
     @media (min-width: ${breakpoints.lg}) {
-      margin: 0 3rem;
+      margin: 0 4rem;
     }
   }
 `

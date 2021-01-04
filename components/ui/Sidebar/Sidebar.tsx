@@ -4,9 +4,9 @@ import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'bo
 import type { BodyScrollOptions } from 'body-scroll-lock'
 import Portal from '@reach/portal'
 import styled from 'styled-components'
+import getSlug from '@lib/getSlug'
 import { breakpoints, mixins } from 'styles'
 import { StyledSidebarLink } from 'styles/utils'
-import getSlug from '@lib/getSlug'
 
 const StyledContent = styled.aside`
   background-color: ${({ theme }) => theme.colors.secondaryBg};
@@ -33,10 +33,6 @@ const StyledWrapper = styled(StyledContent)`
   @media (min-width: ${breakpoints.lg}) {
     display: block;
     width: min(12.5vw, 200px);
-  }
-
-  @media (min-width: ${breakpoints.xl}) {
-    width: min(10vw, 200px);
   }
 `
 
@@ -79,8 +75,6 @@ const Sidebar: FC<Props> = ({ open = false, onClose }) => {
 
     return () => clearAllBodyScrollLocks()
   }, [open])
-
-  // !error to link menu... try use route( to fix) :C
 
   return (
     <Portal>

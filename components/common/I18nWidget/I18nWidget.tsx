@@ -15,7 +15,7 @@ const StyledContent = styled.nav`
   }
 
   @media (min-width: ${breakpoints.xl}) {
-    right: 3rem;
+    right: 5rem;
   }
 
   @media (min-width: ${breakpoints['2xl']}) {

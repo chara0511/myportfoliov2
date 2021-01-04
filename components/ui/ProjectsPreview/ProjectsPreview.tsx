@@ -1,7 +1,7 @@
 import { FC, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
-import { DataModel } from 'pages'
+import { DataModel } from '@lib/data'
 import sr, { srConfig } from '@utils/sr'
 import { mixins } from 'styles'
 import { StyledLink, StyledTitle } from 'styles/utils'
@@ -28,7 +28,6 @@ interface Props {
 }
 
 const ProjectsPreview: FC<Props> = ({ projects }) => {
-  // categorizar por app, landing page
   const ref = useRef<HTMLElement | any>(null)
 
   useEffect(() => {

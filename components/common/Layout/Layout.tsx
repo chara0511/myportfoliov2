@@ -5,14 +5,14 @@ import { Footer, Header } from '@components/common'
 import { Loader } from '@components/ui'
 import { breakpoints, mixins } from 'styles'
 
-const StyledContainer = styled.div`
+const StyledMainContainer = styled.div`
   min-height: 100vh;
   flex-direction: column;
 
   ${mixins.flexCenter};
 `
 
-const StyledMainContainer = styled.main<{ displaySidebar: boolean }>`
+const StyledContainer = styled.main<{ displaySidebar: boolean }>`
   padding: 0 1rem;
   max-width: 1100px;
   margin: 0 auto;
@@ -45,11 +45,11 @@ const Layout: FC = ({ children }) => {
       {state ? (
         <Loader isLoading={() => setState(false)} />
       ) : (
-        <StyledContainer>
+        <StyledMainContainer>
           <Header reload={() => setState((prev) => !prev)} />
-          <StyledMainContainer displaySidebar={displaySidebar}>{children}</StyledMainContainer>
+          <StyledContainer displaySidebar={displaySidebar}>{children}</StyledContainer>
           <Footer />
-        </StyledContainer>
+        </StyledMainContainer>
       )}
     </>
   )
