@@ -17,6 +17,7 @@ const StyledContent = styled.aside`
   width: min(75vw, 375px);
   top: 0;
   right: 0;
+  z-index: 24;
 
   & ul {
     ${mixins.flexCenter};

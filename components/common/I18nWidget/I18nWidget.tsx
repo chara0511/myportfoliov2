@@ -10,6 +10,7 @@ const StyledContent = styled.nav`
   position: absolute;
   bottom: 1rem;
   right: 1rem;
+  z-index: 12;
 
   @media (min-width: ${breakpoints.sm}) {
     right: 3rem;

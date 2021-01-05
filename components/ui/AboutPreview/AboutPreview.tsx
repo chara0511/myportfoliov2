@@ -1,4 +1,5 @@
 import { FC, useEffect, useRef } from 'react'
+import Link from 'next/link'
 import Image from 'next/image'
 import styled from 'styled-components'
 import { DataModel } from '@lib/data'
@@ -75,7 +76,13 @@ const AboutPreview: FC<Props> = ({ about }) => {
 
   return (
     <StyledContent id="about" ref={ref}>
-      <Title title={about.header} />
+      <Title>
+        <Link href="/about">
+          <a>
+            <h2>{about.header}</h2>
+          </a>
+        </Link>
+      </Title>
       <StyledWrapper>
         <div className="formattedImg">
           <Image
