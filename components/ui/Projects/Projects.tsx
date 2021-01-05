@@ -3,9 +3,8 @@ import Image from 'next/image'
 import styled from 'styled-components'
 import { DataModel } from '@lib/data'
 import sr, { srConfig } from '@utils/sr'
-import { Icon } from '@components/common'
+import { Icon, Title } from '@components/common'
 import { breakpoints, mixins } from 'styles'
-import { StyledTitle } from 'styles/utils'
 
 const StyledContent = styled.section`
   width: 100%;
@@ -138,19 +137,11 @@ const Projects: FC<Props> = ({ projects }) => {
 
   return (
     <StyledContent id="projects" ref={ref}>
-      <StyledTitle>
-        <h2>{projects.header}</h2>
-        <div className="borders">
-          <span className="border" />
-          <span className="border" />
-        </div>
-      </StyledTitle>
-
+      <Title title={projects.header} />
       <br />
       <p>{projects.bodyPrev}</p>
       <br />
       <p>Here are a few technologies I&apos;ve been working with recently :</p>
-
       <StyledTechnologies>
         {projects.technologies.map((tech) => (
           <li key={tech.name}>

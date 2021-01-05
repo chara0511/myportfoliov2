@@ -4,7 +4,8 @@ import styled from 'styled-components'
 import { DataModel } from '@lib/data'
 import sr, { srConfig } from '@utils/sr'
 import { breakpoints, mixins } from 'styles'
-import { StyledSmallLink, StyledTitle } from 'styles/utils'
+import { StyledSmallLink } from 'styles/utils'
+import { Title } from '@components/common'
 
 const StyledContent = styled.section`
   width: 100%;
@@ -74,13 +75,7 @@ const AboutPreview: FC<Props> = ({ about }) => {
 
   return (
     <StyledContent id="about" ref={ref}>
-      <StyledTitle>
-        <h2>{about.header}</h2>
-        <div className="borders">
-          <span className="border" />
-          <span className="border" />
-        </div>
-      </StyledTitle>
+      <Title title={about.header} />
       <StyledWrapper>
         <div className="formattedImg">
           <Image

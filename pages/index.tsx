@@ -1,7 +1,7 @@
 import { GetStaticPropsContext } from 'next'
 import { AboutPreview, ContactPreview, Hero, ProjectsPreview } from '@components/ui'
-import { getMyData } from '@lib/fetchData'
 import { Data } from '@lib/data'
+import { getMyData } from '@lib/fetchData'
 
 export default function Home({ myData }: Data) {
   // *console.log(myData)

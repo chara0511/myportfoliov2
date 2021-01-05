@@ -52,16 +52,6 @@ const StyledContent = styled.section`
     & .pulse {
       animation: 1000ms ${fadeIn} ease-in-out infinite alternate;
     }
-
-    /* & span {
-      animation: none;
-    }
-
-    @media (min-width: ${breakpoints.sm}) {
-      & span {
-        animation: 1000ms ${fadeIn} ease-in-out infinite alternate;
-      }
-    } */
   }
 
   & h4 {

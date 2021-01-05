@@ -1,10 +1,11 @@
 import { FC, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
+import { Title } from '@components/common'
 import { DataModel } from '@lib/data'
 import sr, { srConfig } from '@utils/sr'
 import { mixins } from 'styles'
-import { StyledLink, StyledTitle } from 'styles/utils'
+import { StyledLink } from 'styles/utils'
 
 const StyledContent = styled.section`
   width: 100%;
@@ -36,18 +37,13 @@ const ProjectsPreview: FC<Props> = ({ projects }) => {
 
   return (
     <StyledContent id="projects" ref={ref}>
-      <StyledTitle>
+      <Title>
         <Link href="/projects">
           <a>
             <h2>{projects.header}</h2>
           </a>
         </Link>
-        <div className="borders">
-          <span className="border" />
-          <span className="border" />
-        </div>
-      </StyledTitle>
-
+      </Title>
       <p>{projects.bodyPrev}</p>
 
       <p>{projects.footerPrev}</p>

@@ -3,8 +3,8 @@ import Image from 'next/image'
 import styled from 'styled-components'
 import { DataModel } from '@lib/data'
 import sr, { srConfig } from '@utils/sr'
+import { Title } from '@components/common'
 import { breakpoints, mixins } from 'styles'
-import { StyledTitle } from 'styles/utils'
 
 const StyledContent = styled.section`
   width: 100%;
@@ -70,13 +70,7 @@ const About: FC<Props> = ({ about }) => {
 
   return (
     <StyledContent id="about" ref={ref}>
-      <StyledTitle>
-        <h2>{about.header}</h2>
-        <div className="borders">
-          <span className="border" />
-          <span className="border" />
-        </div>
-      </StyledTitle>
+      <Title title={about.header} />
       <StyledWrapper>
         <div className="formattedImg">
           <Image

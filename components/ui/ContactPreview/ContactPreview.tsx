@@ -3,8 +3,9 @@ import Link from 'next/link'
 import styled from 'styled-components'
 import { DataModel } from '@lib/data'
 import sr, { srConfig } from '@utils/sr'
+import { Title } from '@components/common'
 import { breakpoints, mixins } from 'styles'
-import { StyledLink, StyledTitle } from 'styles/utils'
+import { StyledLink } from 'styles/utils'
 
 const StyledContent = styled.section`
   width: 100%;
@@ -42,17 +43,13 @@ const ContactPreview: FC<Props> = ({ contact }) => {
 
   return (
     <StyledContent id="contact" ref={ref}>
-      <StyledTitle>
+      <Title>
         <Link href="/contact">
           <a>
             <h2>{contact.header}</h2>
           </a>
         </Link>
-        <div className="borders">
-          <span className="border" />
-          <span className="border" />
-        </div>
-      </StyledTitle>
+      </Title>
       <p>{contact.bodyPrev}</p>
       <StyledLink href="/contact" forwardedAs="/contact">
         {contact.linkPrev}

@@ -1,9 +1,8 @@
 import { FC } from 'react'
 import styled from 'styled-components'
 import { useScroll } from '@lib/hooks'
-import { Sidebar } from '@components/ui'
+import { LogoButton, MenuButton, Sidebar } from '@components/ui'
 import { useUI } from '@components/ui/context'
-import { LogoButton, MenuButton } from '@components/ui/Buttons'
 import { breakpoints, mixins } from 'styles'
 
 export const StyledContent = styled.header<{
@@ -60,11 +59,6 @@ const Header: FC<Props> = ({ reload }) => {
     <StyledContent scrollY={y} scrollDirection={direction} open={displaySidebar}>
       <nav>
         <LogoButton href="/" reload={reload} />
-        <div style={{ display: 'none' }}>
-          <p>about</p>
-          <p>projects</p>
-          <p>contact</p>
-        </div>
         <MenuButton y={y} open={displaySidebar} onOpen={openSidebar} onClose={closeSidebar} />
       </nav>
       <Sidebar open={displaySidebar} onClose={closeSidebar} />

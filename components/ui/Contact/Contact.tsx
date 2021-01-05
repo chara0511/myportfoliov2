@@ -2,8 +2,9 @@ import { FC, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import { DataModel } from '@lib/data'
 import sr, { srConfig } from '@utils/sr'
+import { Title } from '@components/common'
 import { breakpoints, mixins } from 'styles'
-import { StyledLink, StyledTitle } from 'styles/utils'
+import { StyledLink } from 'styles/utils'
 
 const StyledContent = styled.section`
   width: 100%;
@@ -41,13 +42,7 @@ const Contact: FC<Props> = ({ contact }) => {
 
   return (
     <StyledContent id="contact" ref={ref}>
-      <StyledTitle>
-        <h2>{contact.header}</h2>
-        <div className="borders">
-          <span className="border" />
-          <span className="border" />
-        </div>
-      </StyledTitle>
+      <Title title={contact.header} />
       <p>{contact.body}</p>
       <StyledLink href="mailto:jccharalopez@gmail.com" forwardedAs="mailto:jccharalopez@gmail.com">
         {contact.link}
