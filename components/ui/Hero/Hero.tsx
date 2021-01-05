@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import styled, { keyframes } from 'styled-components'
-import { DataModel } from 'pages'
+import { DataModel } from '@lib/data'
 import { I18nWidget } from '@components/common'
 import { breakpoints, mixins } from 'styles'
 

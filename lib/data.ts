@@ -10,6 +10,9 @@ export interface DataModel {
   bodyAfter: string
   bodyBefore: string
   bodyPrev: string
+  bodyPart1: string
+  bodyPart2: string
+  bodyPart3: string
   footer: string
   footerPrev: string
   headerAfter: string

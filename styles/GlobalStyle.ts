@@ -55,8 +55,8 @@ const GlobalStyle = createGlobalStyle`
     position: relative;
     transition: ${({ theme }) => theme.transition};
 
-    :hover,
-    :focus {
+    &:hover,
+    &:focus {
       color: #3a96dd;
     }
   }

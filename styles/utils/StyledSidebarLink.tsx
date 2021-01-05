@@ -33,6 +33,7 @@ export default styled(StyledSidebarLink)`
   & > button {
     font-size: ${({ theme }) => theme.fontSizes.lg};
     font-family: ${({ theme }) => theme.fontMono};
+    font-weight: 600;
     padding: 0 0.5rem;
     width: 100%;
     color: ${({ theme }) => theme.colors.text};

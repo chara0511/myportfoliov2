@@ -47,6 +47,11 @@ const StyledWrapper = styled.div`
     width: 100%;
     margin: 2rem 0 0;
 
+    & a {
+      color: ${({ theme }) => theme.colors.white};
+      font-weight: 600;
+    }
+
     @media (min-width: ${breakpoints.lg}) {
       margin: 0 4rem;
     }
@@ -90,21 +95,46 @@ const About: FC<Props> = ({ about }) => {
             <p>{`${about.headerBefore} ${about.headerAfter}`}</p>
             <br />
             <p>
-              {`${about.bodyBefore} ${about.keyword1} - 🎓 Actualmente, tengo el
-              grado de Bachiller.`}
+              {about.bodyBefore}
+              <a href="https://www.unac.edu.pe" target="_blank" rel="noopener noreferrer">
+                {about.keyword1}
+              </a>
+              {` - `}
+              {about.bodyAfter}
             </p>
+
             <br />
-            {/* From reading documentation, taking courses on */}
-            {/* watching tutorials on Youtube, and running tests on */}
             <p>
-              {`${about.bodyPrev} Desde leer
-              documentaciones, tomar cursos en ${about.keyword2}, ver tutoriales en Youtube y ejecutar pruebas
-              en ${about.keyword3}. 💻 Hasta completar desafíos en ${about.keyword4} & ${about.keyword5}.`}
+              {about.bodyPrev} {about.bodyPart1}
+              <a href="https://www.udemy.com" target="_blank" rel="noopener noreferrer">
+                {about.keyword2}
+              </a>
+              , {about.bodyPart2}
+              <a
+                href="https://www.freecodecamp.org/learn"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {about.keyword3}
+              </a>
+              . {about.bodyPart3}
+              <a href="https://devchallenges.io" target="_blank" rel="noopener noreferrer">
+                {about.keyword4}
+              </a>
+              {` & `}
+              <a
+                href="https://www.frontendmentor.io/solutions"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {about.keyword5}
+              </a>
+              .
             </p>
             <br />
             <p>{about.body}</p>
             <br />
-            <p>Estoy orgulloso de decir que siempre trabajo duro. 😎</p>
+            <p>{about.footer}</p>
           </div>
         </div>
       </StyledWrapper>
