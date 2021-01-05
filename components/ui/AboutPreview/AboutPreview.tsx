@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { DataModel } from '@lib/data'
 import sr, { srConfig } from '@utils/sr'
 import { breakpoints, mixins } from 'styles'
-import { StyledTitle } from 'styles/utils'
+import { StyledSmallLink, StyledTitle } from 'styles/utils'
 
 const StyledContent = styled.section`
   width: 100%;
@@ -52,6 +52,15 @@ const StyledWrapper = styled.div`
     }
   }
 `
+
+const StyledFooter = styled.div`
+  text-align: end;
+
+  @media (min-width: ${breakpoints.lg}) {
+    margin: 0 4rem;
+  }
+`
+
 interface Props {
   about: DataModel
 }
@@ -94,6 +103,12 @@ const AboutPreview: FC<Props> = ({ about }) => {
           </div>
         </div>
       </StyledWrapper>
+
+      <StyledFooter>
+        <StyledSmallLink href="/about" forwardedAs="/about">
+          {about.linkPrev}
+        </StyledSmallLink>
+      </StyledFooter>
     </StyledContent>
   )
 }

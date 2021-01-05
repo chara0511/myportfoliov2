@@ -26,6 +26,16 @@ const mixins = {
     justify-content: space-evenly;
     align-items: center;
   `,
+  smallLink: css`
+    color: #3a96dd;
+    border: 1px solid ${({ theme }) => theme.colors.secondaryBg};
+    padding: 0.5rem 1.25rem;
+    font-size: ${({ theme }) => theme.fontSizes.sm};
+    font-weight: 600;
+    text-transform: capitalize;
+    font-family: ${({ theme }) => theme.fontMono};
+    border-radius: ${({ theme }) => theme.borderRadius.default};
+  `,
   bigLink: css`
     width: 220px;
     color: #3a96dd;
