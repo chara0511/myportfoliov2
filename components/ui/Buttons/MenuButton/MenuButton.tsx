@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { breakpoints } from 'styles'
 
 const StyledMenuButton = styled.div<{ scrollY: number; open: boolean }>`
-  background-color: ${({ open, theme }) => (open ? theme.colors.secondaryBg : 'inherit')};
+  background-color: ${({ open }) => (open ? 'var(--blue-zodiac)' : 'inherit')};
   width: min(75vw, 375px);
   padding: ${({ scrollY }) => (scrollY === 0 ? '1rem' : '0.5rem 1rem')};
   display: flex;
@@ -35,7 +35,7 @@ const StyledMenuButton = styled.div<{ scrollY: number; open: boolean }>`
     }
 
     & span {
-      background-color: ${({ theme }) => theme.colors.fill};
+      background-color: var(--curious-blue);
       width: 75%;
       height: 0.25rem;
       margin-top: 0.5rem;

@@ -5,14 +5,7 @@ const theme: DefaultTheme = {
     card: '8px',
     default: '4px',
   },
-  colors: {
-    fill: '#3a96dd', // 4475e2
-    primaryBg: '#14273d',
-    secondaryBg: '#132d4d',
-    text: '#97B9D1',
-    white: '#f8f9fa',
-  },
-  fontDefault: `-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
+  fontSans: `-apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
     Fira Sans, Droid Sans, Helvetica Neue, sans-serif`,
   fontMono: `SF Mono, Fira Code, Fira Mono, Roboto Mono, monospace`,
   fontSizes: {

@@ -6,7 +6,7 @@ const StyledContent = styled.div`
 
   & h1 {
     font-size: ${({ theme }) => theme.fontSizes['3xl']};
-    color: ${({ theme }) => theme.colors.fill};
+    color: var(--curious-blue);
     margin: 2rem 0;
   }
 `

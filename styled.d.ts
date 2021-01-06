@@ -6,14 +6,7 @@ declare module 'styled-components' {
       card: string
       default: string
     }
-    colors: {
-      fill: string
-      primaryBg: string
-      secondaryBg: string
-      text: string
-      white: string
-    }
-    fontDefault: string
+    fontSans: string
     fontMono: string
     fontSizes: {
       xs: string

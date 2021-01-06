@@ -27,12 +27,12 @@ const StyledTitle = styled.div`
       display: block;
       width: 45px;
       height: 2px;
-      background-color: ${({ theme }) => theme.colors.fill};
+      background-color: var(--curious-blue);
       border-radius: ${({ theme }) => theme.borderRadius.default};
     }
 
     & .border:first-child {
-      background-color: ${({ theme }) => theme.colors.fill};
+      background-color: var(--curious-blue);
       margin: 0.25rem 0 0.75rem;
     }
   }
@@ -40,7 +40,7 @@ const StyledTitle = styled.div`
 
 const StyledPulsar = styled.span`
   animation: 1000ms ${fadeIn} ease-in-out infinite alternate;
-  color: ${({ theme }) => theme.colors.fill};
+  color: var(--curious-blue);
   font-size: ${({ theme }) => theme.fontSizes['3xl']};
 `
 

@@ -32,11 +32,11 @@ export default styled(StyledSidebarLink)`
 
   & > button {
     font-size: ${({ theme }) => theme.fontSizes.lg};
-    font-family: ${({ theme }) => theme.fontMono};
+    font-family: var(--font-mono);
     font-weight: 600;
     padding: 0 0.5rem;
     width: 100%;
-    color: ${({ theme }) => theme.colors.text};
+    color: var(--polo-blue);
     text-transform: capitalize;
     transform: translateY(0rem);
     transition: ${({ theme }) => theme.transition};
@@ -50,7 +50,7 @@ export default styled(StyledSidebarLink)`
         display: block;
         width: 45px;
         height: 2px;
-        background-color: ${({ theme }) => theme.colors.fill};
+        background-color: var(--curious-blue);
         border-radius: ${({ theme }) => theme.borderRadius.default};
         transition: ${({ theme }) => theme.transition};
         transform: translateX(-30px);
@@ -58,7 +58,7 @@ export default styled(StyledSidebarLink)`
       }
 
       & .border:first-child {
-        background-color: ${({ theme }) => theme.colors.fill};
+        background-color: var(--curious-blue);
         margin: 0.25rem 0 0.75rem;
         transform: translateX(30px);
       }
@@ -66,7 +66,7 @@ export default styled(StyledSidebarLink)`
 
     &:hover,
     &:focus {
-      color: ${({ theme }) => theme.colors.white};
+      color: var(--athens-gray);
       transform: translateY(-0.7rem);
       outline: none;
 
@@ -79,7 +79,7 @@ export default styled(StyledSidebarLink)`
 
   &.active {
     & > button {
-      color: ${({ theme }) => theme.colors.white};
+      color: var(--athens-gray);
       transform: translateY(-0.7rem);
 
       & .borders .border {

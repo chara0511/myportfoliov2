@@ -40,7 +40,7 @@ const StyledContent = styled.section`
   }
 
   & h3 {
-    color: ${({ theme }) => theme.colors.white};
+    color: var(--athens-gray);
     font-size: clamp(
       ${({ theme }) => theme.fontSizes['4xl']},
       8vw,

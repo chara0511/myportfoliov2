@@ -64,7 +64,7 @@ const StyledDropUpMenu = styled.li`
 `
 
 const StyledWidgetBtn = styled(StyledDropUpMenuBtn)`
-  border: 1px solid ${({ theme }) => theme.colors.secondaryBg};
+  border: 1px solid var(--blue-zodiac);
   margin-top: 0.5rem;
 
   @media (min-width: ${breakpoints.md}) {

@@ -2,10 +2,22 @@ import { createGlobalStyle } from 'styled-components'
 import breakpoints from './breakpoints'
 
 const GlobalStyle = createGlobalStyle`
+
+  :root {
+    --curious-blue: #3a96dd; 
+    --big-stone: #14273d;
+    --blue-zodiac: #132d4d;
+    --polo-blue: #97B9D1;
+    --athens-gray: #f8f9fa;
+
+    --font-mono: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+    --font-sans: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+
   html {
-    color: ${({ theme }) => theme.colors.text};
-    font-family:${({ theme }) => theme.fontDefault};
-    background-color: ${({ theme }) => theme.colors.primaryBg};
+    color: var(--polo-blue);
+    font-family:var(--font-sans);
+    background-color: var(--big-stone);
     font-size: ${({ theme }) => theme.fontSizes.base};
     line-height: ${({ theme }) => theme.lineHeights.base};
     -webkit-font-smoothing: antialiased;
@@ -21,7 +33,7 @@ const GlobalStyle = createGlobalStyle`
   *:before,
   *:after {
     box-sizing: border-box;
-    border: 0 solid #e5e7eb;
+    border: 0 solid var(--athens-gray);
   }
 
   body {
@@ -57,7 +69,7 @@ const GlobalStyle = createGlobalStyle`
 
     &:hover,
     &:focus {
-      color: #3a96dd;
+      color: var(--curious-blue);
     }
   }
 

@@ -9,7 +9,7 @@ import { breakpoints, mixins } from 'styles'
 import { StyledSidebarLink } from 'styles/utils'
 
 const StyledContent = styled.aside`
-  background-color: ${({ theme }) => theme.colors.secondaryBg};
+  background-color: var(--blue-zodiac);
   padding: 1rem;
   position: fixed;
   /* width: 100%; */

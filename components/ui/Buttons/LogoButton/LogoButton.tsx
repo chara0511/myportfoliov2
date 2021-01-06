@@ -6,7 +6,7 @@ import { UrlObject } from 'url'
 import { breakpoints } from 'styles'
 
 const StyledLogoButton = styled.div`
-  color: ${({ theme }) => theme.colors.primaryBg};
+  color: var(--big-stone);
   padding-left: 1rem;
 
   @media (min-width: ${breakpoints.sm}) {

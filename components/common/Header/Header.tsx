@@ -33,7 +33,7 @@ export const StyledContent = styled.header<{
     ${mixins.flexBetween};
 
     & button {
-      color: ${({ theme }) => theme.colors.primaryBg};
+      color: var(--big-stone);
     }
 
     & svg {
@@ -42,7 +42,7 @@ export const StyledContent = styled.header<{
     }
 
     & p {
-      color: ${({ theme }) => theme.colors.text};
+      color: var(--polo-blue);
     }
   }
 `

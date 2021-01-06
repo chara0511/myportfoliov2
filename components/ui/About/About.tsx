@@ -48,7 +48,7 @@ const StyledWrapper = styled.div`
     margin: 2rem 0 0;
 
     & a {
-      color: ${({ theme }) => theme.colors.white};
+      color: var(--athens-gray);
       font-weight: 600;
     }
 

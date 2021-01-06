@@ -30,7 +30,7 @@ const StyledLogo = styled.div<TitleProps>`
 ` */
 
 const StyledLogo = styled.div<{ withDelay: boolean }>`
-  color: ${({ theme }) => theme.colors.primaryBg};
+  color: var(--big-stone);
   opacity: ${({ withDelay }) => (withDelay ? '1' : '0')};
 
   & svg {

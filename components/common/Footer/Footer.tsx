@@ -27,7 +27,7 @@ const StyledSocialLinks = styled.div`
 `
 
 const StyledCredit = styled.div`
-  font-family: ${({ theme }) => theme.fontMono};
+  font-family: var(--font-mono);
   font-size: ${({ theme }) => theme.fontSizes.sm};
 
   & a {

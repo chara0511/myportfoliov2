@@ -98,8 +98,8 @@ const AboutPreview: FC<Props> = ({ about }) => {
 
         <div className="description">
           <div>
-            <h3>{about.headerBefore}</h3>
-            <h4>{about.headerAfter}</h4>
+            <p>{about.headerBefore}</p>
+            <p>{about.headerAfter}</p>
             <br />
             <p>{about.bodyPrev}</p>
           </div>

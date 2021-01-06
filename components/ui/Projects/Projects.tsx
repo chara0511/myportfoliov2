@@ -64,7 +64,7 @@ const StyledProject = styled.div`
   }
 
   & .projectInfo {
-    background-color: ${({ theme }) => theme.colors.secondaryBg};
+    background-color: var(--blue-zodiac);
     border-bottom-right-radius: ${({ theme }) => theme.borderRadius.card};
     border-bottom-left-radius: ${({ theme }) => theme.borderRadius.card};
 
@@ -84,14 +84,14 @@ const StyledProject = styled.div`
     }
 
     & .projectInfoFooter {
-      border-top: 1px solid #3a96dd;
+      border-top: 1px solid var(--curious-blue);
       padding: 0.5rem 1.5rem 1rem;
 
       & ul {
         flex-wrap: wrap;
         font-size: ${({ theme }) => theme.fontSizes.sm};
         line-height: ${({ theme }) => theme.lineHeights.sm};
-        font-family: ${({ theme }) => theme.fontMono};
+        font-family: var(--font-mono);
 
         ${mixins.flexAround};
       }
@@ -104,7 +104,7 @@ const StyledTechnologies = styled.ul`
   grid-template-columns: repeat(2, minmax(140px, 250px));
   row-gap: 1rem;
   margin: 1.5rem auto;
-  font-family: ${({ theme }) => theme.fontMono};
+  font-family: var(--font-mono);
   font-size: ${({ theme }) => theme.fontSizes.sm};
   justify-content: center;
   text-transform: capitalize;
