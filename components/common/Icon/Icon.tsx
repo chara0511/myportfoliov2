@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import {
   ErrorIcon,
+  ExternalIcon,
   FirebaseIcon,
   GithubIcon,
   HtmlIcon,
@@ -22,6 +23,8 @@ interface Props {
 
 const Icon: FC<Props> = ({ name }) => {
   switch (name) {
+    case 'external link':
+      return <ExternalIcon />
     case 'HTML':
       return <HtmlIcon />
     case 'javascript (ES6+)':

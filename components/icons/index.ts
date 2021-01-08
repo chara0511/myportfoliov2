@@ -1,6 +1,7 @@
 export { default as ChevronUpIcon } from './ChevronUpIcon'
 export { default as DiscordIcon } from './DiscordIcon'
 export { default as ErrorIcon } from './ErrorIcon'
+export { default as ExternalIcon } from './ExternalIcon'
 export { default as FirebaseIcon } from './FirebaseIcon'
 export { default as GithubIcon } from './GithubIcon'
 export { default as HtmlIcon } from './HtmlIcon'

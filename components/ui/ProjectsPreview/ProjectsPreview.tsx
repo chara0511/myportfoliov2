@@ -1,7 +1,8 @@
 import { FC, useEffect, useRef } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import styled from 'styled-components'
-import { Title } from '@components/common'
+import { Icon, Title } from '@components/common'
 import { DataModel } from '@lib/data'
 import sr, { srConfig } from '@utils/sr'
 import { breakpoints, mixins } from 'styles'
@@ -35,15 +36,18 @@ const StyledBody = styled.div`
 `
 
 const StyledWrapper = styled.div`
-  flex: 0 300px;
+  flex: 0 100px;
   text-align: right;
+
+  @media (min-width: ${breakpoints.xl}) {
+    flex: 0 300px;
+  }
 `
 
 const StyledGrid = styled.div`
   display: none;
 
   @media (min-width: ${breakpoints.lg}) {
-    border: 1px solid red;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     max-width: 625px;
@@ -67,6 +71,7 @@ const StyledGrid = styled.div`
 
         &:hover {
           z-index: 99;
+          transform: scale(1.075) rotateZ(-2deg);
         }
       }
 
@@ -77,9 +82,11 @@ const StyledGrid = styled.div`
         height: 175px;
         z-index: 12;
 
+        ${mixins.flexCenter};
+
         &:hover {
           z-index: 99;
-          transform: scale(1.075) rotateZ(2deg);
+          transform: scale(1.025) rotateZ(2deg);
         }
       }
 
@@ -88,6 +95,8 @@ const StyledGrid = styled.div`
         height: 200px;
         right: 4rem;
         z-index: 24;
+
+        ${mixins.flexCenter};
 
         &:hover {
           z-index: 99;
@@ -104,6 +113,7 @@ const StyledGrid = styled.div`
 
         &:hover {
           z-index: 99;
+          transform: scale(1.1) rotateZ(-4deg);
         }
       }
 
@@ -115,9 +125,11 @@ const StyledGrid = styled.div`
         transform: rotateZ(-2deg);
         z-index: 49;
 
+        ${mixins.flexCenter};
+
         &:hover {
           z-index: 99;
-          transform: scale(1.05) rotateZ(0);
+          transform: scale(1.05) rotateZ(2deg);
         }
       }
 
@@ -129,7 +141,15 @@ const StyledGrid = styled.div`
 
         &:hover {
           z-index: 99;
+          transform: scale(1.05) rotateZ(10deg);
         }
+      }
+
+      & span {
+        width: 1.25rem;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
       }
     }
   }
@@ -163,12 +183,65 @@ const ProjectsPreview: FC<Props> = ({ projects }) => {
         </StyledWrapper>
 
         <StyledGrid>
-          <div className="block image1">image 1 link demo</div>
-          <div className="block content1">content 1 link code</div>
-          <div className="block content2">content 2</div>
-          <div className="block image3">image 3</div>
-          <div className="block content3">content 3</div>
-          <div className="block image2">image 2</div>
+          <a href="http://" target="_blank" rel="noopener noreferrer" className="block image1">
+            <div>
+              <Image
+                alt={` screenshot`}
+                src="/projects/weather.png"
+                width={580}
+                height={380}
+                loading="eager"
+                unoptimized
+              />
+            </div>
+          </a>
+
+          <a href="http://" target="_blank" rel="noopener noreferrer" className="block content1">
+            <h3>weather app</h3>
+            <span>
+              <Icon name="external link" />
+            </span>
+          </a>
+
+          <a href="http://" target="_blank" rel="noopener noreferrer" className="block content2">
+            <h3>weather app</h3>
+            <span>
+              <Icon name="external link" />
+            </span>
+          </a>
+
+          <a href="http://" target="_blank" rel="noopener noreferrer" className="block image3">
+            <div>
+              <Image
+                alt={` screenshot`}
+                src="/projects/weather.png"
+                width={580}
+                height={380}
+                loading="eager"
+                unoptimized
+              />
+            </div>
+          </a>
+
+          <a href="http://" target="_blank" rel="noopener noreferrer" className="block content3">
+            <h3>weather app</h3>
+            <span>
+              <Icon name="external link" />
+            </span>
+          </a>
+
+          <a href="http://" target="_blank" rel="noopener noreferrer" className="block image2">
+            <div>
+              <Image
+                alt={` screenshot`}
+                src="/projects/weather.png"
+                width={580}
+                height={380}
+                loading="eager"
+                unoptimized
+              />
+            </div>
+          </a>
         </StyledGrid>
       </StyledBody>
 
