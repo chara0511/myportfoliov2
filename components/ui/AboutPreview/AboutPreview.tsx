@@ -2,11 +2,11 @@ import { FC, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import styled from 'styled-components'
+import { Title } from '@components/common'
 import { DataModel } from '@lib/data'
 import sr, { srConfig } from '@utils/sr'
 import { breakpoints, mixins } from 'styles'
 import { StyledSmallLink } from 'styles/utils'
-import { Title } from '@components/common'
 
 const StyledContent = styled.section`
   width: 100%;
@@ -14,7 +14,7 @@ const StyledContent = styled.section`
   padding: 3rem 0;
 `
 
-const StyledWrapper = styled.div`
+const StyledBody = styled.div`
   margin: 2rem 0;
   flex-direction: column;
 
@@ -56,7 +56,8 @@ const StyledWrapper = styled.div`
 `
 
 const StyledFooter = styled.div`
-  text-align: end;
+  display: flex;
+  justify-content: flex-end;
 
   @media (min-width: ${breakpoints.lg}) {
     margin: 0 4rem;
@@ -83,7 +84,7 @@ const AboutPreview: FC<Props> = ({ about }) => {
           </a>
         </Link>
       </Title>
-      <StyledWrapper>
+      <StyledBody>
         <div className="formattedImg">
           <Image
             loading="eager"
@@ -104,7 +105,7 @@ const AboutPreview: FC<Props> = ({ about }) => {
             <p>{about.bodyPrev}</p>
           </div>
         </div>
-      </StyledWrapper>
+      </StyledBody>
 
       <StyledFooter>
         <StyledSmallLink href="/about" forwardedAs="/about">

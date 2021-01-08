@@ -49,6 +49,7 @@ const GlobalStyle = createGlobalStyle`
   h5,
   h6 {
     margin: 0;
+    text-rendering: optimizeLegibility;
   }
 
   h1, h2 {

@@ -1,5 +1,6 @@
 import { FC } from 'react'
 import {
+  ArrowIcon,
   ErrorIcon,
   ExternalIcon,
   FirebaseIcon,
@@ -23,6 +24,8 @@ interface Props {
 
 const Icon: FC<Props> = ({ name }) => {
   switch (name) {
+    case 'arrow':
+      return <ArrowIcon />
     case 'external link':
       return <ExternalIcon />
     case 'HTML':
