@@ -1,12 +1,38 @@
-// import Image from 'next/image'
+import Image from 'next/image'
 import { useInView } from 'react-intersection-observer'
+import Ticker from 'react-ticker'
 import styled from 'styled-components'
 import { Icon } from '@components/common'
 import { breakpoints, mixins } from 'styles'
-import Ticker from 'react-ticker'
 
 const StyledContent = styled.div`
   width: 100%;
+  height: 100%;
+  margin: 1rem 0;
+  position: relative;
+
+  & .smImage {
+    width: 150px;
+    position: absolute;
+    transform: rotateZ(-2deg);
+  }
+
+  & .mdImage {
+    width: 175px;
+    position: absolute;
+    transform: rotateZ(4deg);
+    right: 0px;
+  }
+
+  & .lgImage {
+    width: 200px;
+    position: absolute;
+    transform: rotateZ(0);
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+  }
 
   @media (min-width: ${breakpoints.lg}) {
     display: none;
@@ -40,111 +66,6 @@ const StyledWrapper = styled.div`
       right: 1rem;
     }
   }
-
-  /* display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    max-width: 625px;
-    margin: 1rem auto;
-
-    & .block {
-      width: 100px;
-      height: 100px;
-      margin: auto;
-      position: relative;
-      box-shadow: 12px 12px 32px rgba(0, 0, 0, 0.3);
-      background-color: var(--blue-zodiac);
-      border-radius: ${({ theme }) => theme.borderRadius.default};
-      transition: ${({ theme }) => theme.transition};
-
-      &.image1 {
-        width: 150px;
-        height: 75px;
-        left: 1.5rem;
-        box-shadow: none;
-
-        &:hover {
-          z-index: 99;
-          transform: scale(1.075) rotateZ(-2deg);
-        }
-      }
-
-      &.content1 {
-        transform: rotateZ(6deg);
-        right: 2rem;
-        width: 175px;
-        height: 175px;
-        z-index: 12;
-
-        ${mixins.flexCenter};
-
-        &:hover {
-          z-index: 99;
-          transform: scale(1.025) rotateZ(2deg);
-        }
-      }
-
-      &.content2 {
-        width: 200px;
-        height: 200px;
-        right: 4rem;
-        z-index: 24;
-
-        ${mixins.flexCenter};
-
-        &:hover {
-          z-index: 99;
-          transform: rotateZ(4deg);
-        }
-      }
-
-      &.image3 {
-        width: 175px;
-        height: 100px;
-        left: 1.5rem;
-        transform: rotateZ(-7deg);
-        box-shadow: none;
-
-        &:hover {
-          z-index: 99;
-          transform: scale(1.1) rotateZ(-4deg);
-        }
-      }
-
-      &.content3 {
-        width: 250px;
-        height: 250px;
-        left: 1rem;
-        top: -3rem;
-        transform: rotateZ(-2deg);
-        z-index: 49;
-
-        ${mixins.flexCenter};
-
-        &:hover {
-          z-index: 99;
-          transform: scale(1.05) rotateZ(2deg);
-        }
-      }
-
-      &.image2 {
-        top: -4rem;
-        width: 200px;
-        transform: rotateZ(14deg);
-        box-shadow: none;
-
-        &:hover {
-          z-index: 99;
-          transform: scale(1.05) rotateZ(10deg);
-        }
-      }
-
-      & span {
-        width: 1.25rem;
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
-      }
-    } */
 `
 
 const apps: { name: string }[] = [{ name: 'app1' }, { name: 'app2' }, { name: 'app3' }]
@@ -157,36 +78,24 @@ const ProjectsNote = () => {
 
   return (
     <StyledContent ref={ref}>
+      {apps.map((app, i) => (
+        // eslint-disable-next-line no-nested-ternary
+        <div key={app.name} className={`${i === 0 ? 'smImage' : i === 1 ? 'mdImage' : 'lgImage'}`}>
+          <Image
+            alt={` screenshot`}
+            src="/projects/weather.png"
+            width={580}
+            height={380}
+            loading="eager"
+            unoptimized
+          />
+        </div>
+      ))}
+
       {inView ? (
         <Ticker offset={80}>
           {() => (
             <StyledWrapper>
-              {/* <a href="http://" target="_blank" rel="noopener noreferrer" className="block image1">
-        <div>
-          <Image
-            alt={` screenshot`}
-            src="/projects/weather.png"
-            width={580}
-            height={380}
-            loading="eager"
-            unoptimized
-          />
-        </div>
-      </a> */}
-
-              {/* <a href="http://" target="_blank" rel="noopener noreferrer" className="block image3">
-        <div>
-          <Image
-            alt={` screenshot`}
-            src="/projects/weather.png"
-            width={580}
-            height={380}
-            loading="eager"
-            unoptimized
-          />
-        </div>
-      </a> */}
-
               {apps.map((app) => (
                 <a
                   key={app.name}
@@ -201,19 +110,6 @@ const ProjectsNote = () => {
                   </span>
                 </a>
               ))}
-
-              {/* <a href="http://" target="_blank" rel="noopener noreferrer" className="block image2">
-        <div>
-          <Image
-            alt={` screenshot`}
-            src="/projects/weather.png"
-            width={580}
-            height={380}
-            loading="eager"
-            unoptimized
-          />
-        </div>
-      </a> */}
             </StyledWrapper>
           )}
         </Ticker>

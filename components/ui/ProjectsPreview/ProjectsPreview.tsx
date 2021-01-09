@@ -42,6 +42,7 @@ const StyledWrapper = styled.div`
 
   @media (min-width: ${breakpoints.xl}) {
     flex: 0 300px;
+    margin: 0;
   }
 `
 

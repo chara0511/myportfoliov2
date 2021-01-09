@@ -15,7 +15,7 @@ const StyledLink: FC<Props> = ({ as, children, className, href }) => {
   return (
     <Link href={href} as={as} passHref>
       <a className={className}>
-        <span>{children}</span>
+        {children}
         <span>
           <Icon name="arrow" />
         </span>
@@ -29,6 +29,10 @@ export default styled(StyledLink)`
   display: flex;
   align-items: center;
   flex-direction: row;
+
+  & span {
+    width: 1.25rem;
+  }
 
   ${mixins.smallLink};
 `
