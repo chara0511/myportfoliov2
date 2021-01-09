@@ -117,16 +117,15 @@ const StyledContent = styled.div`
 const ProjectsGrid = () => {
   return (
     <StyledContent>
-      <a href="http://" target="_blank" rel="noopener noreferrer" className="block image1">
+      <a
+        href="http://"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block image1"
+        aria-label={` screenshot`}
+      >
         <div>
-          <Image
-            alt={` screenshot`}
-            src="/projects/weather.png"
-            width={580}
-            height={380}
-            loading="eager"
-            unoptimized
-          />
+          <Image src="/projects/weather.png" width={580} height={380} loading="eager" unoptimized />
         </div>
       </a>
 
@@ -144,16 +143,15 @@ const ProjectsGrid = () => {
         </span>
       </a>
 
-      <a href="http://" target="_blank" rel="noopener noreferrer" className="block image3">
+      <a
+        href="http://"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block image3"
+        aria-label={` screenshot`}
+      >
         <div>
-          <Image
-            alt={` screenshot`}
-            src="/projects/weather.png"
-            width={580}
-            height={380}
-            loading="eager"
-            unoptimized
-          />
+          <Image src="/projects/weather.png" width={580} height={380} loading="eager" unoptimized />
         </div>
       </a>
 
@@ -164,16 +162,15 @@ const ProjectsGrid = () => {
         </span>
       </a>
 
-      <a href="http://" target="_blank" rel="noopener noreferrer" className="block image2">
+      <a
+        href="http://"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block image2"
+        aria-label={` screenshot`}
+      >
         <div>
-          <Image
-            alt={` screenshot`}
-            src="/projects/weather.png"
-            width={580}
-            height={380}
-            loading="eager"
-            unoptimized
-          />
+          <Image src="/projects/weather.png" width={580} height={380} loading="eager" unoptimized />
         </div>
       </a>
     </StyledContent>

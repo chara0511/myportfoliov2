@@ -8,7 +8,7 @@ import { breakpoints, mixins } from 'styles'
 const StyledContent = styled.section`
   width: 100%;
   min-height: 100vh;
-  padding: 5rem 0;
+  padding: 4rem 0;
   flex-direction: column;
 
   & h2,

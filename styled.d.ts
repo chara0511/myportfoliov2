@@ -6,8 +6,6 @@ declare module 'styled-components' {
       card: string
       default: string
     }
-    fontSans: string
-    fontMono: string
     fontSizes: {
       xs: string
       sm: string

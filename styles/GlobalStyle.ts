@@ -101,7 +101,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   small {
-  font-size: 80%;
+    font-size: 80%;
   }
 
   svg {

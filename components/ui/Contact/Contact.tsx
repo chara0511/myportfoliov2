@@ -9,16 +9,12 @@ import { StyledLink } from 'styles/utils'
 const StyledContent = styled.section`
   width: 100%;
   min-height: 100vh;
-  padding: 5rem 0;
+  padding: 4rem 0;
   flex-direction: column;
   text-align: center;
   margin: 0 auto;
 
   ${mixins.flexEvenly};
-
-  & h2 {
-    text-transform: capitalize;
-  }
 
   @media (min-width: ${breakpoints.md}) {
     width: 75%;

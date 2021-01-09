@@ -39,7 +39,7 @@ const mixins = {
   bigLink: css`
     width: 220px;
     color: var(--curious-blue);
-    border: 1px solid var(--blue-zodiac);
+    border: 1px solid var(--curious-blue);
     padding: 1.25rem;
     font-size: ${({ theme }) => theme.fontSizes.lg};
     font-weight: 600;
