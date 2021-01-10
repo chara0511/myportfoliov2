@@ -1,4 +1,5 @@
-import { FC } from 'react'
+import { FC, useEffect, useState } from 'react'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import styled, { keyframes } from 'styled-components'
 import { DataModel } from '@lib/data'
 import { I18nWidget } from '@components/common'
@@ -107,16 +108,37 @@ interface Props {
 }
 
 const Hero: FC<Props> = ({ hero }) => {
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setIsMounted(true), 500)
+    return () => clearTimeout(timeout)
+  }, [])
+
+  const one = <h1>{hero.headerBefore}</h1>
+  const two = <h2>{hero.headerAfter}</h2>
+  const three = (
+    <h3>
+      {hero.header}
+      <span className="pulse">.</span>
+    </h3>
+  )
+  const four = <h4>{hero.body}</h4>
+  const five = <p>{hero.footer}</p>
+
+  const items = [one, two, three, four, five]
+
   return (
     <StyledContent>
-      <h1>{hero.headerBefore}</h1>
-      <h2>{hero.headerAfter}</h2>
-      <h3>
-        {hero.header}
-        <span className="pulse">.</span>
-      </h3>
-      <h4>{hero.body}</h4>
-      <p>{hero.footer}</p>
+      <TransitionGroup component={null}>
+        {isMounted &&
+          items.map((item, i) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <CSSTransition key={i} classNames="fadeleft" timeout={1000}>
+              <div style={{ transitionDelay: `${i + 1}00ms` }}>{item}</div>
+            </CSSTransition>
+          ))}
+      </TransitionGroup>
 
       <I18nWidget />
     </StyledContent>

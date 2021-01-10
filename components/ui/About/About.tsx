@@ -1,5 +1,6 @@
-import { FC, useEffect, useRef } from 'react'
+import { FC, useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
+import { CSSTransition } from 'react-transition-group'
 import styled from 'styled-components'
 import { DataModel } from '@lib/data'
 import sr, { srConfig } from '@utils/sr'
@@ -62,6 +63,12 @@ interface Props {
 }
 
 const About: FC<Props> = ({ about }) => {
+  const [inProp, setInProp] = useState(false)
+
+  useEffect(() => {
+    setInProp(true)
+  }, [])
+
   const ref = useRef<HTMLElement | any>(null)
 
   useEffect(() => {
@@ -69,70 +76,72 @@ const About: FC<Props> = ({ about }) => {
   }, [])
 
   return (
-    <StyledContent id="about" ref={ref}>
-      <Title title={about.header} />
-      <StyledWrapper>
-        <div className="formattedImg">
-          <Image
-            loading="eager"
-            className="rounded"
-            alt="Avatar"
-            unoptimized
-            src="/me.jpg"
-            width={300}
-            height={300}
-          />
-        </div>
-
-        <div className="description">
-          <div>
-            <p>{`${about.headerBefore} ${about.headerAfter}`}</p>
-            <br />
-            <p>
-              {about.bodyBefore}
-              <a href="https://www.unac.edu.pe" target="_blank" rel="noopener noreferrer">
-                {about.keyword1}
-              </a>
-              {` - `}
-              {about.bodyAfter}
-            </p>
-
-            <br />
-            <p>
-              {about.bodyPrev} {about.bodyPart1}
-              <a href="https://www.udemy.com" target="_blank" rel="noopener noreferrer">
-                {about.keyword2}
-              </a>
-              , {about.bodyPart2}
-              <a
-                href="https://www.freecodecamp.org/learn"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {about.keyword3}
-              </a>
-              . {about.bodyPart3}
-              <a href="https://devchallenges.io" target="_blank" rel="noopener noreferrer">
-                {about.keyword4}
-              </a>
-              {` & `}
-              <a
-                href="https://www.frontendmentor.io/solutions"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {about.keyword5}
-              </a>
-              .
-            </p>
-            <br />
-            <p>{about.body}</p>
-            <br />
-            <p>{about.footer}</p>
+    <CSSTransition in={inProp} timeout={250} classNames="fade">
+      <StyledContent id="about">
+        <Title title={about.header} />
+        <StyledWrapper>
+          <div className="formattedImg">
+            <Image
+              loading="eager"
+              className="rounded"
+              alt="Avatar"
+              unoptimized
+              src="/me.jpg"
+              width={300}
+              height={300}
+            />
           </div>
-        </div>
-      </StyledWrapper>
-    </StyledContent>
+
+          <div className="description" ref={ref}>
+            <div>
+              <p>{`${about.headerBefore} ${about.headerAfter}`}</p>
+              <br />
+              <p>
+                {about.bodyBefore}
+                <a href="https://www.unac.edu.pe" target="_blank" rel="noopener noreferrer">
+                  {about.keyword1}
+                </a>
+                {` - `}
+                {about.bodyAfter}
+              </p>
+
+              <br />
+              <p>
+                {about.bodyPrev} {about.bodyPart1}
+                <a href="https://www.udemy.com" target="_blank" rel="noopener noreferrer">
+                  {about.keyword2}
+                </a>
+                , {about.bodyPart2}
+                <a
+                  href="https://www.freecodecamp.org/learn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {about.keyword3}
+                </a>
+                . {about.bodyPart3}
+                <a href="https://devchallenges.io" target="_blank" rel="noopener noreferrer">
+                  {about.keyword4}
+                </a>
+                {` & `}
+                <a
+                  href="https://www.frontendmentor.io/solutions"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {about.keyword5}
+                </a>
+                .
+              </p>
+              <br />
+              <p>{about.body}</p>
+              <br />
+              <p>{about.footer}</p>
+            </div>
+          </div>
+        </StyledWrapper>
+      </StyledContent>
+    </CSSTransition>
   )
 }
 

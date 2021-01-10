@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 import breakpoints from './breakpoints'
+import transitionStyles from './transitionStyles'
 
 const GlobalStyle = createGlobalStyle`
 
@@ -12,6 +13,8 @@ const GlobalStyle = createGlobalStyle`
 
     --font-mono: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
     --font-sans: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+
+    --easing: cubic-bezier(0.645, 0.045, 0.355, 1);
   }
 
   html {
@@ -40,6 +43,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: inherit;
     line-height: inherit;
     margin: 0;
+    text-rendering: optimizeLegibility;
   }
 
   h1,
@@ -49,7 +53,6 @@ const GlobalStyle = createGlobalStyle`
   h5,
   h6 {
     margin: 0;
-    text-rendering: optimizeLegibility;
   }
 
   h1, h2 {
@@ -109,6 +112,8 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
     vertical-align: middle;
   }
+
+  ${transitionStyles};
 `
 
 export default GlobalStyle

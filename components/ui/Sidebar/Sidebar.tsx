@@ -1,7 +1,8 @@
-import { FC, useEffect, useRef } from 'react'
+import { FC, useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
 import type { BodyScrollOptions } from 'body-scroll-lock'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import Portal from '@reach/portal'
 import styled from 'styled-components'
 import getSlug from '@lib/getSlug'
@@ -59,6 +60,13 @@ const SIDEBAR_LINKS: LINKS[] = [
 ]
 
 const Sidebar: FC<Props> = ({ open = false, onClose }) => {
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setIsMounted(true), 500)
+    return () => clearTimeout(timeout)
+  }, [])
+
   const ref = useRef<HTMLDivElement>(null)
 
   const { asPath } = useRouter()
@@ -99,18 +107,23 @@ const Sidebar: FC<Props> = ({ open = false, onClose }) => {
       ) : (
         <StyledWrapper>
           <ul>
-            {SIDEBAR_LINKS.map((link) => (
-              <li key={link.name}>
-                <StyledSidebarLink
-                  href={link.href}
-                  handleSidebar={() => onClose()}
-                  forwardedAs={link.href}
-                  className={activeLink === getSlug(link.href) ? 'active' : ''}
-                >
-                  {link.name}
-                </StyledSidebarLink>
-              </li>
-            ))}
+            <TransitionGroup component={null}>
+              {isMounted &&
+                SIDEBAR_LINKS.map((link, i) => (
+                  <CSSTransition key={link.name} classNames="faderight" timeout={1000}>
+                    <li style={{ transitionDelay: `${i + 1}00ms` }}>
+                      <StyledSidebarLink
+                        href={link.href}
+                        handleSidebar={() => onClose()}
+                        forwardedAs={link.href}
+                        className={activeLink === getSlug(link.href) ? 'active' : ''}
+                      >
+                        {link.name}
+                      </StyledSidebarLink>
+                    </li>
+                  </CSSTransition>
+                ))}
+            </TransitionGroup>
           </ul>
         </StyledWrapper>
       )}

@@ -1,10 +1,11 @@
-import { FC, useEffect, useRef } from 'react'
+import { FC, useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { DataModel } from '@lib/data'
 import sr, { srConfig } from '@utils/sr'
 import { Title } from '@components/common'
 import { breakpoints, mixins } from 'styles'
 import { StyledLink } from 'styles/utils'
+import { CSSTransition } from 'react-transition-group'
 
 const StyledContent = styled.section`
   width: 100%;
@@ -30,6 +31,11 @@ interface Props {
 }
 
 const Contact: FC<Props> = ({ contact }) => {
+  const [inProp, setInProp] = useState(false)
+
+  useEffect(() => {
+    setInProp(true)
+  }, [])
   const ref = useRef<HTMLElement | any>(null)
 
   useEffect(() => {
@@ -37,14 +43,19 @@ const Contact: FC<Props> = ({ contact }) => {
   }, [])
 
   return (
-    <StyledContent id="contact" ref={ref}>
-      <Title title={contact.header} />
-      <p>{contact.body}</p>
-      <StyledLink href="mailto:jccharalopez@gmail.com" forwardedAs="mailto:jccharalopez@gmail.com">
-        {contact.link}
-      </StyledLink>
-      <p>{contact.footer}</p>
-    </StyledContent>
+    <CSSTransition in={inProp} timeout={250} classNames="fade">
+      <StyledContent id="contact">
+        <Title title={contact.header} />
+        <p ref={ref}>{contact.body}</p>
+        <StyledLink
+          href="mailto:jccharalopez@gmail.com"
+          forwardedAs="mailto:jccharalopez@gmail.com"
+        >
+          {contact.link}
+        </StyledLink>
+        <p>{contact.footer}</p>
+      </StyledContent>
+    </CSSTransition>
   )
 }
 

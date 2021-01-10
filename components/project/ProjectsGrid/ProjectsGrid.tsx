@@ -10,7 +10,7 @@ const StyledContent = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     max-width: 625px;
-    margin: 1rem auto;
+    margin: 2rem 4rem 2rem 2rem;
 
     & .block {
       width: 100px;
@@ -35,10 +35,10 @@ const StyledContent = styled.div`
       }
 
       &.content1 {
-        transform: rotateZ(6deg);
-        right: 2rem;
         width: 175px;
+        right: 3rem;
         height: 175px;
+        transform: rotateZ(6deg);
         z-index: 12;
 
         ${mixins.flexCenter};
@@ -54,12 +54,12 @@ const StyledContent = styled.div`
         height: 200px;
         right: 4rem;
         z-index: 24;
-
+        transform: rotateZ(-2deg);
         ${mixins.flexCenter};
 
         &:hover {
           z-index: 99;
-          transform: rotateZ(4deg);
+          transform: rotateZ(2deg);
         }
       }
 

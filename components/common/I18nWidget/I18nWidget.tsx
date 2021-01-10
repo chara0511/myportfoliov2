@@ -1,10 +1,10 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FC, useState } from 'react'
+import Portal from '@reach/portal'
 import styled from 'styled-components'
 import { ChevronUpIcon } from '@components/icons'
 import { breakpoints, mixins } from 'styles'
-import Portal from '@reach/portal'
 
 const StyledContent = styled.nav`
   position: absolute;
@@ -28,6 +28,7 @@ const StyledContent = styled.nav`
     right: 12rem;
   }
 
+  &:hover,
   &:focus {
     outline: none;
   }
@@ -37,6 +38,7 @@ const StyledDropUpMenuBtn = styled.button`
   ${mixins.flexBetween};
 
   ${mixins.smallLink};
+
   border-radius: 9999px;
   padding: 0.5rem;
 
@@ -65,7 +67,12 @@ const StyledDropUpMenu = styled.li`
 
 const StyledWidgetBtn = styled(StyledDropUpMenuBtn)`
   border: 1px solid var(--blue-zodiac);
-  margin-top: 0.5rem;
+  margin: 0.5rem 0 0;
+
+  &:hover,
+  &:focus {
+    outline: none;
+  }
 
   @media (min-width: ${breakpoints.md}) {
     border-radius: ${({ theme }) => theme.borderRadius.default};
@@ -112,31 +119,23 @@ const I18nWidget: FC = () => {
       <StyledContent>
         <div>
           {options?.length && display ? (
-            <>
-              {/* <div>
-              <button type="button" onClick={() => 
-                setDisplay(false)} aria-label="Close panel">
-                x
-              </button>
-            </div> */}
-              <ul>
-                {options.map((locale) => (
-                  <StyledDropUpMenu key={locale}>
-                    <Link href={currentPath} locale={locale}>
-                      <a>
-                        <StyledDropUpMenuBtn type="button" onClick={() => setDisplay(false)}>
-                          <img
-                            src={`/${LOCALES_MAP[locale].img.filename}`}
-                            alt={LOCALES_MAP[locale].img.alt}
-                          />
-                          <span className="visible">{LOCALES_MAP[locale].name}</span>
-                        </StyledDropUpMenuBtn>
-                      </a>
-                    </Link>
-                  </StyledDropUpMenu>
-                ))}
-              </ul>
-            </>
+            <ul>
+              {options.map((locale) => (
+                <StyledDropUpMenu key={locale}>
+                  <Link href={currentPath} locale={locale}>
+                    <a>
+                      <StyledDropUpMenuBtn type="button" onClick={() => setDisplay(false)}>
+                        <img
+                          src={`/${LOCALES_MAP[locale].img.filename}`}
+                          alt={LOCALES_MAP[locale].img.alt}
+                        />
+                        <span className="visible">{LOCALES_MAP[locale].name}</span>
+                      </StyledDropUpMenuBtn>
+                    </a>
+                  </Link>
+                </StyledDropUpMenu>
+              ))}
+            </ul>
           ) : null}
         </div>
         <div>

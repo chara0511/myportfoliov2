@@ -32,7 +32,7 @@ const StyledContainer = styled.main<{ displaySidebar: boolean }>`
   }
 
   @media (min-width: ${breakpoints.xl}) {
-    padding: 0;
+    padding: 0 3rem;
   }
 `
 
