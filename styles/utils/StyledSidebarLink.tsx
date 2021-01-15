@@ -13,7 +13,7 @@ interface Props {
 const StyledSidebarLink: FC<Props> = ({ as, children, className, href, handleSidebar }) => {
   return (
     <Link href={href} as={as} passHref>
-      <a className={className}>
+      <a className={className} role="link">
         <button type="button" onClick={handleSidebar}>
           {children}
           <div className="borders">

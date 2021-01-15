@@ -10,7 +10,7 @@ const StyledContent = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     max-width: 625px;
-    margin: 2rem 4rem 2rem 2rem;
+    margin: 2rem 4rem 2rem 0;
 
     & .block {
       width: 100px;
@@ -110,6 +110,12 @@ const StyledContent = styled.div`
         top: 1rem;
         right: 1rem;
       }
+
+      &:hover {
+        & span {
+          z-index: 99;
+        }
+      }
     }
   }
 `
@@ -125,6 +131,9 @@ const ProjectsGrid = () => {
         aria-label={` screenshot`}
       >
         <div>
+          <span>
+            <Icon name="external link" />
+          </span>
           <Image src="/projects/weather.png" width={580} height={380} loading="eager" unoptimized />
         </div>
       </a>
@@ -132,14 +141,14 @@ const ProjectsGrid = () => {
       <a href="http://" target="_blank" rel="noopener noreferrer" className="block content1">
         <h3>weather app</h3>
         <span>
-          <Icon name="external link" />
+          <Icon name="github" />
         </span>
       </a>
 
       <a href="http://" target="_blank" rel="noopener noreferrer" className="block content2">
         <h3>weather app</h3>
         <span>
-          <Icon name="external link" />
+          <Icon name="github" />
         </span>
       </a>
 
@@ -151,6 +160,9 @@ const ProjectsGrid = () => {
         aria-label={` screenshot`}
       >
         <div>
+          <span>
+            <Icon name="external link" />
+          </span>
           <Image src="/projects/weather.png" width={580} height={380} loading="eager" unoptimized />
         </div>
       </a>
@@ -158,7 +170,7 @@ const ProjectsGrid = () => {
       <a href="http://" target="_blank" rel="noopener noreferrer" className="block content3">
         <h3>weather app</h3>
         <span>
-          <Icon name="external link" />
+          <Icon name="github" />
         </span>
       </a>
 
@@ -170,6 +182,9 @@ const ProjectsGrid = () => {
         aria-label={` screenshot`}
       >
         <div>
+          <span>
+            <Icon name="external link" />
+          </span>
           <Image src="/projects/weather.png" width={580} height={380} loading="eager" unoptimized />
         </div>
       </a>

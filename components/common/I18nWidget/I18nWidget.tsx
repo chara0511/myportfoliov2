@@ -66,7 +66,7 @@ const StyledDropUpMenu = styled.li`
 `
 
 const StyledWidgetBtn = styled(StyledDropUpMenuBtn)`
-  border: 1px solid var(--blue-zodiac);
+  border: 2px solid var(--blue-zodiac);
   margin: 0.5rem 0 0;
 
   &:hover,

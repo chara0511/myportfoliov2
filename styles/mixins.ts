@@ -28,7 +28,7 @@ const mixins = {
   `,
   smallLink: css`
     color: var(--curious-blue);
-    border: 1px solid var(--blue-zodiac);
+    border: 2px solid var(--blue-zodiac);
     padding: 0.5rem 1.25rem;
     font-size: ${({ theme }) => theme.fontSizes.sm};
     font-weight: 600;

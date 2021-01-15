@@ -6,7 +6,7 @@ import { Title } from '@components/common'
 import { ProjectsGrid, ProjectsNote } from '@components/project'
 import sr, { srConfig } from '@utils/sr'
 import { breakpoints, mixins } from 'styles'
-import { StyledLink } from 'styles/utils'
+import { StyledSmallLink } from 'styles/utils'
 
 const StyledContent = styled.section`
   width: 100%;
@@ -77,9 +77,9 @@ const ProjectsPreview: FC<Props> = ({ projects }) => {
         <ProjectsGrid />
       </StyledBody>
 
-      <StyledLink href="/projects" forwardedAs="/projects">
+      <StyledSmallLink href="/projects" forwardedAs="/projects">
         {projects.linkPrev}
-      </StyledLink>
+      </StyledSmallLink>
     </StyledContent>
   )
 }

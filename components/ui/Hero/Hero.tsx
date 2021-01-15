@@ -115,18 +115,18 @@ const Hero: FC<Props> = ({ hero }) => {
     return () => clearTimeout(timeout)
   }, [])
 
-  const one = <h1>{hero.headerBefore}</h1>
-  const two = <h2>{hero.headerAfter}</h2>
-  const three = (
+  const first = <h1>{hero.headerBefore}</h1>
+  const second = <h2>{hero.headerAfter}</h2>
+  const third = (
     <h3>
       {hero.header}
       <span className="pulse">.</span>
     </h3>
   )
-  const four = <h4>{hero.body}</h4>
-  const five = <p>{hero.footer}</p>
+  const fourth = <h4>{hero.body}</h4>
+  const fith = <p>{hero.footer}</p>
 
-  const items = [one, two, three, four, five]
+  const items = [first, second, third, fourth, fith]
 
   return (
     <StyledContent>

@@ -15,6 +15,7 @@ const Custom404 = () => {
   return (
     <StyledContent>
       <h1>404 - Page Not Found</h1>
+      <p>Why is this thing not here anymore? Honestly, we may never know.</p>
       <StyledLink href="/" forwardedAs="/">
         go home
       </StyledLink>

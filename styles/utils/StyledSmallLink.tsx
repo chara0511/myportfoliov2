@@ -14,7 +14,7 @@ interface Props {
 const StyledLink: FC<Props> = ({ as, children, className, href }) => {
   return (
     <Link href={href} as={as} passHref>
-      <a className={className}>
+      <a className={className} role="link">
         {children}
         <span>
           <Icon name="arrow" />

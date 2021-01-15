@@ -47,12 +47,12 @@ const options: BodyScrollOptions = {
   reserveScrollBarGap: true,
 }
 
-interface LINKS {
-  href: string
+interface Links {
   name: string
+  href: string
 }
 
-const SIDEBAR_LINKS: LINKS[] = [
+const sidebarLinks: Links[] = [
   { name: 'home', href: '/' },
   { name: 'about', href: '/about' },
   { name: 'projects', href: '/projects' },
@@ -90,7 +90,7 @@ const Sidebar: FC<Props> = ({ open = false, onClose }) => {
       {open ? (
         <StyledContent ref={ref}>
           <ul>
-            {SIDEBAR_LINKS.map((link) => (
+            {sidebarLinks.map((link) => (
               <li key={link.name}>
                 <StyledSidebarLink
                   href={link.href}
@@ -109,7 +109,7 @@ const Sidebar: FC<Props> = ({ open = false, onClose }) => {
           <ul>
             <TransitionGroup component={null}>
               {isMounted &&
-                SIDEBAR_LINKS.map((link, i) => (
+                sidebarLinks.map((link, i) => (
                   <CSSTransition key={link.name} classNames="faderight" timeout={1000}>
                     <li style={{ transitionDelay: `${i + 1}00ms` }}>
                       <StyledSidebarLink

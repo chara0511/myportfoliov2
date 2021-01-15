@@ -5,7 +5,7 @@ import { DataModel } from '@lib/data'
 import sr, { srConfig } from '@utils/sr'
 import { Title } from '@components/common'
 import { breakpoints, mixins } from 'styles'
-import { StyledLink } from 'styles/utils'
+import { StyledSmallLink } from 'styles/utils'
 
 const StyledContent = styled.section`
   width: 100%;
@@ -46,14 +46,14 @@ const ContactPreview: FC<Props> = ({ contact }) => {
       <Title>
         <Link href="/contact">
           <a>
-            <h2>{contact.header}</h2>
+            <h2>{contact.headerPrev}</h2>
           </a>
         </Link>
       </Title>
       <p>{contact.bodyPrev}</p>
-      <StyledLink href="/contact" forwardedAs="/contact">
+      <StyledSmallLink href="/contact" forwardedAs="/contact">
         {contact.linkPrev}
-      </StyledLink>
+      </StyledSmallLink>
     </StyledContent>
   )
 }

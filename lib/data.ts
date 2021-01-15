@@ -18,6 +18,7 @@ export interface DataModel {
   headerAfter: string
   headerBefore: string
   header: string
+  headerPrev: string
   keyword1: string
   keyword2: string
   keyword3: string

@@ -24,8 +24,8 @@ const StyledMenuButton = styled.div<{ scrollY: number; open: boolean }>`
   & .hamburguer {
     display: flex;
     flex-direction: column;
-    position: relative;
-    z-index: 69;
+    /*position: relative;
+    z-index: 69;*/
     width: 42px;
     height: 42px;
     transition: ${({ theme }) => theme.transition};
@@ -42,7 +42,7 @@ const StyledMenuButton = styled.div<{ scrollY: number; open: boolean }>`
       margin-right: auto;
       margin-left: auto;
       display: block;
-      transition: all 0.4s ease;
+      transition: all 0.4s var(--easing);
       transform-origin: 0 0;
       border-radius: ${({ theme }) => theme.borderRadius.default};
 

@@ -41,7 +41,7 @@ const StyledTitle = styled.div`
 const StyledPulsar = styled.span`
   animation: 1000ms ${fadeIn} ease-in-out infinite alternate;
   color: var(--curious-blue);
-  font-size: ${({ theme }) => theme.fontSizes['3xl']};
+  font-size: inherit;
 `
 
 const Title: FC<{ title?: string }> = ({ title, children }) => {
@@ -49,7 +49,7 @@ const Title: FC<{ title?: string }> = ({ title, children }) => {
     <StyledTitle>
       <h2>
         {title}
-        {title && <StyledPulsar>_</StyledPulsar>}
+        {title && <StyledPulsar>.</StyledPulsar>}
       </h2>
       {children}
 
