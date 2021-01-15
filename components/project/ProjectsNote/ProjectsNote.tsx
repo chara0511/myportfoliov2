@@ -52,7 +52,7 @@ const StyledWrapper = styled.div`
     height: 200px;
     margin: auto 4rem;
     position: relative;
-    box-shadow: 12px 12px 24px rgba(0, 0, 0, 0.5);
+    box-shadow: var(--note-shadow-1);
     background-color: var(--blue-zodiac);
     border-radius: ${({ theme }) => theme.borderRadius.default};
     transition: ${({ theme }) => theme.transition};

@@ -3,17 +3,23 @@ import { css } from 'styled-components'
 // https://reactcommunity.org/react-transition-group/css-transition
 
 const transitionStyles = css`
-  /* Fade up */
-  .fadeup-enter {
-    opacity: 0.01;
-    transform: translateY(20px);
-    transition: opacity 300ms var(--easing), transform 300ms var(--easing);
+  /* Fade */
+  .fade-enter {
+    opacity: 0;
   }
 
-  .fadeup-enter-active {
+  .fade-enter-active {
     opacity: 1;
-    transform: translateY(0px);
-    transition: opacity 300ms var(--easing), transform 300ms var(--easing);
+    transition: opacity 300ms var(--easing);
+  }
+
+  .fade-exit {
+    opacity: 1;
+  }
+
+  .fade-exit-active {
+    opacity: 0;
+    transition: opacity 300ms var(--easing);
   }
 
   /* Fade down */
@@ -55,20 +61,17 @@ const transitionStyles = css`
     transition: opacity 300ms var(--easing), transform 300ms var(--easing);
   }
 
-  /* Fade */
-  .fade-enter {
-    opacity: 0;
+  /* Fade up */
+  .fadeup-enter {
+    opacity: 0.01;
+    transform: translateY(20px);
+    transition: opacity 300ms var(--easing), transform 300ms var(--easing);
   }
-  .fade-enter-active {
+
+  .fadeup-enter-active {
     opacity: 1;
-    transition: opacity 300ms var(--easing);
-  }
-  .fade-exit {
-    opacity: 1;
-  }
-  .fade-exit-active {
-    opacity: 0;
-    transition: opacity 300ms var(--easing);
+    transform: translateY(0px);
+    transition: opacity 300ms var(--easing), transform 300ms var(--easing);
   }
 `
 

@@ -7,7 +7,7 @@ import { mixins } from 'styles'
 const StyledContent = styled.div`
   border-radius: ${({ theme }) => theme.borderRadius.card};
   min-height: 375px;
-  box-shadow: ${({ theme }) => theme.shadows.card};
+  box-shadow: var(--card-shadow);
 
   & .projectScreenshot {
     display: flex;

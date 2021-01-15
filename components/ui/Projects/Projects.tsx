@@ -9,7 +9,7 @@ import { breakpoints, mixins } from 'styles'
 const StyledContent = styled.section`
   width: 100%;
   min-height: 100vh;
-  padding: 4rem 0;
+  padding: 5rem 0;
   flex-direction: column;
 
   & h2,
@@ -25,6 +25,16 @@ const StyledContent = styled.section`
 
   ${mixins.flexLeft};
 `
+const StyledBody = styled.div`
+  @media (min-width: ${breakpoints.lg}) {
+    width: 90%;
+  }
+
+  @media (min-width: ${breakpoints['2xl']}) {
+    width: 100%;
+  }
+`
+
 const StyledProjects = styled.div`
   display: grid;
   gap: 1rem;
@@ -86,9 +96,12 @@ const Projects: FC<Props> = ({ projects, children }) => {
       <StyledContent id="projects">
         <Title title={projects.header} />
         <br />
-        <p>{projects.bodyPrev}</p>
-        <br />
-        <p>Here are a few technologies I&apos;ve been working with recently :</p>
+
+        <StyledBody>
+          <p>{projects.bodyPrev}</p>
+          <br />
+          <p>Here are a few technologies I&apos;ve been working with recently :</p>
+        </StyledBody>
 
         <StyledTechnologies>
           {projects.technologies.map((tech) => (

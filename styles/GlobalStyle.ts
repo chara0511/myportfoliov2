@@ -14,6 +14,10 @@ const GlobalStyle = createGlobalStyle`
     --font-mono: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
     --font-sans: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 
+    --card-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    --note-shadow-0: 12px 12px 32px rgba(0, 0, 0, 0.3);
+    --note-shadow-1: 12px 12px 24px rgba(0, 0, 0, 0.5);
+
     --easing: cubic-bezier(0.645, 0.045, 0.355, 1);
   }
 

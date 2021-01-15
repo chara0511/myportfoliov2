@@ -38,11 +38,16 @@ const StyledBody = styled.div`
 const StyledWrapper = styled.div`
   flex: 0 60px;
   text-align: right;
-  margin: 1rem 0;
+  margin: 2rem 0;
+
+  @media (min-width: ${breakpoints.lg}) {
+    width: 90%;
+  }
 
   @media (min-width: ${breakpoints.xl}) {
     flex: 0 300px;
     margin: 0;
+    width: 100%;
   }
 `
 
@@ -70,11 +75,12 @@ const ProjectsPreview: FC<Props> = ({ projects }) => {
       <StyledBody>
         <StyledWrapper>
           <p>{projects.bodyPrev}</p>
+          <br />
           <p>{projects.footerPrev}</p>
         </StyledWrapper>
 
-        <ProjectsNote />
         <ProjectsGrid />
+        <ProjectsNote />
       </StyledBody>
 
       <StyledSmallLink href="/projects" forwardedAs="/projects">

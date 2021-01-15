@@ -2,9 +2,15 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FC, useState } from 'react'
 import Portal from '@reach/portal'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { ChevronUpIcon } from '@components/icons'
 import { breakpoints, mixins } from 'styles'
+
+const bounce = keyframes`
+ 50% {
+    transform: translateY(-5px);
+  }
+`
 
 const StyledContent = styled.nav`
   position: absolute;
@@ -72,6 +78,11 @@ const StyledWidgetBtn = styled(StyledDropUpMenuBtn)`
   &:hover,
   &:focus {
     outline: none;
+    border-color: var(--curious-blue);
+
+    & .bounce > svg {
+      animation: 0.9s ${bounce} var(--easing) infinite;
+    }
   }
 
   @media (min-width: ${breakpoints.md}) {
@@ -150,7 +161,7 @@ const I18nWidget: FC = () => {
             />
             <span className="visible">{LOCALES_MAP[currentLocale].name}</span>
             {options && (
-              <span className="cursor-pointer">
+              <span className="bounce">
                 <ChevronUpIcon className="visible" />
               </span>
             )}

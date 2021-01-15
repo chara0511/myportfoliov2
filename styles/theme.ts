@@ -32,8 +32,6 @@ const theme: DefaultTheme = {
     '7xl': '1',
   },
   shadows: {
-    card: ` 0 3px 6px rgba(0, 0, 0, 0.16), 
-            0 3px 6px rgba(0, 0, 0, 0.23)`,
     header: ` 0px 2px 2px rgba(0, 0, 0, 0.05), 
               0px 6px 6px rgba(0, 0, 0, 0.1), 
               0px 8px 8px rgba(0, 0, 0, 0.05), 
