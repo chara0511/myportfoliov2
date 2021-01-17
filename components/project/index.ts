@@ -1,3 +1,3 @@
 export { default as ProjectCard } from './ProjectCard'
-export { default as ProjectsGrid } from './ProjectsGrid'
-export { default as ProjectsNote } from './ProjectsNote'
+export { default as ProjectImage } from './ProjectImage'
+export { default as ProjectNote } from './ProjectNote'

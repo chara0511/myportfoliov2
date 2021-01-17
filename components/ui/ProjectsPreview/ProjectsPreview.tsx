@@ -3,7 +3,6 @@ import Link from 'next/link'
 import styled from 'styled-components'
 import { DataModel } from '@lib/data'
 import { Title } from '@components/common'
-import { ProjectsGrid, ProjectsNote } from '@components/project'
 import sr, { srConfig } from '@utils/sr'
 import { breakpoints, mixins } from 'styles'
 import { StyledSmallLink } from 'styles/utils'
@@ -55,7 +54,7 @@ interface Props {
   projects: DataModel
 }
 
-const ProjectsPreview: FC<Props> = ({ projects }) => {
+const ProjectsPreview: FC<Props> = ({ projects, children }) => {
   const ref = useRef<HTMLElement | any>(null)
 
   useEffect(() => {
@@ -79,8 +78,7 @@ const ProjectsPreview: FC<Props> = ({ projects }) => {
           <p>{projects.footerPrev}</p>
         </StyledWrapper>
 
-        <ProjectsGrid />
-        <ProjectsNote />
+        {children}
       </StyledBody>
 
       <StyledSmallLink href="/projects" forwardedAs="/projects">

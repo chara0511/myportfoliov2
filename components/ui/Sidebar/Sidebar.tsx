@@ -35,6 +35,7 @@ const StyledWrapper = styled(StyledContent)`
   @media (min-width: ${breakpoints.lg}) {
     display: block;
     width: min(12.5vw, 200px);
+    box-shadow: var(--sidebar-shadow);
   }
 `
 
