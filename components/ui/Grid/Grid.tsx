@@ -8,8 +8,8 @@ import { breakpoints } from 'styles'
 const StyledContent = styled.div<{ view: string }>`
   width: 100%;
   height: 100%;
-  padding: 2rem 0;
   position: relative;
+  margin: 1rem 0;
   display: ${({ view }) => (view === 'desktop' ? 'none' : 'block')};
 
   @media (min-width: ${breakpoints.lg}) {
@@ -22,6 +22,7 @@ const StyledWrapper = styled.div`
   width: 100%;
   height: 100%;
   display: grid;
+  padding: 2rem 0;
   grid-template-columns: repeat(3, 1fr);
 
   @media (min-width: ${breakpoints.lg}) {

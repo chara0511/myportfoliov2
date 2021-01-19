@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef, useState } from 'react'
+import { FC, MouseEvent, useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
 import type { BodyScrollOptions } from 'body-scroll-lock'
@@ -6,6 +6,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import Portal from '@reach/portal'
 import styled from 'styled-components'
 import getSlug from '@lib/getSlug'
+import { useOnClickOutside } from '@lib/hooks'
 import { breakpoints, mixins } from 'styles'
 import { StyledSidebarLink } from 'styles/utils'
 
@@ -70,6 +71,7 @@ const Sidebar: FC<Props> = ({ open = false, onClose }) => {
 
   const ref = useRef<HTMLDivElement>(null)
 
+  const router = useRouter()
   const { asPath } = useRouter()
 
   const activeLink = getSlug(asPath)
@@ -86,22 +88,31 @@ const Sidebar: FC<Props> = ({ open = false, onClose }) => {
     return () => clearAllBodyScrollLocks()
   }, [open])
 
+  const handleOnClickOutSide = () => {
+    onClose()
+  }
+
+  useOnClickOutside(ref, handleOnClickOutSide)
+
+  const sidebarLink = (name: string, href: string) => (
+    <StyledSidebarLink
+      linkName={name}
+      className={activeLink === getSlug(href) ? 'active' : ''}
+      handleLink={(e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
+        e.preventDefault()
+        router.push(href)
+        onClose()
+      }}
+    />
+  )
+
   return (
     <Portal>
       {open ? (
         <StyledContent ref={ref}>
           <ul>
             {sidebarLinks.map((link) => (
-              <li key={link.name}>
-                <StyledSidebarLink
-                  href={link.href}
-                  handleSidebar={() => onClose()}
-                  forwardedAs={link.href}
-                  className={activeLink === getSlug(link.href) ? 'active' : ''}
-                >
-                  {link.name}
-                </StyledSidebarLink>
-              </li>
+              <li key={link.name}>{sidebarLink(link.name, link.href)}</li>
             ))}
           </ul>
         </StyledContent>
@@ -113,14 +124,7 @@ const Sidebar: FC<Props> = ({ open = false, onClose }) => {
                 sidebarLinks.map((link, i) => (
                   <CSSTransition key={link.name} classNames="faderight" timeout={1000}>
                     <li style={{ transitionDelay: `${i + 1}00ms` }}>
-                      <StyledSidebarLink
-                        href={link.href}
-                        handleSidebar={() => onClose()}
-                        forwardedAs={link.href}
-                        className={activeLink === getSlug(link.href) ? 'active' : ''}
-                      >
-                        {link.name}
-                      </StyledSidebarLink>
+                      {sidebarLink(link.name, link.href)}
                     </li>
                   </CSSTransition>
                 ))}

@@ -9,20 +9,21 @@ const StyledContent = styled.div`
   transition: ${({ theme }) => theme.transition};
 
   &.smImage {
-    width: 150px;
+    width: 125px;
+    left: 5px;
     position: absolute;
     transform: rotateZ(-2deg);
   }
 
   &.mdImage {
-    width: 175px;
+    width: 150px;
     position: absolute;
     transform: rotateZ(4deg);
-    right: 0px;
+    right: 5px;
   }
 
   &.lgImage {
-    width: 200px;
+    width: 175px;
     position: absolute;
     transform: rotateZ(0);
     bottom: 0px;
@@ -51,8 +52,8 @@ const StyledContent = styled.div`
     }
 
     &.mdImage {
+      width: 175px;
       bottom: 8rem;
-      width: 200px;
       transform: rotateZ(14deg);
 
       &:hover {
@@ -62,7 +63,7 @@ const StyledContent = styled.div`
     }
 
     &.lgImage {
-      width: 175px;
+      width: 200px;
       height: 100px;
       left: 2.5rem;
       bottom: 7.5rem;
