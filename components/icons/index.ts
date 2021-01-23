@@ -1,5 +1,6 @@
 export { default as ArrowIcon } from './ArrowIcon'
 export { default as ChevronUpIcon } from './ChevronUpIcon'
+export { default as CrossIcon } from './CrossIcon'
 export { default as DiscordIcon } from './DiscordIcon'
 export { default as ErrorIcon } from './ErrorIcon'
 export { default as ExternalIcon } from './ExternalIcon'

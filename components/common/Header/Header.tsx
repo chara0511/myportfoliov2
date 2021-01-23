@@ -2,8 +2,7 @@ import { FC } from 'react'
 import styled from 'styled-components'
 import { useScroll } from '@lib/hooks'
 import { useUI } from '@components/ui/context'
-import { LogoButton, Sidebar } from '@components/ui'
-import { MenuIcon } from '@components/icons'
+import { LogoButton, MenuButton, Sidebar } from '@components/ui'
 import { breakpoints, mixins } from 'styles'
 
 export const StyledContent = styled.header<{
@@ -27,23 +26,23 @@ export const StyledContent = styled.header<{
     display: none;
   }
 
-  & nav {
+  & > nav {
     max-width: 1100px;
     margin: 0 auto;
+    padding: 1rem;
 
     ${mixins.flexBetween};
 
-    & button {
-      color: var(--big-stone);
+    @media (min-width: ${breakpoints.sm}) {
+      padding: ${({ scrollY }) => (scrollY === 0 ? '1rem 3rem' : '0.5rem 3rem')};
     }
 
-    & svg {
-      width: 3rem;
-      height: 3rem;
+    @media (min-width: ${breakpoints.md}) {
+      padding: ${({ scrollY }) => (scrollY === 0 ? '1rem 6rem' : '0.5rem 6rem')};
     }
 
-    & p {
-      color: var(--polo-blue);
+    @media (min-width: ${breakpoints.xl}) {
+      padding: ${({ scrollY }) => (scrollY === 0 ? '1rem 0' : '0.5rem 0')};
     }
   }
 `
@@ -60,12 +59,7 @@ const Header: FC<Props> = ({ reload }) => {
     <StyledContent scrollY={y} scrollDirection={direction} open={displaySidebar}>
       <nav>
         <LogoButton href="/" reload={reload} />
-        <button type="button" onClick={openSidebar}>
-          <span>
-            <MenuIcon />
-          </span>
-        </button>
-        {/* <MenuButton y={y} open={displaySidebar} onOpen={openSidebar} onClose={closeSidebar} /> */}
+        <MenuButton onOpen={openSidebar} />
       </nav>
       <Sidebar open={displaySidebar} onClose={closeSidebar} />
     </StyledContent>

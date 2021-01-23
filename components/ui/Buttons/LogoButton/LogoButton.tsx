@@ -3,22 +3,13 @@ import Link from 'next/link'
 import styled from 'styled-components'
 import { Logo } from '@components/icons'
 import { UrlObject } from 'url'
-import { breakpoints } from 'styles'
 
 const StyledLogoButton = styled.div`
   color: var(--big-stone);
-  padding-left: 1rem;
 
-  @media (min-width: ${breakpoints.sm}) {
-    padding-left: 3rem;
-  }
-
-  @media (min-width: ${breakpoints.md}) {
-    padding-left: 6rem;
-  }
-
-  @media (min-width: ${breakpoints.xl}) {
-    padding-left: 6rem;
+  & svg {
+    width: 3rem;
+    height: 3rem;
   }
 `
 

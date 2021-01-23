@@ -6,26 +6,31 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import Portal from '@reach/portal'
 import styled from 'styled-components'
 import getSlug from '@lib/getSlug'
+import { CrossButton } from '@components/ui'
 import { useOnClickOutside } from '@lib/hooks'
 import { breakpoints, mixins } from 'styles'
 import { StyledSidebarLink } from 'styles/utils'
 
 const StyledContent = styled.aside`
   background-color: var(--blue-zodiac);
+  box-shadow: var(--sidebar-shadow);
   padding: 1rem;
   position: fixed;
-  /* width: 100%; */
   height: 100vh;
   width: min(75vw, 375px);
   top: 0;
   right: 0;
-  z-index: 24;
+  z-index: 99;
 
-  & ul {
-    ${mixins.flexCenter};
+  @media (min-width: ${breakpoints.sm}) {
+    padding: 1rem 3rem;
+  }
 
+  & > ul {
     flex-direction: column;
     height: 100%;
+
+    ${mixins.flexCenter};
   }
 `
 
@@ -36,7 +41,6 @@ const StyledWrapper = styled(StyledContent)`
   @media (min-width: ${breakpoints.lg}) {
     display: block;
     width: min(12.5vw, 200px);
-    box-shadow: var(--sidebar-shadow);
   }
 `
 
@@ -86,6 +90,13 @@ const Sidebar: FC<Props> = ({ open = false, onClose }) => {
     return () => clearAllBodyScrollLocks()
   }, [open])
 
+  // close sidebar when sidebarLink is clicked
+  useEffect(() => {
+    if (activeLink || activeLink === '') {
+      onClose()
+    }
+  }, [activeLink])
+
   const handleOnClickOutSide = () => {
     onClose()
   }
@@ -102,6 +113,8 @@ const Sidebar: FC<Props> = ({ open = false, onClose }) => {
     <Portal>
       {open ? (
         <StyledContent ref={ref}>
+          <CrossButton onClose={onClose} />
+
           <ul>
             {sidebarLinks.map((link) => (
               <li key={link.name}>{sidebarLink(link.name, link.href)}</li>

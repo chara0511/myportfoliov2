@@ -1,8 +1,8 @@
 import { FC } from 'react'
 import styled from 'styled-components'
-import { breakpoints } from 'styles'
+import { MenuIcon } from '@components/icons'
 
-const StyledMenuButton = styled.div<{ scrollY: number; open: boolean }>`
+/* const StyledMenuButton = styled.div<{ scrollY: number; open: boolean }>`
   background-color: ${({ open }) => (open ? 'var(--blue-zodiac)' : 'inherit')};
   width: min(75vw, 375px);
   padding: ${({ scrollY }) => (scrollY === 0 ? '1rem' : '0.5rem 1rem')};
@@ -24,8 +24,6 @@ const StyledMenuButton = styled.div<{ scrollY: number; open: boolean }>`
   & .hamburguer {
     display: flex;
     flex-direction: column;
-    /*position: relative;
-    z-index: 69;*/
     width: 42px;
     height: 42px;
     transition: ${({ theme }) => theme.transition};
@@ -87,6 +85,28 @@ const MenuButton: FC<Props> = ({ y, open, onOpen, onClose }) => {
         <span />
         <span />
         <span />
+      </button>
+    </StyledMenuButton>
+  )
+}
+
+export default MenuButton */
+
+const StyledMenuButton = styled.div`
+  & svg {
+    width: 3rem;
+    height: 3rem;
+  }
+`
+interface Props {
+  onOpen: () => void
+}
+
+const MenuButton: FC<Props> = ({ onOpen }) => {
+  return (
+    <StyledMenuButton>
+      <button aria-label="Menu Icon" type="button" onClick={() => onOpen()}>
+        <MenuIcon />
       </button>
     </StyledMenuButton>
   )
