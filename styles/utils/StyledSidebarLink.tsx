@@ -1,21 +1,24 @@
-import { FC, MouseEvent } from 'react'
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import Link from 'next/link'
+import { FC } from 'react'
 import styled from 'styled-components'
 
 interface Props {
-  linkName: string
   className: string
-  handleLink: (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void
+  href: string
 }
 
-const StyledSidebarLink: FC<Props> = ({ className, linkName, handleLink }) => {
+const StyledSidebarLink: FC<Props> = ({ className, href, children }) => {
   return (
-    <button type="button" className={className} onClick={handleLink}>
-      {linkName}
-      <div className="borders">
-        <span className="border" />
-        <span className="border" />
-      </div>
-    </button>
+    <Link href={href}>
+      <a className={className}>
+        {children}
+        <div className="borders">
+          <span className="border" />
+          <span className="border" />
+        </div>
+      </a>
+    </Link>
   )
 }
 
@@ -31,6 +34,7 @@ export default styled(StyledSidebarLink)`
   transform: translateY(0rem);
   transition: ${({ theme }) => theme.transition};
   letter-spacing: 0.1rem;
+  text-align: center;
 
   & .borders {
     display: block;
@@ -67,14 +71,12 @@ export default styled(StyledSidebarLink)`
   }
 
   &.active {
-    & > button {
-      color: var(--athens-gray);
-      transform: translateY(-0.7rem);
+    color: var(--athens-gray);
+    transform: translateY(-0.7rem);
 
-      & .borders .border {
-        transform: translateX(0px);
-        opacity: 1;
-      }
+    & .borders .border {
+      transform: translateX(0px);
+      opacity: 1;
     }
   }
 `

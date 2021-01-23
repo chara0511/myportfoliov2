@@ -1,4 +1,4 @@
-import { FC, MouseEvent, useEffect, useRef, useState } from 'react'
+import { FC, useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
 import type { BodyScrollOptions } from 'body-scroll-lock'
@@ -69,12 +69,10 @@ const Sidebar: FC<Props> = ({ open = false, onClose }) => {
     return () => clearTimeout(timeout)
   }, [])
 
+  const { pathname } = useRouter()
+  const activeLink = getSlug(pathname)
+
   const ref = useRef<HTMLDivElement>(null)
-
-  const router = useRouter()
-  const { asPath } = useRouter()
-
-  const activeLink = getSlug(asPath)
 
   useEffect(() => {
     if (ref.current) {
@@ -95,15 +93,9 @@ const Sidebar: FC<Props> = ({ open = false, onClose }) => {
   useOnClickOutside(ref, handleOnClickOutSide)
 
   const sidebarLink = (name: string, href: string) => (
-    <StyledSidebarLink
-      linkName={name}
-      className={activeLink === getSlug(href) ? 'active' : ''}
-      handleLink={(e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
-        e.preventDefault()
-        router.push(href)
-        onClose()
-      }}
-    />
+    <StyledSidebarLink className={activeLink === getSlug(href) ? 'active' : ''} href={href}>
+      {name}
+    </StyledSidebarLink>
   )
 
   return (
