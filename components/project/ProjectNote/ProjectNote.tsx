@@ -8,7 +8,7 @@ const StyledContent = styled.div`
   width: 100%;
   height: 100%;
 
-  & .block {
+  & > .note {
     width: 200px;
     height: 200px;
     margin: auto 4rem;
@@ -29,7 +29,7 @@ const StyledContent = styled.div`
     @media (min-width: ${breakpoints.lg}) {
       margin: auto;
 
-      &.smNote {
+      &.sm {
         width: 175px;
         height: 175px;
         left: 3rem;
@@ -45,7 +45,7 @@ const StyledContent = styled.div`
         }
       }
 
-      &.mdNote {
+      &.md {
         width: 200px;
         height: 200px;
         right: 3rem;
@@ -59,7 +59,7 @@ const StyledContent = styled.div`
         }
       }
 
-      &.lgNote {
+      &.lg {
         width: 250px;
         height: 250px;
         left: 10rem;
@@ -76,6 +76,19 @@ const StyledContent = styled.div`
       }
     }
   }
+
+  & > .note:before {
+    content: '';
+    width: 6px;
+    height: 100%;
+    background-color: var(--polo-blue);
+    position: absolute;
+    left: 0;
+  }
+
+  & > .note:hover:before {
+    background-color: var(--curious-blue);
+  }
 `
 
 interface Props {
@@ -91,7 +104,7 @@ const ProjectNote: FC<Props> = ({ app, i }) => {
         href="http://"
         target="_blank"
         rel="noopener noreferrer"
-        className={`block ${i === 0 ? 'smNote' : i === 1 ? 'mdNote' : 'lgNote'}`}
+        className={`note ${i === 0 ? 'sm' : i === 1 ? 'md' : 'lg'}`}
       >
         <h3>{app.name}</h3>
         <span>

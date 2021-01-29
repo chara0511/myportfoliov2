@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { GithubIcon, InstagramIcon, LinkedInIcon, TwitterIcon } from '@components/icons'
 import { mixins } from 'styles'
+import { Icon } from '..'
 
 const StyledContent = styled.footer`
   width: 100%;
@@ -12,12 +12,12 @@ const StyledSocialLinks = styled.div`
   max-width: 275px;
   margin: auto;
 
-  & ul {
+  & > ul {
     margin-bottom: 1.5rem;
 
     ${mixins.flexAround};
 
-    & li {
+    & > li {
       & svg {
         width: 1.5rem;
         height: 1.5rem;
@@ -35,51 +35,35 @@ const StyledCredit = styled.div`
   }
 `
 
+interface SOCIAL_DATA {
+  name: string
+  url: string
+}
+
+const SOCIAL_LINKS: SOCIAL_DATA[] = [
+  { name: 'github', url: 'https://github.com/jcarlos0511' },
+  { name: 'instagram', url: 'https://www.instagram.com/jccharalopez' },
+  { name: 'linkedin', url: 'https://www.linkedin.com/in/jccharalopez' },
+  { name: 'twitter', url: 'https://twitter.com/jncarloschara' },
+]
+
 const Footer = () => {
   return (
     <StyledContent>
       <StyledSocialLinks>
         <ul>
-          <li>
-            <a
-              href="https://github.com/jcarlos0511"
-              aria-label="Discord profile"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <GithubIcon />
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://www.instagram.com/jccharalopez"
-              aria-label="Instagram profile"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <InstagramIcon />
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://www.linkedin.com/in/jccharalopez"
-              aria-label="LinkedIn profile"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <LinkedInIcon />
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://twitter.com/jncarloschara"
-              aria-label="Twitter profile"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <TwitterIcon />
-            </a>
-          </li>
+          {SOCIAL_LINKS.map((link) => (
+            <li key={link.name}>
+              <a
+                aria-label={`${link.name} profile`}
+                href={link.url}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <Icon name={link.name} />
+              </a>
+            </li>
+          ))}
         </ul>
       </StyledSocialLinks>
 

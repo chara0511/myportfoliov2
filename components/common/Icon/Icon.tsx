@@ -6,7 +6,9 @@ import {
   FirebaseIcon,
   GithubIcon,
   HtmlIcon,
+  InstagramIcon,
   JavascriptIcon,
+  LinkedInIcon,
   MongoDBIcon,
   NextjsIcon,
   NodejsIcon,
@@ -15,6 +17,7 @@ import {
   SassIcon,
   StyledComponentsIcon,
   TailwindcssIcon,
+  TwitterIcon,
   TypescriptIcon,
 } from '@components/icons'
 
@@ -30,12 +33,16 @@ const Icon: FC<Props> = ({ name }) => {
       return <ExternalIcon />
     case 'HTML':
       return <HtmlIcon />
+    case 'instagram':
+      return <InstagramIcon />
     case 'javascript (ES6+)':
       return <JavascriptIcon />
     case 'firebase':
       return <FirebaseIcon />
     case 'github':
       return <GithubIcon />
+    case 'linkedin':
+      return <LinkedInIcon />
     case 'mongoDB':
       return <MongoDBIcon />
     case 'next.js':
@@ -52,6 +59,8 @@ const Icon: FC<Props> = ({ name }) => {
       return <StyledComponentsIcon />
     case 'tailwindcss':
       return <TailwindcssIcon />
+    case 'twitter':
+      return <TwitterIcon />
     case 'typescript':
       return <TypescriptIcon />
 

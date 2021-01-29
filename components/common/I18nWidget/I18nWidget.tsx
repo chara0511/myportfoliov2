@@ -57,6 +57,11 @@ const StyledDropUpMenuBtn = styled.button`
     display: none;
   }
 
+  &:hover,
+  &:focus {
+    outline: none;
+  }
+
   @media (min-width: ${breakpoints.md}) {
     width: 112px;
     border: none;
@@ -77,7 +82,6 @@ const StyledWidgetBtn = styled(StyledDropUpMenuBtn)`
 
   &:hover,
   &:focus {
-    outline: none;
     border-color: var(--curious-blue);
 
     & .bounce > svg {
