@@ -31,7 +31,15 @@ const StyledContainer = styled.main<{ displaySidebar: boolean }>`
     padding: 0 6rem;
   }
 
+  @media (min-width: ${breakpoints.lg}) {
+    padding: 0 9rem;
+  }
+
   @media (min-width: ${breakpoints.xl}) {
+    padding: 0 6rem;
+  }
+
+  @media (min-width: ${breakpoints['2xl']}) {
     padding: 0 3rem;
   }
 `

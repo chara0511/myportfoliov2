@@ -2,6 +2,7 @@ import { FC } from 'react'
 import Image from 'next/image'
 import styled from 'styled-components'
 import { Icon } from '@components/common'
+import { AppModel } from '@lib/data'
 import { mixins } from 'styles'
 
 const StyledContent = styled.div`
@@ -45,6 +46,7 @@ const StyledContent = styled.div`
 
     & .projectInfoBody {
       padding: 0.5rem 1.5rem 0.5rem;
+      height: 160px;
     }
 
     & .projectInfoFooter {
@@ -53,24 +55,20 @@ const StyledContent = styled.div`
 
       & ul {
         flex-wrap: wrap;
-        font-size: ${({ theme }) => theme.fontSizes.sm};
-        line-height: ${({ theme }) => theme.lineHeights.sm};
-        font-family: var(--font-mono);
 
-        ${mixins.flexAround};
+        ${mixins.flexEvenly};
+
+        & li > svg {
+          height: 24px;
+          width: auto;
+        }
       }
     }
   }
 `
 
 interface Props {
-  app: {
-    appName: string
-    appDescription: string
-    appLink: string
-    repositoryLink: string
-    technologies: { name: string }[]
-  }
+  app: AppModel
 }
 
 const ProjectCard: FC<Props> = ({ app }) => {
@@ -79,6 +77,7 @@ const ProjectCard: FC<Props> = ({ app }) => {
       <div className="projectScreenshot">
         <a
           href={app.appLink}
+          title={`${app.appName} demo`}
           aria-label={`${app.appName} link`}
           target="_blank"
           rel="noopener noreferrer"
@@ -98,7 +97,8 @@ const ProjectCard: FC<Props> = ({ app }) => {
         <div className="projectInfoHeader">
           <h4>{app.appName}</h4>
           <a
-            aria-label="Link to the Github repository"
+            title={`${app.appName} repository`}
+            aria-label={`Link to the ${app.appName} repository`}
             href={app.repositoryLink}
             target="_blank"
             rel="noopener noreferrer"
@@ -116,7 +116,9 @@ const ProjectCard: FC<Props> = ({ app }) => {
         <div className="projectInfoFooter">
           <ul>
             {app.technologies.map((tech) => (
-              <li key={tech.name}>{tech.name}</li>
+              <li key={tech.name}>
+                <Icon name={tech.name} />
+              </li>
             ))}
           </ul>
         </div>

@@ -1,11 +1,13 @@
+export interface AppModel {
+  appName: string
+  appDescription: string
+  appLink: string
+  createdAt: string
+  repositoryLink: string
+  technologies: { name: string }[]
+}
 export interface DataModel {
-  apps: {
-    appName: string
-    appDescription: string
-    appLink: string
-    repositoryLink: string
-    technologies: { name: string }[]
-  }[]
+  apps: AppModel[]
   body: string
   bodyAfter: string
   bodyBefore: string
