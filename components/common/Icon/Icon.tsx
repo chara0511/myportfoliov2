@@ -1,7 +1,9 @@
 import { FC } from 'react'
 import {
   ArrowIcon,
+  BootstrapIcon,
   ErrorIcon,
+  ExpressIcon,
   ExternalIcon,
   FirebaseIcon,
   GithubIcon,
@@ -9,6 +11,7 @@ import {
   InstagramIcon,
   JavascriptIcon,
   LinkedInIcon,
+  MaterialUIIcon,
   MongoDBIcon,
   NextjsIcon,
   NodejsIcon,
@@ -29,6 +32,10 @@ const Icon: FC<Props> = ({ name }) => {
   switch (name) {
     case 'arrow':
       return <ArrowIcon />
+    case 'bootstrap':
+      return <BootstrapIcon />
+    case 'express':
+      return <ExpressIcon />
     case 'external link':
       return <ExternalIcon />
     case 'HTML':
@@ -43,6 +50,8 @@ const Icon: FC<Props> = ({ name }) => {
       return <GithubIcon />
     case 'linkedin':
       return <LinkedInIcon />
+    case 'material-ui':
+      return <MaterialUIIcon />
     case 'mongoDB':
       return <MongoDBIcon />
     case 'next.js':

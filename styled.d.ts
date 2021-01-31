@@ -7,6 +7,7 @@ declare module 'styled-components' {
       default: string
     }
     fontSizes: {
+      '2xs': string
       xs: string
       sm: string
       base: string
@@ -20,6 +21,7 @@ declare module 'styled-components' {
       '7xl': string
     }
     lineHeights: {
+      '2xs': string
       xs: string
       sm: string
       base: string

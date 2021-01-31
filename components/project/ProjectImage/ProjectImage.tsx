@@ -7,9 +7,11 @@ import { breakpoints } from 'styles'
 
 const StyledContent = styled.div`
   transition: ${({ theme }) => theme.transition};
+  box-shadow: var(--image-shadow);
 
   &.smImage {
     width: 125px;
+    height: 78px;
     left: 5px;
     position: absolute;
     transform: rotateZ(-2deg);
@@ -17,6 +19,7 @@ const StyledContent = styled.div`
 
   &.mdImage {
     width: 150px;
+    height: 98px;
     position: absolute;
     transform: rotateZ(4deg);
     right: 5px;
@@ -24,6 +27,7 @@ const StyledContent = styled.div`
 
   &.lgImage {
     width: 175px;
+    height: 115px;
     position: absolute;
     transform: rotateZ(0);
     bottom: 0px;
@@ -41,8 +45,8 @@ const StyledContent = styled.div`
 
   @media (min-width: ${breakpoints.lg}) {
     &.smImage {
-      width: 150px;
-      height: 75px;
+      width: 155px;
+      height: 100px;
       top: 5rem;
 
       &:hover {
@@ -53,6 +57,7 @@ const StyledContent = styled.div`
 
     &.mdImage {
       width: 175px;
+      height: 115px;
       bottom: 8rem;
       transform: rotateZ(14deg);
 
@@ -64,7 +69,7 @@ const StyledContent = styled.div`
 
     &.lgImage {
       width: 200px;
-      height: 100px;
+      height: 130px;
       left: 2.5rem;
       bottom: 7.5rem;
       transform: rotateZ(-7deg);

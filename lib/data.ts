@@ -5,6 +5,7 @@ export interface AppModel {
   createdAt: string
   repositoryLink: string
   technologies: { name: string }[]
+  types: string[]
 }
 export interface DataModel {
   apps: AppModel[]

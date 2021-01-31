@@ -12,7 +12,7 @@ const StyledContent = styled.div`
     width: 200px;
     height: 200px;
     margin: auto 4rem;
-    box-shadow: var(--note-shadow-1);
+    box-shadow: var(--note-shadow);
     background-color: var(--blue-zodiac);
     border-radius: ${({ theme }) => theme.borderRadius.default};
     transition: ${({ theme }) => theme.transition};

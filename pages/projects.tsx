@@ -7,9 +7,13 @@ import { Data } from '@lib/data'
 export default function ProjectsPage({ myData }: Data) {
   return (
     <Projects projects={myData.projects}>
-      {myData.projects.apps.map((app) => (
-        <ProjectCard app={app} key={app.appName} />
-      ))}
+      {myData.projects.apps
+        .sort((a, b) =>
+          new Date(a.createdAt).getTime() > new Date(b.createdAt).getTime() ? -1 : 0,
+        )
+        .map((app) => (
+          <ProjectCard app={app} key={app.appName} />
+        ))}
     </Projects>
   )
 }

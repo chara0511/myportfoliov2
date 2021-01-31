@@ -1,8 +1,7 @@
-import { FC, useState, useEffect, useRef } from 'react'
+import { FC, useState, useEffect } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import styled from 'styled-components'
 import { DataModel } from '@lib/data'
-import sr, { srConfig } from '@utils/sr'
 import { Icon, Title } from '@components/common'
 import { breakpoints, mixins } from 'styles'
 
@@ -37,12 +36,14 @@ const StyledBody = styled.div`
 
 const StyledProjects = styled.div`
   display: grid;
-  gap: 1rem;
+  column-gap: 1rem;
+  row-gap: 2rem;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   margin: 3rem 0;
 
   @media (min-width: ${breakpoints.md}) {
-    gap: 1.5rem;
+    column-gap: 1.5rem;
+    row-gap: 3rem;
   }
 
   @media (min-width: ${breakpoints.xl}) {
@@ -85,12 +86,6 @@ const Projects: FC<Props> = ({ projects, children }) => {
     setInProp(true)
   }, [])
 
-  const ref = useRef<HTMLElement | any>(null)
-
-  useEffect(() => {
-    sr().reveal(ref.current, srConfig())
-  }, [])
-
   return (
     <CSSTransition in={inProp} timeout={250} classNames="fade">
       <StyledContent id="projects">
@@ -117,7 +112,7 @@ const Projects: FC<Props> = ({ projects, children }) => {
         <br />
         <h3>{projects.headerAfter}</h3>
 
-        <StyledProjects ref={ref}>
+        <StyledProjects>
           {children}
           {/* <StyledProject>project2</StyledProject>
         <StyledProject>journal</StyledProject>

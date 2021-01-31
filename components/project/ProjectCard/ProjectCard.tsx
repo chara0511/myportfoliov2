@@ -13,7 +13,7 @@ const StyledContent = styled.div`
   & .projectScreenshot {
     display: flex;
 
-    & a {
+    & > a {
       display: flex;
 
       & .formattedImage {
@@ -38,7 +38,7 @@ const StyledContent = styled.div`
 
       ${mixins.flexBetween};
 
-      & a {
+      & > a {
         width: 24px;
         height: 24px;
       }
@@ -46,7 +46,7 @@ const StyledContent = styled.div`
 
     & .projectInfoBody {
       padding: 0.5rem 1.5rem 0.5rem;
-      height: 160px;
+      height: 180px;
     }
 
     & .projectInfoFooter {
@@ -64,6 +64,24 @@ const StyledContent = styled.div`
         }
       }
     }
+  }
+`
+
+const StyledPills = styled.ul`
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: left;
+  text-transform: capitalize;
+  font-family: var(--font-mono);
+  font-size: ${({ theme }) => theme.fontSizes['2xs']};
+  font-weight: 600;
+
+  & > li {
+    margin-right: 0.5rem;
+    background-color: var(--polo-blue);
+    color: var(--blue-zodiac);
+    padding: 0 0.75rem;
+    border-radius: var(--rounded-pill);
   }
 `
 
@@ -89,7 +107,6 @@ const ProjectCard: FC<Props> = ({ app }) => {
             width={580}
             height={380}
             loading="eager"
-            unoptimized
           />
         </a>
       </div>
@@ -108,6 +125,12 @@ const ProjectCard: FC<Props> = ({ app }) => {
             </span>
           </a>
         </div>
+
+        <StyledPills>
+          {app.types.map((type: string) => (
+            <li key={type}>{type}</li>
+          ))}
+        </StyledPills>
 
         <div className="projectInfoBody">
           <p>{app.appDescription}</p>
