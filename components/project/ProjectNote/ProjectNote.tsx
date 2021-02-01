@@ -2,6 +2,7 @@
 import { FC } from 'react'
 import styled from 'styled-components'
 import { Icon } from '@components/common'
+import { AppModel } from '@lib/data'
 import { breakpoints, mixins } from 'styles'
 
 const StyledContent = styled.div`
@@ -92,7 +93,7 @@ const StyledContent = styled.div`
 `
 
 interface Props {
-  app: { name: string }
+  app: AppModel
   i?: number
 }
 
@@ -100,13 +101,15 @@ const ProjectNote: FC<Props> = ({ app, i }) => {
   return (
     <StyledContent>
       <a
-        key={app.name}
-        href="http://"
+        key={app.appName}
+        href={app.repositoryLink}
         target="_blank"
         rel="noopener noreferrer"
-        className={`note ${i === 0 ? 'sm' : i === 1 ? 'md' : 'lg'}`}
+        title={`${app.appName} repository`}
+        aria-label={`${app.appName} repository`}
+        className={`${i === 0 ? 'sm' : i === 1 ? 'md' : 'lg'} note`}
       >
-        <h3>{app.name}</h3>
+        <h3>{app.appName}</h3>
         <span>
           <Icon name="external link" />
         </span>

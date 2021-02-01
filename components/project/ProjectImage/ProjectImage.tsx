@@ -1,15 +1,15 @@
 /* eslint-disable no-nested-ternary */
-import { Icon } from '@components/common'
 import Image from 'next/image'
 import { FC } from 'react'
 import styled from 'styled-components'
+import { AppModel } from '@lib/data'
 import { breakpoints } from 'styles'
 
 const StyledContent = styled.div`
   transition: ${({ theme }) => theme.transition};
   box-shadow: var(--image-shadow);
 
-  &.smImage {
+  &.sm {
     width: 125px;
     height: 78px;
     left: 5px;
@@ -17,7 +17,7 @@ const StyledContent = styled.div`
     transform: rotateZ(-2deg);
   }
 
-  &.mdImage {
+  &.md {
     width: 150px;
     height: 98px;
     position: absolute;
@@ -25,9 +25,9 @@ const StyledContent = styled.div`
     right: 5px;
   }
 
-  &.lgImage {
+  &.lg {
     width: 175px;
-    height: 115px;
+    height: 112px;
     position: absolute;
     transform: rotateZ(0);
     bottom: 0px;
@@ -36,15 +36,12 @@ const StyledContent = styled.div`
     margin: auto;
   }
 
-  & span {
-    width: 1.25rem;
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
+  & > a .rounded {
+    border-radius: ${({ theme }) => theme.borderRadius.default};
   }
 
   @media (min-width: ${breakpoints.lg}) {
-    &.smImage {
+    &.sm {
       width: 155px;
       height: 100px;
       top: 5rem;
@@ -55,7 +52,7 @@ const StyledContent = styled.div`
       }
     }
 
-    &.mdImage {
+    &.md {
       width: 175px;
       height: 115px;
       bottom: 8rem;
@@ -67,7 +64,7 @@ const StyledContent = styled.div`
       }
     }
 
-    &.lgImage {
+    &.lg {
       width: 200px;
       height: 130px;
       left: 2.5rem;
@@ -84,19 +81,28 @@ const StyledContent = styled.div`
 `
 
 interface Props {
-  app: { name: string }
+  app: AppModel
   i: number
 }
 
 const ProjectImage: FC<Props> = ({ app, i }) => {
   return (
-    <StyledContent className={`${i === 0 ? 'smImage' : i === 1 ? 'mdImage' : 'lgImage'}`}>
-      <a href="http://" target="_blank" rel="noopener noreferrer" aria-label={`${app.name} demo`}>
+    <StyledContent className={`${i === 0 ? 'sm' : i === 1 ? 'md' : 'lg'}`}>
+      <a
+        href={app.appLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        title={`${app.appName} demo`}
+        aria-label={`${app.appName} demo`}
+      >
         <div>
-          <span>
-            <Icon name="external link" />
-          </span>
-          <Image src="/projects/weather.png" width={580} height={380} loading="eager" />
+          <Image
+            src={`/projects/${app.appName}.png`}
+            width={580}
+            height={380}
+            loading="eager"
+            className="rounded"
+          />
         </div>
       </a>
     </StyledContent>

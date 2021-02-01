@@ -4,6 +4,7 @@ import { useInView } from 'react-intersection-observer'
 import styled from 'styled-components'
 import { ProjectImage, ProjectNote } from '@components/project'
 import { breakpoints } from 'styles'
+import { AppModel } from '@lib/data'
 
 const StyledContent = styled.div<{ view: string }>`
   width: 100%;
@@ -31,7 +32,7 @@ const StyledWrapper = styled.div`
 `
 
 interface Props {
-  apps: { name: string }[]
+  apps: AppModel[]
   view?: string
 }
 
@@ -41,18 +42,22 @@ const Grid: FC<Props> = ({ apps, view = 'desktop' }) => {
     rootMargin: '200px 0px',
   })
 
+  const sortedApps = apps
+    .sort((a, b) => (new Date(a.createdAt).getTime() > new Date(b.createdAt).getTime() ? -1 : 0))
+    .slice(0, 3)
+
   return (
     <StyledContent ref={ref} view={view}>
-      {apps.map((app, i) => (
-        <ProjectImage key={app.name} app={app} i={i} />
+      {sortedApps.map((app, i) => (
+        <ProjectImage key={app.appName} app={app} i={i} />
       ))}
 
       {inView && view === 'mobile' ? (
         <Ticker offset={80}>
           {() => (
             <StyledWrapper>
-              {apps.map((app) => (
-                <ProjectNote key={app.name} app={app} />
+              {sortedApps.map((app) => (
+                <ProjectNote key={app.appName} app={app} />
               ))}
             </StyledWrapper>
           )}
@@ -61,8 +66,8 @@ const Grid: FC<Props> = ({ apps, view = 'desktop' }) => {
 
       {view === 'desktop' ? (
         <StyledWrapper>
-          {apps.map((app, i) => (
-            <ProjectNote key={app.name} app={app} i={i} />
+          {sortedApps.map((app, i) => (
+            <ProjectNote key={app.appName} app={app} i={i} />
           ))}
         </StyledWrapper>
       ) : null}

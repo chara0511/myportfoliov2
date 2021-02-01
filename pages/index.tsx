@@ -3,8 +3,6 @@ import { AboutPreview, ContactPreview, Grid, Hero, ProjectsPreview } from '@comp
 import { Data } from '@lib/data'
 import { getMyData } from '@lib/fetchData'
 
-const apps: { name: string }[] = [{ name: 'app1' }, { name: 'app2' }, { name: 'app3' }]
-
 export default function Home({ myData }: Data) {
   // *console.log(myData)
   const { hero, about, projects, contact } = myData
@@ -14,8 +12,8 @@ export default function Home({ myData }: Data) {
       <Hero hero={hero} />
       <AboutPreview about={about} />
       <ProjectsPreview projects={projects}>
-        <Grid apps={apps} view="mobile" />
-        <Grid apps={apps} />
+        <Grid apps={projects.apps} view="mobile" />
+        <Grid apps={projects.apps} />
       </ProjectsPreview>
       <ContactPreview contact={contact} />
     </>

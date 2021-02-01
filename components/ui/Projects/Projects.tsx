@@ -57,11 +57,11 @@ const StyledTechnologies = styled.ul`
   row-gap: 1rem;
   margin: 1.5rem auto;
   font-family: var(--font-mono);
-  font-size: ${({ theme }) => theme.fontSizes.sm};
+  font-size: ${({ theme }) => theme.fontSizes.xs};
   justify-content: center;
   text-transform: capitalize;
 
-  & li {
+  & > li {
     display: flex;
     align-items: center;
 
