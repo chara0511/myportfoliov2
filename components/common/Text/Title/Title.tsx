@@ -17,24 +17,24 @@ const StyledTitle = styled.div`
 
   ${mixins.flexCenter};
 
-  & h2 {
+  & > h2 {
     text-transform: capitalize;
   }
+`
 
-  & .borders {
-    & .border {
-      margin-left: 1.75rem;
-      display: block;
-      width: 45px;
-      height: 2px;
-      background-color: var(--curious-blue);
-      border-radius: ${({ theme }) => theme.borderRadius.default};
-    }
+const StyledBorders = styled.div`
+  & span {
+    margin-left: 1.75rem;
+    display: block;
+    width: 45px;
+    height: 2px;
+    background-color: var(--curious-blue);
+    border-radius: ${({ theme }) => theme.borderRadius.default};
+  }
 
-    & .border:first-child {
-      background-color: var(--curious-blue);
-      margin: 0.25rem 0 0.75rem;
-    }
+  & span:first-child {
+    background-color: var(--curious-blue);
+    margin: 0.25rem 0 0.75rem;
   }
 `
 
@@ -53,10 +53,10 @@ const Title: FC<{ title?: string }> = ({ title, children }) => {
       </h2>
       {children}
 
-      <div className="borders">
-        <span className="border" />
-        <span className="border" />
-      </div>
+      <StyledBorders>
+        <span />
+        <span />
+      </StyledBorders>
     </StyledTitle>
   )
 }

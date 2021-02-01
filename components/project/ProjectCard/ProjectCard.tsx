@@ -9,61 +9,45 @@ const StyledContent = styled.div`
   border-radius: ${({ theme }) => theme.borderRadius.card};
   min-height: 375px;
   box-shadow: var(--card-shadow);
+`
 
-  & .projectScreenshot {
+const StyledScreenshot = styled.div`
+  display: flex;
+
+  & > a {
     display: flex;
 
-    & > a {
-      display: flex;
+    & .formattedImage {
+      border-top-right-radius: ${({ theme }) => theme.borderRadius.card};
+      border-top-left-radius: ${({ theme }) => theme.borderRadius.card};
+      opacity: 0.6;
 
-      & .formattedImage {
-        border-top-right-radius: ${({ theme }) => theme.borderRadius.card};
-        border-top-left-radius: ${({ theme }) => theme.borderRadius.card};
-        opacity: 0.6;
-
-        :hover {
-          opacity: 1;
-        }
+      :hover {
+        opacity: 1;
       }
     }
   }
+`
 
-  & .projectInfo {
-    background-color: var(--blue-zodiac);
-    border-bottom-right-radius: ${({ theme }) => theme.borderRadius.card};
-    border-bottom-left-radius: ${({ theme }) => theme.borderRadius.card};
+const StyledInfo = styled.div`
+  background-color: var(--blue-zodiac);
+  border-bottom-right-radius: ${({ theme }) => theme.borderRadius.card};
+  border-bottom-left-radius: ${({ theme }) => theme.borderRadius.card};
+`
 
-    & .projectInfoHeader {
-      padding: 1rem 1.5rem 0.5rem;
+const StyledHeader = styled.div`
+  padding: 1rem 1.5rem 0.5rem;
 
-      ${mixins.flexBetween};
+  ${mixins.flexBetween};
 
-      & > a {
-        width: 24px;
-        height: 24px;
-      }
-    }
+  & > h4 {
+    font-size: ${({ theme }) => theme.fontSizes.lg};
+    line-height: ${({ theme }) => theme.lineHeights.lg};
+  }
 
-    & .projectInfoBody {
-      padding: 0.5rem 1.5rem 0.5rem;
-      height: 180px;
-    }
-
-    & .projectInfoFooter {
-      border-top: 1px solid var(--curious-blue);
-      padding: 0.5rem 1.5rem 1rem;
-
-      & ul {
-        flex-wrap: wrap;
-
-        ${mixins.flexEvenly};
-
-        & li > svg {
-          height: 24px;
-          width: auto;
-        }
-      }
-    }
+  & > a {
+    width: 24px;
+    height: 24px;
   }
 `
 
@@ -85,6 +69,27 @@ const StyledPills = styled.ul`
   }
 `
 
+const StyledBody = styled.div`
+  padding: 0.5rem 1.5rem 0.5rem;
+  height: 180px;
+`
+
+const StyledFooter = styled.div`
+  border-top: 1px solid var(--curious-blue);
+  padding: 0.5rem 1.5rem 1rem;
+
+  & > ul {
+    flex-wrap: wrap;
+
+    ${mixins.flexEvenly};
+
+    & li > svg {
+      height: 24px;
+      width: auto;
+    }
+  }
+`
+
 interface Props {
   app: AppModel
 }
@@ -92,7 +97,7 @@ interface Props {
 const ProjectCard: FC<Props> = ({ app }) => {
   return (
     <StyledContent>
-      <div className="projectScreenshot">
+      <StyledScreenshot>
         <a
           href={app.appLink}
           title={`${app.appName} demo`}
@@ -109,9 +114,9 @@ const ProjectCard: FC<Props> = ({ app }) => {
             loading="eager"
           />
         </a>
-      </div>
-      <div className="projectInfo">
-        <div className="projectInfoHeader">
+      </StyledScreenshot>
+      <StyledInfo>
+        <StyledHeader>
           <h4>{app.appName}</h4>
           <a
             title={`${app.appName} repository`}
@@ -124,7 +129,7 @@ const ProjectCard: FC<Props> = ({ app }) => {
               <Icon name="github" />
             </span>
           </a>
-        </div>
+        </StyledHeader>
 
         <StyledPills>
           {app.types.map((type: string) => (
@@ -132,11 +137,11 @@ const ProjectCard: FC<Props> = ({ app }) => {
           ))}
         </StyledPills>
 
-        <div className="projectInfoBody">
+        <StyledBody>
           <p>{app.appDescription}</p>
-        </div>
+        </StyledBody>
 
-        <div className="projectInfoFooter">
+        <StyledFooter>
           <ul>
             {app.technologies.map((tech) => (
               <li key={tech.name}>
@@ -144,8 +149,8 @@ const ProjectCard: FC<Props> = ({ app }) => {
               </li>
             ))}
           </ul>
-        </div>
-      </div>
+        </StyledFooter>
+      </StyledInfo>
     </StyledContent>
   )
 }

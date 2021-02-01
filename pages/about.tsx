@@ -4,7 +4,6 @@ import { getMyData } from '@lib/fetchData'
 import { Data } from '@lib/data'
 
 export default function AboutPage({ myData }: Data) {
-  // console.log(myData)
   return <About about={myData.about} />
 }
 

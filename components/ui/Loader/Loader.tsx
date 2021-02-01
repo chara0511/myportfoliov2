@@ -51,7 +51,7 @@ const Loader: FC<Props> = ({ isLoading }) => {
       .add({
         targets: '#JC #border1',
         delay: 200,
-        duration: 300,
+        duration: 200,
         easing: 'easeInOutQuad',
         translateY: [-250, 0],
         translateX: [250, 0],
@@ -61,7 +61,7 @@ const Loader: FC<Props> = ({ isLoading }) => {
       .add({
         targets: '#JC #border5',
         // delay: 500,
-        duration: 300,
+        duration: 200,
         easing: 'easeInOutQuad',
         translateY: [250, 0],
         translateX: [-250, 0],
@@ -91,7 +91,7 @@ const Loader: FC<Props> = ({ isLoading }) => {
       .add({
         targets: '#JC #border3',
         // delay: 500,
-        duration: 300,
+        duration: 200,
         easing: 'easeInOutQuad',
         translateY: [-250, 0],
         translateX: [250, 0],
@@ -101,7 +101,7 @@ const Loader: FC<Props> = ({ isLoading }) => {
       .add({
         targets: '#JC #border7',
         // delay: 500,
-        duration: 300,
+        duration: 200,
         easing: 'easeInOutQuad',
         translateY: [250, 0],
         translateX: [-250, 0],
@@ -111,13 +111,13 @@ const Loader: FC<Props> = ({ isLoading }) => {
       .add({
         targets: '#JC #border4-8',
         // delay: 500,
-        duration: 300,
+        duration: 200,
         easing: 'easeInOutQuart',
         strokeDashoffset: [anime.setDashoffset, 0],
       })
       .add({
         targets: '#JC #J',
-        duration: 500,
+        duration: 400,
         easing: 'easeInOutQuad',
         translateY: [250, 0],
         translateX: [-250, 0],
@@ -126,7 +126,7 @@ const Loader: FC<Props> = ({ isLoading }) => {
       })
       .add({
         targets: '#JC #C',
-        duration: 500,
+        duration: 400,
         easing: 'easeInOutQuad',
         translateY: [-250, 0],
         translateX: [250, 0],
@@ -135,7 +135,7 @@ const Loader: FC<Props> = ({ isLoading }) => {
       })
       .add({
         targets: '#JC',
-        delay: 700,
+        delay: 500,
         duration: 300,
         easing: 'easeInOutSine',
         opacity: 0,
