@@ -8,7 +8,7 @@ const StyledLogoButton = styled.div`
   color: var(--big-stone);
 
   & svg {
-    width: 3rem;
+    width: 5rem;
     height: 3rem;
   }
 `

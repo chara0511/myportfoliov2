@@ -53,6 +53,7 @@ const Layout: FC = ({ children }) => {
       {state ? (
         <Loader isLoading={() => setState(false)} />
       ) : (
+        // <Test />
         <StyledMainContainer>
           <Header reload={() => setState((prev) => !prev)} />
           <StyledContainer displaySidebar={displaySidebar}>{children}</StyledContainer>

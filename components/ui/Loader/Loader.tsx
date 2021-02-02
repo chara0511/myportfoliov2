@@ -49,101 +49,40 @@ const Loader: FC<Props> = ({ isLoading }) => {
         complete: () => isLoading(),
       })
       .add({
-        targets: '#JC #border1',
-        delay: 200,
-        duration: 200,
-        easing: 'easeInOutQuad',
-        translateY: [-250, 0],
-        translateX: [250, 0],
-        scale: [1],
-        opacity: [0, 1],
-      })
-      .add({
-        targets: '#JC #border5',
-        // delay: 500,
-        duration: 200,
-        easing: 'easeInOutQuad',
-        translateY: [250, 0],
-        translateX: [-250, 0],
-        scale: [1],
-        opacity: [0, 1],
-      })
-      .add({
-        targets: '#JC #border2',
-        // delay: 500,
-        duration: 200,
-        easing: 'easeInOutQuad',
-        translateY: [-250, 0],
-        translateX: [250, 0],
-        scale: [1],
-        opacity: [0, 1],
-      })
-      .add({
-        targets: '#JC #border6',
-        // delay: 500,
-        duration: 200,
-        easing: 'easeInOutQuad',
-        translateY: [250, 0],
-        translateX: [-250, 0],
-        scale: [1],
-        opacity: [0, 1],
-      })
-      .add({
-        targets: '#JC #border3',
-        // delay: 500,
-        duration: 200,
-        easing: 'easeInOutQuad',
-        translateY: [-250, 0],
-        translateX: [250, 0],
-        scale: [1],
-        opacity: [0, 1],
-      })
-      .add({
-        targets: '#JC #border7',
-        // delay: 500,
-        duration: 200,
-        easing: 'easeInOutQuad',
-        translateY: [250, 0],
-        translateX: [-250, 0],
-        scale: [1],
-        opacity: [0, 1],
-      })
-      .add({
-        targets: '#JC #border4-8',
-        // delay: 500,
-        duration: 200,
-        easing: 'easeInOutQuart',
-        strokeDashoffset: [anime.setDashoffset, 0],
-      })
-      .add({
-        targets: '#JC #J',
-        duration: 400,
-        easing: 'easeInOutQuad',
-        translateY: [250, 0],
-        translateX: [-250, 0],
-        scale: [1],
-        opacity: [0, 1],
-      })
-      .add({
-        targets: '#JC #C',
-        duration: 400,
-        easing: 'easeInOutQuad',
-        translateY: [-250, 0],
-        translateX: [250, 0],
-        scale: [1],
-        opacity: [0, 1],
-      })
-      .add({
-        targets: '#JC',
-        delay: 500,
+        targets: '#logo',
+        delay: 100,
         duration: 300,
         easing: 'easeInOutSine',
-        opacity: 0,
-        scale: [1, 0.1],
+        opacity: [0, 1],
+        scale: [0.1, 1],
+      })
+      .add({
+        targets: '#logo .letter',
+        easing: 'easeInOutSine',
+        duration: 1000,
+        opacity: [0, 1],
+        delay: (el, i) => 425 + 100 * i,
+      })
+      .add({
+        targets: '#logo .letter',
+        easing: 'easeInOutSine',
+        duration: 500,
+        opacity: [1, 0],
+        delay: (el, i) => 125 + 100 * i,
+      })
+      .add({
+        targets: '#logo',
+        delay: 200,
+        duration: 300,
+        easing: 'easeInOutQuad',
+        translateY: [0, '-40vh'],
+        translateX: [0, '-32vw'],
+        scale: [1],
+        opacity: [1, 0],
       })
       .add({
         targets: '.loader',
-        duration: 200,
+        duration: 50,
         easing: 'easeInOutExpo',
         opacity: 0,
       })

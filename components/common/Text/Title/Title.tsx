@@ -13,13 +13,10 @@ const fadeIn = keyframes`
 
 const StyledTitle = styled.div`
   letter-spacing: 0.15rem;
+  text-transform: capitalize;
   flex-direction: column;
 
   ${mixins.flexCenter};
-
-  & > h2 {
-    text-transform: capitalize;
-  }
 `
 
 const StyledBorders = styled.div`

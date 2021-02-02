@@ -15,13 +15,6 @@ const StyledContent = styled.section`
   flex-direction: column;
 
   ${mixins.flexEvenly};
-
-  & h2,
-  & h3,
-  & h4 {
-    text-align: center;
-    text-transform: capitalize;
-  }
 `
 
 const StyledBody = styled.div`
