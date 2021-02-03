@@ -15,12 +15,13 @@ const StyledTitle = styled.div`
   letter-spacing: 0.15rem;
   text-transform: capitalize;
   flex-direction: column;
+  width: 100%;
 
   ${mixins.flexCenter};
 `
 
 const StyledBorders = styled.div`
-  & span {
+  & > span {
     margin-left: 1.75rem;
     display: block;
     width: 45px;
@@ -29,13 +30,13 @@ const StyledBorders = styled.div`
     border-radius: ${({ theme }) => theme.borderRadius.default};
   }
 
-  & span:first-child {
+  & > span:first-child {
     background-color: var(--curious-blue);
     margin: 0.25rem 0 0.75rem;
   }
 `
 
-const StyledPulsar = styled.span`
+const StyledFadeIn = styled.span`
   animation: 1000ms ${fadeIn} ease-in-out infinite alternate;
   color: var(--curious-blue);
   font-size: inherit;
@@ -46,7 +47,7 @@ const Title: FC<{ title?: string }> = ({ title, children }) => {
     <StyledTitle>
       <h2>
         {title}
-        {title && <StyledPulsar>.</StyledPulsar>}
+        {title && <StyledFadeIn>.</StyledFadeIn>}
       </h2>
       {children}
 

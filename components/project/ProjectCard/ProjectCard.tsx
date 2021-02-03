@@ -41,6 +41,7 @@ const StyledHeader = styled.div`
   ${mixins.flexBetween};
 
   & > h4 {
+    text-transform: capitalize;
     font-size: ${({ theme }) => theme.fontSizes.lg};
     line-height: ${({ theme }) => theme.lineHeights.lg};
   }

@@ -24,4 +24,8 @@ export default styled(StyledBigLink)`
   margin: 1rem 0;
 
   ${mixins.bigLink};
+
+  &:hover {
+    border-color: var(--curious-blue);
+  }
 `

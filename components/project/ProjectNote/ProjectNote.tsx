@@ -17,6 +17,7 @@ const StyledContent = styled.div`
     background-color: var(--blue-zodiac);
     border-radius: ${({ theme }) => theme.borderRadius.default};
     transition: ${({ theme }) => theme.transition};
+    text-transform: capitalize;
 
     ${mixins.flexCenter};
 

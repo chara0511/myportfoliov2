@@ -69,7 +69,7 @@ const About: FC<Props> = ({ about }) => {
   }, [])
 
   return (
-    <CSSTransition in={inProp} timeout={300} classNames="fade">
+    <CSSTransition in={inProp} timeout={400} classNames="fade">
       <StyledContent id="about">
         <Title title={about.header} />
         <StyledWrapper>

@@ -38,7 +38,7 @@ const Contact: FC<Props> = ({ contact }) => {
   }, [])
 
   return (
-    <CSSTransition in={inProp} timeout={300} classNames="fade">
+    <CSSTransition in={inProp} timeout={400} classNames="fade">
       <StyledContent id="contact">
         <Title title={contact.header} />
         <p>{contact.body}</p>

@@ -87,7 +87,7 @@ const Projects: FC<Props> = ({ projects, children }) => {
   }, [])
 
   return (
-    <CSSTransition in={inProp} timeout={250} classNames="fade">
+    <CSSTransition in={inProp} timeout={400} classNames="fade">
       <>
         <StyledDescription>
           <Title title={projects.header} />
