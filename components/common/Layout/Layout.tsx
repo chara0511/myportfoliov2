@@ -8,14 +8,14 @@ import { breakpoints, mixins } from 'styles'
 const StyledMainContainer = styled.div`
   min-height: 100vh;
   flex-direction: column;
+  max-width: 1100px;
+  margin: 0 auto;
 
   ${mixins.flexCenter};
 `
 
 const StyledContainer = styled.main<{ displaySidebar: boolean }>`
   padding: 0 1rem;
-  max-width: 1100px;
-  margin: 0 auto;
   flex: 1;
   flex-direction: column;
   width: 100%;
@@ -31,16 +31,8 @@ const StyledContainer = styled.main<{ displaySidebar: boolean }>`
     padding: 0 6rem;
   }
 
-  @media (min-width: ${breakpoints.lg}) {
-    padding: 0 9rem;
-  }
-
   @media (min-width: ${breakpoints.xl}) {
-    padding: 0 6rem;
-  }
-
-  @media (min-width: ${breakpoints['2xl']}) {
-    padding: 0 3rem;
+    padding: 0;
   }
 `
 
@@ -53,7 +45,6 @@ const Layout: FC = ({ children }) => {
       {state ? (
         <Loader isLoading={() => setState(false)} />
       ) : (
-        // <Loading isLoading={() => setState(false)} />
         <StyledMainContainer>
           <Header reload={() => setState((prev) => !prev)} />
           <StyledContainer displaySidebar={displaySidebar}>{children}</StyledContainer>

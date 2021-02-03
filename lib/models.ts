@@ -1,3 +1,8 @@
+export interface Link {
+  name: string
+  href: string
+}
+
 export interface AppModel {
   appName: string
   appDescription: string

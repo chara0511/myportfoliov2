@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { useScroll } from '@lib/hooks'
 import { useUI } from '@components/ui/context'
 import { LogoButton, MenuButton, Sidebar } from '@components/ui'
+import { Links } from '@components/links'
 import { breakpoints, mixins } from 'styles'
 
 export const StyledContent = styled.header<{
@@ -21,10 +22,6 @@ export const StyledContent = styled.header<{
   right: 0;
   width: 100%;
   z-index: 49;
-
-  @media (min-width: ${breakpoints.lg}) {
-    display: none;
-  }
 
   & > nav {
     max-width: 1100px;
@@ -59,8 +56,10 @@ const Header: FC<Props> = ({ reload }) => {
     <StyledContent scrollY={y} scrollDirection={direction} open={displaySidebar}>
       <nav>
         <LogoButton href="/" reload={reload} />
+        <Links view="navbar" onClose={closeSidebar} />
         <MenuButton onOpen={openSidebar} />
       </nav>
+
       <Sidebar open={displaySidebar} onClose={closeSidebar} />
     </StyledContent>
   )

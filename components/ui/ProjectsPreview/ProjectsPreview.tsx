@@ -1,7 +1,7 @@
 import { FC, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
-import { DataModel } from '@lib/data'
+import { DataModel } from '@lib/models'
 import { Title } from '@components/common'
 import sr, { srConfig } from '@utils/sr'
 import { breakpoints, mixins } from 'styles'
@@ -27,18 +27,13 @@ const StyledBody = styled.div`
   }
 `
 
-const StyledWrapper = styled.div`
-  flex: 0 60px;
+const StyledDescription = styled.div`
   text-align: right;
   margin: 2rem 0;
 
-  @media (min-width: ${breakpoints.lg}) {
-    width: 90%;
-  }
-
   @media (min-width: ${breakpoints.xl}) {
-    flex: 0 300px;
-    margin: 0;
+    flex: 1;
+    margin-right: 2rem;
     width: 100%;
   }
 `
@@ -65,11 +60,11 @@ const ProjectsPreview: FC<Props> = ({ projects, children }) => {
       </Title>
 
       <StyledBody>
-        <StyledWrapper>
+        <StyledDescription>
           <p>{projects.bodyPrev}</p>
           <br />
           <p>{projects.footerPrev}</p>
-        </StyledWrapper>
+        </StyledDescription>
 
         {children}
       </StyledBody>

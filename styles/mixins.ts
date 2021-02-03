@@ -19,7 +19,7 @@ const mixins = {
   flexLeft: css`
     display: flex;
     justify-content: center;
-    align-items: left;
+    align-items: flex-start;
   `,
   flexEvenly: css`
     display: flex;

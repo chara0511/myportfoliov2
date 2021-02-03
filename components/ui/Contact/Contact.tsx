@@ -1,10 +1,10 @@
-import { FC, useEffect, useRef, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { DataModel } from '@lib/data'
-import sr, { srConfig } from '@utils/sr'
+import { DataModel } from '@lib/models'
+
 import { Title } from '@components/common'
 import { breakpoints, mixins } from 'styles'
-import { StyledLink } from 'styles/utils'
+import { StyledBigLink } from 'styles/utils'
 import { CSSTransition } from 'react-transition-group'
 
 const StyledContent = styled.section`
@@ -36,23 +36,18 @@ const Contact: FC<Props> = ({ contact }) => {
   useEffect(() => {
     setInProp(true)
   }, [])
-  const ref = useRef<HTMLElement | any>(null)
-
-  useEffect(() => {
-    sr().reveal(ref.current, srConfig())
-  }, [])
 
   return (
-    <CSSTransition in={inProp} timeout={250} classNames="fade">
+    <CSSTransition in={inProp} timeout={300} classNames="fade">
       <StyledContent id="contact">
         <Title title={contact.header} />
-        <p ref={ref}>{contact.body}</p>
-        <StyledLink
+        <p>{contact.body}</p>
+        <StyledBigLink
           href="mailto:jccharalopez@gmail.com"
           forwardedAs="mailto:jccharalopez@gmail.com"
         >
           {contact.link}
-        </StyledLink>
+        </StyledBigLink>
         <p>{contact.footer}</p>
       </StyledContent>
     </CSSTransition>

@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from 'react'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import styled, { keyframes } from 'styled-components'
-import { DataModel } from '@lib/data'
+import { DataModel } from '@lib/models'
 import { I18nWidget } from '@components/common'
 import { breakpoints, mixins } from 'styles'
 
@@ -111,7 +111,7 @@ const Hero: FC<Props> = ({ hero }) => {
   const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
-    const timeout = setTimeout(() => setIsMounted(true), 500)
+    const timeout = setTimeout(() => setIsMounted(true), 10)
     return () => clearTimeout(timeout)
   }, [])
 

@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import { FC } from 'react'
 import styled from 'styled-components'
-import { AppModel } from '@lib/data'
+import { AppModel } from '@lib/models'
 import { breakpoints } from 'styles'
 
 const StyledContent = styled.div`

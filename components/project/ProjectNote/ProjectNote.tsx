@@ -2,7 +2,7 @@
 import { FC } from 'react'
 import styled from 'styled-components'
 import { Icon } from '@components/common'
-import { AppModel } from '@lib/data'
+import { AppModel } from '@lib/models'
 import { breakpoints, mixins } from 'styles'
 
 const StyledContent = styled.div`

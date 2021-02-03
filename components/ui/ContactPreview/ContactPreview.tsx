@@ -1,7 +1,7 @@
 import { FC, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
-import { DataModel } from '@lib/data'
+import { DataModel } from '@lib/models'
 import sr, { srConfig } from '@utils/sr'
 import { Title } from '@components/common'
 import { breakpoints, mixins } from 'styles'

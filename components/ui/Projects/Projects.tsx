@@ -1,7 +1,7 @@
 import { FC, useState, useEffect } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import styled from 'styled-components'
-import { DataModel } from '@lib/data'
+import { DataModel } from '@lib/models'
 import { Icon, Title } from '@components/common'
 import { breakpoints, mixins } from 'styles'
 

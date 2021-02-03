@@ -3,8 +3,8 @@ import Ticker from 'react-ticker'
 import { useInView } from 'react-intersection-observer'
 import styled from 'styled-components'
 import { ProjectImage, ProjectNote } from '@components/project'
+import { AppModel } from '@lib/models'
 import { breakpoints } from 'styles'
-import { AppModel } from '@lib/data'
 
 const StyledContent = styled.div<{ view: string }>`
   width: 100%;

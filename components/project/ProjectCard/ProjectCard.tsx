@@ -2,7 +2,7 @@ import { FC } from 'react'
 import Image from 'next/image'
 import styled from 'styled-components'
 import { Icon } from '@components/common'
-import { AppModel } from '@lib/data'
+import { AppModel } from '@lib/models'
 import { mixins } from 'styles'
 
 const StyledContent = styled.div`

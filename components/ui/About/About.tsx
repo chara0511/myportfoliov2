@@ -1,9 +1,8 @@
-import { FC, useState, useEffect, useRef } from 'react'
+import { FC, useState, useEffect } from 'react'
 import Image from 'next/image'
 import { CSSTransition } from 'react-transition-group'
 import styled from 'styled-components'
-import { DataModel } from '@lib/data'
-import sr, { srConfig } from '@utils/sr'
+import { DataModel } from '@lib/models'
 import { Title } from '@components/common'
 import { breakpoints, mixins } from 'styles'
 
@@ -69,14 +68,8 @@ const About: FC<Props> = ({ about }) => {
     setInProp(true)
   }, [])
 
-  const ref = useRef<HTMLElement | any>(null)
-
-  useEffect(() => {
-    sr().reveal(ref.current, srConfig())
-  }, [])
-
   return (
-    <CSSTransition in={inProp} timeout={250} classNames="fade">
+    <CSSTransition in={inProp} timeout={300} classNames="fade">
       <StyledContent id="about">
         <Title title={about.header} />
         <StyledWrapper>
@@ -94,7 +87,7 @@ const About: FC<Props> = ({ about }) => {
             />
           </div>
 
-          <div className="description" ref={ref}>
+          <div className="description">
             <div>
               <p>{`${about.headerBefore} ${about.headerAfter}`}</p>
               <br />
