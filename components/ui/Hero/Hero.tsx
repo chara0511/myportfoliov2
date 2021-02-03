@@ -134,8 +134,8 @@ const Hero: FC<Props> = ({ hero }) => {
         {isMounted &&
           items.map((item, i) => (
             // eslint-disable-next-line react/no-array-index-key
-            <CSSTransition key={i} classNames="fadeleft" timeout={1000}>
-              <div style={{ transitionDelay: `${i + 1}00ms` }}>{item}</div>
+            <CSSTransition key={i} classNames="fadeleft" timeout={600}>
+              <div style={{ transitionDelay: `${i * 1}00ms` }}>{item}</div>
             </CSSTransition>
           ))}
       </TransitionGroup>

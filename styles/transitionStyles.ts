@@ -39,26 +39,26 @@ const transitionStyles = css`
   .fadeleft-enter {
     opacity: 0.01;
     transform: translateX(-20px);
-    transition: opacity 300ms var(--easing), transform 300ms var(--easing);
+    transition: opacity 250ms var(--easing), transform 250ms var(--easing);
   }
 
   .fadeleft-enter-active {
     opacity: 1;
     transform: translateX(0px);
-    transition: opacity 300ms var(--easing), transform 300ms var(--easing);
+    transition: opacity 250ms var(--easing), transform 250ms var(--easing);
   }
 
   /* Fade Rigth */
   .faderight-enter {
     opacity: 0.01;
     transform: translateX(20px);
-    transition: opacity 300ms var(--easing), transform 300ms var(--easing);
+    transition: opacity 250ms var(--easing), transform 250ms var(--easing);
   }
 
   .faderight-enter-active {
     opacity: 1;
     transform: translateX(0px);
-    transition: opacity 300ms var(--easing), transform 300ms var(--easing);
+    transition: opacity 250ms var(--easing), transform 250ms var(--easing);
   }
 
   /* Fade up */

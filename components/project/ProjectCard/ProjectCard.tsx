@@ -112,6 +112,7 @@ const ProjectCard: FC<Props> = ({ app }) => {
             width={580}
             height={380}
             loading="eager"
+            quality="65"
           />
         </a>
       </StyledScreenshot>

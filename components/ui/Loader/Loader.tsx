@@ -7,7 +7,6 @@ import { mixins } from 'styles'
 const StyledContent = styled.div`
   /* overflow-y: hidden; */
   min-height: 100vh;
-
   position: fixed;
   width: 100%;
   height: 100%;
@@ -50,30 +49,30 @@ const Loader: FC<Props> = ({ isLoading }) => {
       })
       .add({
         targets: '#logo',
-        delay: 100,
-        duration: 300,
+        // delay: 100,
+        duration: 250,
         easing: 'easeInOutSine',
         opacity: [0, 1],
-        scale: [0.1, 1],
+        scale: [0, 1],
       })
       .add({
         targets: '#logo .letter',
         easing: 'easeInOutSine',
-        duration: 1000,
+        // duration: 1000,
         opacity: [0, 1],
         delay: (el, i) => 425 + 100 * i,
       })
       .add({
         targets: '#logo .letter',
         easing: 'easeInOutSine',
-        duration: 500,
+        // duration: 500,
         opacity: [1, 0],
         delay: (el, i) => 125 + 100 * i,
       })
       .add({
         targets: '#logo',
-        delay: 200,
-        duration: 300,
+        // delay: 200,
+        duration: 400,
         easing: 'easeInOutQuad',
         translateY: [0, '-40vh'],
         translateX: [0, '-32vw'],
@@ -82,7 +81,7 @@ const Loader: FC<Props> = ({ isLoading }) => {
       })
       .add({
         targets: '.loader',
-        duration: 50,
+        duration: 10,
         easing: 'easeInOutExpo',
         opacity: 0,
       })
@@ -94,7 +93,7 @@ const Loader: FC<Props> = ({ isLoading }) => {
     const timeout = setTimeout(() => {
       setWithDelay(true)
       animate()
-    }, 50)
+    }, 10)
 
     return () => clearTimeout(timeout)
   }, [])

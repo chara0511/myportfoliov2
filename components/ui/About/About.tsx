@@ -82,6 +82,8 @@ const About: FC<Props> = ({ about }) => {
         <StyledWrapper>
           <div className="formattedImg">
             <Image
+              priority
+              quality="65"
               loading="eager"
               className="rounded"
               alt="Avatar"

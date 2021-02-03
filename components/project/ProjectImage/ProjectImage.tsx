@@ -102,6 +102,8 @@ const ProjectImage: FC<Props> = ({ app, i }) => {
             height={380}
             loading="eager"
             className="rounded"
+            quality="65"
+            unoptimized
           />
         </div>
       </a>
