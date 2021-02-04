@@ -30,6 +30,7 @@ const StyledTechnologies = styled.ul`
   margin: 1.5rem auto;
   font-family: var(--font-mono);
   font-size: ${({ theme }) => theme.fontSizes.xs};
+  letter-spacing: 0.15rem;
   justify-content: center;
   text-transform: capitalize;
 

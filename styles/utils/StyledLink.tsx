@@ -28,7 +28,7 @@ export default styled(StyledLink)`
   font-weight: 600;
   color: var(--polo-blue);
   text-transform: capitalize;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.15rem;
 
   & .borders {
     display: block;

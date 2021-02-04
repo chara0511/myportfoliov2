@@ -11,8 +11,8 @@ const GlobalStyle = createGlobalStyle`
     --polo-blue: #97B9D1;
     --athens-gray: #f8f9fa;
 
-    --font-mono: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
-    --font-sans: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    --font-mono: 'Roboto Mono', 'SF Mono', 'Fira Code', 'Fira Mono',  monospace;
+    --font-sans: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, sans-serif;
 
     --card-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     --image-shadow: 0px 0px 32px 8px rgba(0, 0, 0, 0.3);

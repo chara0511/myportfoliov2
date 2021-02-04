@@ -26,12 +26,8 @@ const StyledContent = styled.nav`
     right: 6rem;
   }
 
-  @media (min-width: ${breakpoints.lg}) {
-    right: 10rem;
-  }
-
   @media (min-width: ${breakpoints.xl}) {
-    right: 12rem;
+    right: 9.5rem;
   }
 
   &:hover,

@@ -129,19 +129,20 @@ const Hero: FC<Props> = ({ hero }) => {
   const items = [first, second, third, fourth, fith]
 
   return (
-    <StyledContent>
-      <TransitionGroup component={null}>
-        {isMounted &&
-          items.map((item, i) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <CSSTransition key={i} classNames="fadeleft" timeout={600}>
-              <div style={{ transitionDelay: `${i * 1}00ms` }}>{item}</div>
-            </CSSTransition>
-          ))}
-      </TransitionGroup>
-
+    <>
+      <StyledContent>
+        <TransitionGroup component={null}>
+          {isMounted &&
+            items.map((item, i) => (
+              // eslint-disable-next-line react/no-array-index-key
+              <CSSTransition key={i} classNames="fadeleft" timeout={800}>
+                <div style={{ transitionDelay: `${i * 1}00ms` }}>{item}</div>
+              </CSSTransition>
+            ))}
+        </TransitionGroup>
+      </StyledContent>
       <I18nWidget />
-    </StyledContent>
+    </>
   )
 }
 
