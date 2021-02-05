@@ -92,7 +92,6 @@ const AboutPreview: FC<Props> = ({ about }) => {
             loading="eager"
             className="rounded"
             alt="Avatar"
-            unoptimized
             src="/me.jpg"
             width={300}
             height={300}

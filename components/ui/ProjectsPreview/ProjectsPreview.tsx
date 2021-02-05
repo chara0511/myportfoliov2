@@ -54,7 +54,7 @@ const ProjectsPreview: FC<Props> = ({ projects, children }) => {
       <Title>
         <Link href="/projects">
           <a>
-            <h2>{projects.header}</h2>
+            <h2>{projects.headerPrev}</h2>
           </a>
         </Link>
       </Title>

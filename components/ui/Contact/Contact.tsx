@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from 'react'
+import { NextSeo } from 'next-seo'
 import styled from 'styled-components'
 import { DataModel } from '@lib/models'
-
 import { Title } from '@components/common'
 import { breakpoints, mixins } from 'styles'
 import { StyledBigLink } from 'styles/utils'
@@ -38,19 +38,31 @@ const Contact: FC<Props> = ({ contact }) => {
   }, [])
 
   return (
-    <CSSTransition in={inProp} timeout={400} classNames="fade">
-      <StyledContent id="contact">
-        <Title title={contact.header} />
-        <p>{contact.body}</p>
-        <StyledBigLink
-          href="mailto:jccharalopez@gmail.com"
-          forwardedAs="mailto:jccharalopez@gmail.com"
-        >
-          {contact.link}
-        </StyledBigLink>
-        <p>{contact.footer}</p>
-      </StyledContent>
-    </CSSTransition>
+    <>
+      <NextSeo
+        title={contact.headerPrev}
+        description={contact.body}
+        openGraph={{
+          type: 'website',
+          title: `${contact.headerPrev} - Juan Carlos Chara`,
+          description: contact.body,
+        }}
+      />
+
+      <CSSTransition in={inProp} timeout={400} classNames="fade">
+        <StyledContent id="contact">
+          <Title title={contact.header} />
+          <p>{contact.body}</p>
+          <StyledBigLink
+            href="mailto:jccharalopez@gmail.com"
+            forwardedAs="mailto:jccharalopez@gmail.com"
+          >
+            {contact.link}
+          </StyledBigLink>
+          <p>{contact.footer}</p>
+        </StyledContent>
+      </CSSTransition>
+    </>
   )
 }
 

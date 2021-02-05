@@ -1,5 +1,6 @@
 import { FC, useState, useEffect } from 'react'
 import Image from 'next/image'
+import { NextSeo } from 'next-seo'
 import { CSSTransition } from 'react-transition-group'
 import styled from 'styled-components'
 import { DataModel } from '@lib/models'
@@ -21,40 +22,40 @@ const StyledWrapper = styled.div`
   @media (min-width: ${breakpoints.lg}) {
     flex-direction: row;
   }
+`
 
-  & .formattedImg {
-    flex: 0 200px;
-    width: 200px;
-    filter: drop-shadow(0px 8px 16px #17375b);
+const StyledImage = styled.div`
+  flex: 0 200px;
+  width: 200px;
+  filter: drop-shadow(0px 8px 16px #17375b);
 
-    @media (min-width: ${breakpoints.md}) {
-      width: 225px;
-      flex: 0 225px;
-    }
-
-    @media (min-width: ${breakpoints.xl}) {
-      width: 250px;
-      flex: 0 250px;
-    }
-
-    & .rounded {
-      border-radius: 50%;
-    }
+  @media (min-width: ${breakpoints.md}) {
+    width: 225px;
+    flex: 0 225px;
   }
 
-  & .description {
-    flex: 1;
-    width: 100%;
-    margin: 2rem 0 0;
+  @media (min-width: ${breakpoints.xl}) {
+    width: 250px;
+    flex: 0 250px;
+  }
 
-    & a {
-      color: var(--athens-gray);
-      font-weight: 600;
-    }
+  & .rounded {
+    border-radius: 50%;
+  }
+`
 
-    @media (min-width: ${breakpoints.lg}) {
-      margin: 0 4rem;
-    }
+const StyledDescription = styled.div`
+  flex: 1;
+  width: 100%;
+  margin: 2rem 0 0;
+
+  & a {
+    color: var(--athens-gray);
+    font-weight: 600;
+  }
+
+  @media (min-width: ${breakpoints.lg}) {
+    margin: 0 4rem;
   }
 `
 interface Props {
@@ -69,74 +70,98 @@ const About: FC<Props> = ({ about }) => {
   }, [])
 
   return (
-    <CSSTransition in={inProp} timeout={400} classNames="fade">
-      <StyledContent id="about">
-        <Title title={about.header} />
-        <StyledWrapper>
-          <div className="formattedImg">
-            <Image
-              priority
-              quality="65"
-              loading="eager"
-              className="rounded"
-              alt="Avatar"
-              unoptimized
-              src="/me.jpg"
-              width={300}
-              height={300}
-            />
-          </div>
+    <>
+      <NextSeo
+        title={about.header}
+        description={`${about.headerBefore} ${about.headerAfter} ${about.bodyPrev}`}
+        openGraph={{
+          type: 'website',
+          title: `${about.header} - Juan Carlos Chara`,
+          description: `${about.headerBefore} ${about.headerAfter} ${about.bodyPrev}`,
+          images: [
+            {
+              url: 'https://juancarloschara.vercel.app/me.jpg',
+              width: 1024,
+              height: 1024,
+              alt: 'Avatar',
+            },
+          ],
+        }}
+      />
 
-          <div className="description">
-            <div>
-              <p>{`${about.headerBefore} ${about.headerAfter}`}</p>
-              <br />
-              <p>
-                {about.bodyBefore}
-                <a href="https://www.unac.edu.pe" target="_blank" rel="noopener noreferrer">
-                  {about.keyword1}
-                </a>
-                {` - `}
-                {about.bodyAfter}
-              </p>
+      <CSSTransition in={inProp} timeout={400} classNames="fade">
+        <StyledContent id="about">
+          <Title title={about.header} />
+          <StyledWrapper>
+            <StyledImage>
+              <Image
+                priority
+                quality="65"
+                loading="eager"
+                className="rounded"
+                alt="Avatar"
+                unoptimized
+                src="/me.jpg"
+                width={300}
+                height={300}
+              />
+            </StyledImage>
 
-              <br />
-              <p>
-                {about.bodyPrev} {about.bodyPart1}
-                <a href="https://www.udemy.com" target="_blank" rel="noopener noreferrer">
-                  {about.keyword2}
-                </a>
-                , {about.bodyPart2}
-                <a
-                  href="https://www.freecodecamp.org/learn"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {about.keyword3}
-                </a>
-                . {about.bodyPart3}
-                <a href="https://devchallenges.io" target="_blank" rel="noopener noreferrer">
-                  {about.keyword4}
-                </a>
-                {` & `}
-                <a
-                  href="https://www.frontendmentor.io/solutions"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {about.keyword5}
-                </a>
-                .
-              </p>
-              <br />
-              <p>{about.body}</p>
-              <br />
-              <p>{about.footer}</p>
-            </div>
-          </div>
-        </StyledWrapper>
-      </StyledContent>
-    </CSSTransition>
+            <StyledDescription>
+              <div>
+                <p>{`${about.headerBefore} ${about.headerAfter}`}</p>
+                <br />
+                <p>
+                  {about.bodyBefore}
+                  <a href="https://www.unac.edu.pe" target="_blank" rel="noopener noreferrer">
+                    {about.keyword1}
+                  </a>
+                  {` - `}
+                  {about.bodyAfter}
+                </p>
+
+                <br />
+                <p>
+                  {about.bodyPrev} {about.bodyPart1}
+                  <a href="https://www.udemy.com" target="_blank" rel="noopener noreferrer">
+                    {about.keyword2}
+                  </a>
+                  , {about.bodyPart2}
+                  <a
+                    href="https://www.freecodecamp.org/chara-"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {about.keyword3}
+                  </a>
+                  . {about.bodyPart3}
+                  <a
+                    href="https://devchallenges.io/profile/Qpz48TS07urevaTXE9OS"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {about.keyword4}
+                  </a>
+                  {` & `}
+                  <a
+                    href="https://www.frontendmentor.io/profile/jcarlos0511"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {about.keyword5}
+                  </a>
+                  .
+                </p>
+                <br />
+                <p>{about.body}</p>
+                <br />
+                <p>{about.footer}</p>
+              </div>
+            </StyledDescription>
+          </StyledWrapper>
+        </StyledContent>
+      </CSSTransition>
+    </>
   )
 }
 

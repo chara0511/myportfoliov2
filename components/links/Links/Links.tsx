@@ -73,7 +73,11 @@ const Links: FC<Props> = ({ open, view, onClose }) => {
         <TransitionGroup component={null}>
           {isMounted &&
             sidebarLinks.map((link, i) => (
-              <CSSTransition key={link.name} classNames="faderight" timeout={800}>
+              <CSSTransition
+                key={link.name}
+                classNames={view === 'sidebar' ? '' : 'faderight'}
+                timeout={800}
+              >
                 <li style={{ transitionDelay: `${i * 1}00ms` }}>
                   {sidebarLink(link.name, link.href)}
                 </li>

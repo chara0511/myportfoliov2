@@ -1,4 +1,5 @@
 import { FC, useState, useEffect } from 'react'
+import { NextSeo } from 'next-seo'
 import { CSSTransition } from 'react-transition-group'
 import styled from 'styled-components'
 import { DataModel } from '@lib/models'
@@ -88,36 +89,48 @@ const Projects: FC<Props> = ({ projects, children }) => {
   }, [])
 
   return (
-    <CSSTransition in={inProp} timeout={400} classNames="fade">
-      <>
-        <StyledDescription>
-          <Title title={projects.header} />
-          <br />
+    <>
+      <NextSeo
+        title={projects.header}
+        description={projects.bodyPrev}
+        openGraph={{
+          type: 'website',
+          title: `${projects.header} - Juan Carlos Chara`,
+          description: projects.bodyPrev,
+        }}
+      />
 
-          <StyledBody>
-            <p>{projects.bodyPrev}</p>
+      <CSSTransition in={inProp} timeout={400} classNames="fade">
+        <>
+          <StyledDescription>
+            <Title title={projects.header} />
             <br />
-            <p>Here are a few technologies I&apos;ve been working with recently :</p>
-          </StyledBody>
 
-          <StyledTechnologies>
-            {projects.technologies.map((tech) => (
-              <li key={tech.name}>
-                <span>
-                  <Icon name={tech.name} />
-                </span>
-                {tech.name}
-              </li>
-            ))}
-          </StyledTechnologies>
-        </StyledDescription>
+            <StyledBody>
+              <p>{projects.bodyPrev}</p>
+              <br />
+              <p>Here are a few technologies I&apos;ve been working with recently :</p>
+            </StyledBody>
 
-        <StyledProjects id="projects">
-          <h3>{projects.headerAfter}</h3>
-          <StyledGrid>{children}</StyledGrid>
-        </StyledProjects>
-      </>
-    </CSSTransition>
+            <StyledTechnologies>
+              {projects.technologies.map((tech) => (
+                <li key={tech.name}>
+                  <span>
+                    <Icon name={tech.name} />
+                  </span>
+                  {tech.name}
+                </li>
+              ))}
+            </StyledTechnologies>
+          </StyledDescription>
+
+          <StyledProjects id="projects">
+            <h3>{projects.headerAfter}</h3>
+            <StyledGrid>{children}</StyledGrid>
+          </StyledProjects>
+        </>
+      </CSSTransition>
+    </>
   )
 }
 
