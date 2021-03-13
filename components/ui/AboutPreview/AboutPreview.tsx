@@ -23,35 +23,37 @@ const StyledBody = styled.div`
   @media (min-width: ${breakpoints.lg}) {
     flex-direction: row;
   }
+`
+const StyledImage = styled.div`
+  flex: 0 200px;
+  width: 200px;
+  filter: drop-shadow(0px 8px 16px #17375b);
+  border: 3px solid var(--curious-blue);
+  border-radius: 9999px;
+  display: inline-flex;
 
-  & .formattedImg {
-    flex: 0 200px;
-    width: 200px;
-    filter: drop-shadow(0px 8px 16px #17375b);
-
-    @media (min-width: ${breakpoints.md}) {
-      width: 225px;
-      flex: 0 225px;
-    }
-
-    @media (min-width: ${breakpoints.xl}) {
-      width: 250px;
-      flex: 0 250px;
-    }
-
-    & .rounded {
-      border-radius: 50%;
-    }
+  @media (min-width: ${breakpoints.md}) {
+    width: 225px;
+    flex: 0 225px;
   }
 
-  & .description {
-    flex: 1;
-    width: 100%;
-    margin: 2rem 0 0;
+  @media (min-width: ${breakpoints.xl}) {
+    width: 250px;
+    flex: 0 250px;
+  }
 
-    @media (min-width: ${breakpoints.lg}) {
-      margin: 0 4rem;
-    }
+  & .rounded {
+    border-radius: 50%;
+  }
+`
+
+const StyledDescription = styled.div`
+  flex: 1;
+  width: 100%;
+  margin: 2rem 0 0;
+
+  @media (min-width: ${breakpoints.lg}) {
+    margin: 0 4rem;
   }
 `
 
@@ -85,7 +87,7 @@ const AboutPreview: FC<Props> = ({ about }) => {
         </Link>
       </Title>
       <StyledBody>
-        <div className="formattedImg">
+        <StyledImage>
           <Image
             priority
             quality="65"
@@ -96,16 +98,16 @@ const AboutPreview: FC<Props> = ({ about }) => {
             width={300}
             height={300}
           />
-        </div>
+        </StyledImage>
 
-        <div className="description">
+        <StyledDescription>
           <div>
             <p>{about.headerBefore}</p>
             <p>{about.headerAfter}</p>
             <br />
             <p>{about.bodyPrev}</p>
           </div>
-        </div>
+        </StyledDescription>
       </StyledBody>
 
       <StyledFooter>
