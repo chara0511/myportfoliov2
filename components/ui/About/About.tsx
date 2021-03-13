@@ -28,6 +28,9 @@ const StyledImage = styled.div`
   flex: 0 200px;
   width: 200px;
   filter: drop-shadow(0px 8px 16px #17375b);
+  border: 3px solid var(--curious-blue);
+  border-radius: 9999px;
+  display: inline-flex;
 
   @media (min-width: ${breakpoints.md}) {
     width: 225px;
@@ -40,7 +43,8 @@ const StyledImage = styled.div`
   }
 
   & .rounded {
-    border-radius: 50%;
+    border-radius: 9999px;
+    border: 50px solid red;
   }
 `
 
@@ -136,7 +140,7 @@ const About: FC<Props> = ({ about }) => {
                   </a>
                   . {about.bodyPart3}
                   <a
-                    href="https://devchallenges.io/profile/Qpz48TS07urevaTXE9OS"
+                    href="https://devchallenges.io/portfolio/jcarlos0511"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
