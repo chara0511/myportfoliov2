@@ -29,5 +29,6 @@ export const getStaticProps = async ({ locale }: GetStaticPropsContext) => {
     props: {
       myData,
     },
+    revalidate: 1200,
   }
 }
