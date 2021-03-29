@@ -1,5 +1,7 @@
 import { FC } from 'react'
 import Image from 'next/image'
+import { formatDistanceToNow } from 'date-fns'
+
 import styled from 'styled-components'
 import { Icon } from '@components/common'
 import { AppModel } from '@lib/models'
@@ -73,6 +75,19 @@ const StyledPills = styled.ul`
 const StyledBody = styled.div`
   padding: 0.5rem 1.5rem 0.5rem;
   height: 180px;
+  position: relative;
+
+  & > p {
+    line-height: ${({ theme }) => theme.lineHeights.base};
+
+    &:last-child {
+      position: absolute;
+      bottom: 0.5rem;
+      right: 1.5rem;
+      opacity: 0.5;
+      font-family: var(--font-mono);
+    }
+  }
 `
 
 const StyledFooter = styled.div`
@@ -96,6 +111,8 @@ interface Props {
 }
 
 const ProjectCard: FC<Props> = ({ app }) => {
+  const distanceToNow = (date: string) => formatDistanceToNow(new Date(date), { addSuffix: true })
+
   return (
     <StyledContent>
       <StyledScreenshot>
@@ -141,6 +158,7 @@ const ProjectCard: FC<Props> = ({ app }) => {
 
         <StyledBody>
           <p>{app.appDescription}</p>
+          <p>{distanceToNow(app.createdAt)}.</p>
         </StyledBody>
 
         <StyledFooter>
