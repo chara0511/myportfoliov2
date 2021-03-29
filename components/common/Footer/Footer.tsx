@@ -1,11 +1,12 @@
 import styled from 'styled-components'
+
 import { mixins } from 'styles'
 import { Icon } from '..'
 
 const StyledContent = styled.footer`
   width: 100%;
   text-align: center;
-  padding: 0 1rem 2rem;
+  padding: 2rem;
 `
 
 const StyledSocialLinks = styled.div`

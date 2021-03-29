@@ -2,9 +2,11 @@ import { FC, useState, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import { CSSTransition } from 'react-transition-group'
 import styled from 'styled-components'
+
 import { DataModel } from '@lib/models'
 import { Icon, Title } from '@components/common'
 import { breakpoints, mixins } from 'styles'
+import { StyledSmallLink } from 'styles/utils'
 
 const StyledDescription = styled.section`
   width: 100%;
@@ -53,7 +55,6 @@ const StyledTechnologies = styled.ul`
 const StyledProjects = styled.section`
   width: 100%;
   min-height: 100vh;
-  padding: 2.5rem 0 5rem;
 
   & > h3 {
     text-transform: capitalize;
@@ -128,6 +129,13 @@ const Projects: FC<Props> = ({ projects, children }) => {
             <h3>{projects.headerAfter}</h3>
             <StyledGrid>{children}</StyledGrid>
           </StyledProjects>
+
+          <StyledSmallLink
+            href="https://github.com/jcarlos0511?tab=repositories"
+            forwardedAs="https://github.com/jcarlos0511?tab=repositories"
+          >
+            See more
+          </StyledSmallLink>
         </>
       </CSSTransition>
     </>
