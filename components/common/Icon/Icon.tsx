@@ -2,6 +2,7 @@ import { FC } from 'react'
 import {
   ArrowIcon,
   BootstrapIcon,
+  ChakraUIIcon,
   ErrorIcon,
   ExpressIcon,
   ExternalIcon,
@@ -13,6 +14,7 @@ import {
   LinkedInIcon,
   MaterialUIIcon,
   MongoDBIcon,
+  MySQLIcon,
   NextjsIcon,
   NodejsIcon,
   ReactIcon,
@@ -34,6 +36,8 @@ const Icon: FC<Props> = ({ name }) => {
       return <ArrowIcon />
     case 'bootstrap':
       return <BootstrapIcon />
+    case 'chakra ui':
+      return <ChakraUIIcon />
     case 'express':
       return <ExpressIcon />
     case 'external link':
@@ -52,6 +56,8 @@ const Icon: FC<Props> = ({ name }) => {
       return <LinkedInIcon />
     case 'material-ui':
       return <MaterialUIIcon />
+    case 'mysql':
+      return <MySQLIcon />
     case 'mongoDB':
       return <MongoDBIcon />
     case 'next.js':
