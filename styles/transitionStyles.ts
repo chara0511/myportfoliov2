@@ -25,7 +25,7 @@ const transitionStyles = css`
   /* Fade down */
   .fadedown-enter {
     opacity: 0.01;
-    transform: translateY(-20px);
+    transform: translateY(-25px);
     transition: opacity 300ms var(--easing), transform 300ms var(--easing);
   }
 
@@ -38,7 +38,7 @@ const transitionStyles = css`
   /* Fade left */
   .fadeleft-enter {
     opacity: 0.01;
-    transform: translateX(-20px);
+    transform: translateX(-25px);
     transition: opacity 300ms var(--easing), transform 300ms var(--easing);
   }
 
@@ -51,7 +51,7 @@ const transitionStyles = css`
   /* Fade Rigth */
   .faderight-enter {
     opacity: 0.01;
-    transform: translateX(20px);
+    transform: translateX(25px);
     transition: opacity 300ms var(--easing), transform 300ms var(--easing);
   }
 
@@ -64,7 +64,7 @@ const transitionStyles = css`
   /* Fade up */
   .fadeup-enter {
     opacity: 0.01;
-    transform: translateY(20px);
+    transform: translateY(25px);
     transition: opacity 300ms var(--easing), transform 300ms var(--easing);
   }
 

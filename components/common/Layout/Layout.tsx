@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { useUI } from '@components/ui/context'
 import { Footer, Header } from '@components/common'
@@ -38,18 +38,30 @@ const StyledContainer = styled.main<{ displaySidebar: boolean }>`
 
 const Layout: FC = ({ children }) => {
   const { displaySidebar } = useUI()
-  const [state, setState] = useState(true)
+  const [state, setState] = useState(false)
+
+  const [withDelay, setWithDelay] = useState(false)
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setWithDelay(true)
+    }, 1)
+
+    return () => clearTimeout(timeout)
+  }, [])
 
   return (
     <>
       {state ? (
         <Loader isLoading={() => setState(false)} />
       ) : (
-        <StyledMainContainer>
-          <Header reload={() => setState((prev) => !prev)} />
-          <StyledContainer displaySidebar={displaySidebar}>{children}</StyledContainer>
-          <Footer />
-        </StyledMainContainer>
+        withDelay && (
+          <StyledMainContainer>
+            <Header reload={() => setState((prev) => !prev)} />
+            <StyledContainer displaySidebar={displaySidebar}>{children}</StyledContainer>
+            <Footer />
+          </StyledMainContainer>
+        )
       )}
     </>
   )

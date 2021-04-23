@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import { FC, useEffect, useState } from 'react'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import styled, { keyframes } from 'styled-components'
@@ -111,7 +112,7 @@ const Hero: FC<Props> = ({ hero }) => {
   const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
-    const timeout = setTimeout(() => setIsMounted(true), 10)
+    const timeout = setTimeout(() => setIsMounted(true), 1)
     return () => clearTimeout(timeout)
   }, [])
 
@@ -134,8 +135,11 @@ const Hero: FC<Props> = ({ hero }) => {
         <TransitionGroup component={null}>
           {isMounted &&
             items.map((item, i) => (
-              // eslint-disable-next-line react/no-array-index-key
-              <CSSTransition key={i} classNames="fadeleft" timeout={800}>
+              <CSSTransition
+                key={i}
+                classNames={i % 2 === 0 ? 'fadeleft' : 'faderight'}
+                timeout={800}
+              >
                 <div style={{ transitionDelay: `${i * 1}00ms` }}>{item}</div>
               </CSSTransition>
             ))}
