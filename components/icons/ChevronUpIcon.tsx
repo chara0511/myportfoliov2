@@ -1,6 +1,8 @@
 const ChevronUpIcon = ({ ...props }) => {
   return (
     <svg
+      role="img"
+      aria-label="ChevronUp icon"
       viewBox="0 0 24 24"
       width="24"
       height="24"

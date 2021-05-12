@@ -2,6 +2,8 @@ const Logo = () => {
   return (
     <svg
       id="logo"
+      role="img"
+      aria-label="Logo icon"
       width="1572"
       height="717"
       viewBox="0 0 1572 717"

@@ -98,6 +98,7 @@ const ProjectImage: FC<Props> = ({ app, i }) => {
         <div>
           <Image
             src={`/projects/${app.appName}.png`}
+            aria-label={`${app.appName} screenshot`}
             width={580}
             height={380}
             loading="eager"

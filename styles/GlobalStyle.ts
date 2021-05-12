@@ -32,6 +32,8 @@ const GlobalStyle = createGlobalStyle`
     line-height: ${({ theme }) => theme.lineHeights.base};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    scrollbar-width: thin;
+    scrollbar-color: var(--curious-blue) var(--big-stone);
    
 
     @media (min-width: ${breakpoints.xl}) {
@@ -51,6 +53,18 @@ const GlobalStyle = createGlobalStyle`
     line-height: inherit;
     margin: 0;
     text-rendering: optimizeLegibility;
+  }
+
+  body::-webkit-scrollbar {
+    width: 12px;
+  }
+  body::-webkit-scrollbar-track {
+    background: var(--big-stone);
+  }
+  body::-webkit-scrollbar-thumb {
+    background-color: var(--curious-blue);
+    border: 3px solid var(--big-stone);
+    border-radius: 10px;
   }
 
   h1,

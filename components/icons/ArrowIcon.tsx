@@ -1,6 +1,13 @@
 const ArrowIcon = () => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width={21} height={21} viewBox="0 0 21 21">
+    <svg
+      role="img"
+      aria-label="Arrow icon"
+      xmlns="http://www.w3.org/2000/svg"
+      width={21}
+      height={21}
+      viewBox="0 0 21 21"
+    >
       <g
         fill="none"
         fillRule="evenodd"

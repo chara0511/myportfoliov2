@@ -17,7 +17,7 @@ const Head: FC = () => {
 
         <link rel="manifest" href="/site.webmanifest" key="site-manifest" />
         {/* <link rel="manifest" href="/manifest.json" key="site-manifest" /> */}
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        {/* <meta httpEquiv="X-UA-Compatible" content="IE=edge" /> */}
         <meta name="theme-color" content="#14273D" />
         <meta name="keywords" content="Keywords" />
         {/* <link href="/icons/icon-16x16.png" rel="icon" type="image/png" sizes="16x16" />
