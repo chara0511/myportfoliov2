@@ -1,6 +1,13 @@
+import styled from 'styled-components'
+
+const StyledLogo = styled.svg`
+  position: relative;
+  z-index: 99;
+`
+
 const Logo = () => {
   return (
-    <svg
+    <StyledLogo
       id="logo"
       role="img"
       aria-label="Logo icon"
@@ -84,7 +91,7 @@ const Logo = () => {
           <stop offset="1" stopColor="#3A96DD" />
         </linearGradient>
       </defs>
-    </svg>
+    </StyledLogo>
   )
 }
 

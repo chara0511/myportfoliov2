@@ -4,7 +4,6 @@ import { Data } from '@lib/models'
 import { getMyData } from '@lib/fetchData'
 
 export default function Home({ myData }: Data) {
-  // *console.log(myData)
   const { hero, about, projects, contact } = myData
 
   return (

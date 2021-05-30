@@ -120,8 +120,6 @@ const I18nWidget: FC = () => {
   const { locale, locales, defaultLocale = 'en-US', asPath: currentPath } = useRouter()
   const [display, setDisplay] = useState(false)
 
-  // console.log({ locale, locales, defaultLocale, currentPath })
-
   const options = locales?.filter((val) => val !== locale)
   const currentLocale = locale || defaultLocale
 
