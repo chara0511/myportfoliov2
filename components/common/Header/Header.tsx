@@ -51,7 +51,6 @@ interface Props {
 const Header: FC<Props> = ({ reload }) => {
   const { displaySidebar, openSidebar, closeSidebar } = useUI()
   const { y, direction } = useScroll()
-
   return (
     <StyledContent scrollY={y} scrollDirection={direction} open={displaySidebar}>
       <nav>
